@@ -13,6 +13,12 @@
 
   <body>
     <main class="container mx-auto mt-28 px-5 flex">
+    <nav class="flex gap-4 p-4 bg-gray-100 mb-6">
+      <span class="font-bold">Язык / Language:</span>
+      <%= link_to "RU", url_for(locale: :ru), class: "underline #{'font-bold text-blue-600' if I18n.locale == :ru}" %>
+      <%= link_to "EN", url_for(locale: :en), class: "underline #{'font-bold text-blue-600' if I18n.locale == :en}" %>
+      <%= link_to "JA", url_for(locale: :ja), class: "underline #{'font-bold text-blue-600' if I18n.locale == :ja}" %>
+    </nav>
       <%= yield %>
     </main>
   </body>
