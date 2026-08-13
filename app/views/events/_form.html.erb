@@ -21,9 +21,12 @@
     <%= form.text_area :description, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": event.errors[:description].none?, "border-red-400 focus:outline-red-600": event.errors[:description].any?}] %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :recurring_rules %>
-    <%= form.text_area :recurring_rules, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": event.errors[:recurring_rules].none?, "border-red-400 focus:outline-red-600": event.errors[:recurring_rules].any?}] %>
+  <div class="field my-5">
+    <%= render RecurrenceUi::Component.new(
+          form: form, 
+          record: event, 
+          field_name: :recurring_rules
+        ) %>
   </div>
 
   <div class="inline">
