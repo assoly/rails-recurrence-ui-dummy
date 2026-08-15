@@ -13,109 +13,13 @@
 
   <body>
     <main class="container mx-auto mt-28 px-5 flex">
-    <nav class="flex gap-4 p-4 bg-gray-100 mb-6">
-      <span class="font-bold">Язык / Language:</span>
-      <%= link_to "RU", url_for(locale: :ru), class: "underline #{'font-bold text-blue-600' if I18n.locale == :ru}" %>
-      <%= link_to "EN", url_for(locale: :en), class: "underline #{'font-bold text-blue-600' if I18n.locale == :en}" %>
-      <%= link_to "JA", url_for(locale: :ja), class: "underline #{'font-bold text-blue-600' if I18n.locale == :ja}" %>
-    </nav>
+      <nav class="gap-4 p-4 bg-gray-100 mb-6">
+        <span class="font-bold">Язык / Language:</span>
+        <%= link_to "RU", url_for(locale: :ru), class: "underline #{'font-bold text-blue-600' if I18n.locale == :ru}" %>
+        <%= link_to "EN", url_for(locale: :en), class: "underline #{'font-bold text-blue-600' if I18n.locale == :en}" %>
+        <%= link_to "JA", url_for(locale: :ja), class: "underline #{'font-bold text-blue-600' if I18n.locale == :ja}" %>
+      </nav>
       <%= yield %>
-    <div class="col-span-7 grid grid-cols-7 gap-1">
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="1" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                1
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="2" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                2
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="3" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                3
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="4" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                4
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="5" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                5
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="6" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                6
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="7" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                7
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="8" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                8
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="9" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                9
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="10" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                10
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="11" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                11
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="12" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                12
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="13" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                13
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="14" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                14
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="15" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                15
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="16" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                16
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="17" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                17
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="18" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                18
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="19" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                19
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="20" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                20
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="21" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                21
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="22" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                22
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="23" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                23
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="24" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                24
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="25" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                25
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="26" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                26
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="27" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                27
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="28" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                28
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="29" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                29
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="30" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                30
-                </button>
-                <button type="button" class="w-full py-2 rounded-md flex items-center justify-center text-xs font-medium border transition-all bg-white text-gray-700 border-gray-300 hover:bg-blue-50 data-[selected='true']:bg-blue-600 data-[selected='true']:text-white data-[selected='true']:border-blue-600" data-day="31" data-recurrence-ui-target="dayButton" data-selected="false" data-action="click-&gt;recurrence-ui#toggleDay">
-                31
-                </button>
-        </div>
-        <div class="hidden bg-blue-600 text-white border-blue-600">TEST</div>
-      </main>
+    </main>
   </body>
 </html>
