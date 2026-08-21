@@ -12,7 +12,17 @@ module Dummy
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
     config.i18n.available_locales = [:ru, :en, :ja]
-    config.i18n.default_locale = :ru
+    # Часовой пояс приложения по умолчанию
+    config.time_zone = "Europe/Moscow" # или "Asia/Tokyo"
+
+    # Локаль приложения по умолчанию
+    config.i18n.default_locale = :en # или :ru, :ja и т.д.
+
+    # Первый день недели в Rails (:monday или :sunday)
+    config.beginning_of_week = :monday
+
+
+
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
@@ -25,6 +35,7 @@ module Dummy
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
 
   end
 end
