@@ -18,7 +18,10 @@
         <%= link_to "RU", url_for(locale: :ru), class: "underline #{'font-bold text-blue-600' if I18n.locale == :ru}" %>
         <%= link_to "EN", url_for(locale: :en), class: "underline #{'font-bold text-blue-600' if I18n.locale == :en}" %>
         <%= link_to "JA", url_for(locale: :ja), class: "underline #{'font-bold text-blue-600' if I18n.locale == :ja}" %>
-      </nav>
+        <%= link_to "UK", url_for(locale: :uk), class: "underline #{'font-bold text-blue-600' if I18n.locale == :uk}" %>
+        <%= link_to "BE", url_for(locale: :be), class: "underline #{'font-bold text-blue-600' if I18n.locale == :be}" %>
+
+        </nav>
       <%= yield %>
     </main>
   </body>
