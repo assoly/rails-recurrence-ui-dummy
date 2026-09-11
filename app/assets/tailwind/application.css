@@ -1,3 +1,4 @@
 @import "tailwindcss";
+@import "../../../../recurrence_ui/app/assets/stylesheets/recurrence_ui/application.css";
 @source "../../../../recurrence_ui/app/components";
 @source "../../../../recurrence_ui/app/views";
