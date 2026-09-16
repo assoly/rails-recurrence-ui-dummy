@@ -1,11 +1,11 @@
 # config/initializers/recurrence_ui.rb
 require "recurrence_ui"
 RecurrenceUi.configure do |config|
-  config.locale = :ru # Локаль по умолчанию для всех компонентов гема (если не передан locale в компонент)
-  config.time_zone = "Europe/Moscow" # Часовой пояс по умолчанию для всех компонентов гема (если не передан time_zone в компонент)
-  config.week_start = 1 # Неделя начинается с понедельника
-  
-  # Пользователь выбирает только нужные опции и задает желаемый порядок отображения в селекте:
+  config.locale = :ru # Default locale for all components of the gem (if no locale is passed to the component)
+  config.time_zone = "Europe/Moscow" # Default time zone for all components of the gem (if no time_zone is passed to the component)
+  config.week_start = 1 # Week starts on Monday
+
+  # Configuration for the enabled rule types in the UI:
   #config.enabled_rule_types = %w[
   #  never
   #  weekly

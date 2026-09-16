@@ -11,15 +11,15 @@ module Dummy
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
-    # Настройка локалей и часового пояса для демонстрации работы гема RecurrenceUi #howto
+    # Configuration for locales and time zones 
     config.i18n.available_locales = [:en, :ru, :be, :uk, :ja]
-    # Часовой пояс приложения по умолчанию
-    config.time_zone = "Europe/Moscow" # или "Asia/Tokyo"
+    # Time zone for the application by default
+    config.time_zone = "Europe/Moscow" # or "Asia/Tokyo"
 
-    # Локаль приложения по умолчанию
-    config.i18n.default_locale = :en # или :ru, :ja и т.д.
+    # Default locale for the application
+    config.i18n.default_locale = :en # or :ru, :ja and so on.
 
-    # Первый день недели в Rails (:monday или :sunday)
+    # First day of the week in Rails (:monday or :sunday)
     config.beginning_of_week = :monday
 
 
