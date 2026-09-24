@@ -1,4 +1,103 @@
+/* /home/assoly/projects/recurrence_project/dummy/app/assets/tailwind/application.css */
 @import "tailwindcss";
+
+/* 1. Подключаем переменные темы из соседней папки stylesheets */
+@import "../stylesheets/theme_variables.css";
+
+/* 2. Подключаем стили и пути гема recurrence_ui */
 @import "../../../../recurrence_ui/app/assets/stylesheets/recurrence_ui/application.css";
 @source "../../../../recurrence_ui/app/components";
 @source "../../../../recurrence_ui/app/views";
+
+/* 3. Базовые CSS-компоненты приложения */
+@layer components {
+  /* --- КАРТОЧКИ И КОНТЕЙНЕРЫ --- */
+  .app-card {
+    background-color: var(--app-bg-card);
+    border: 1px solid var(--app-border-color);
+    @apply rounded-xl p-5 shadow-sm transition-colors;
+  }
+
+  /* --- ФОРМЫ И ЭЛЕМЕНТЫ ВВОДА --- */
+  .app-label {
+    color: var(--app-text-main);
+    @apply block text-sm font-medium mb-1.5;
+  }
+
+  .app-label-muted {
+    color: var(--app-text-muted);
+    @apply block text-xs font-semibold uppercase tracking-wider mb-1;
+  }
+
+  .app-input {
+    background-color: var(--app-input-bg);
+    color: var(--app-text-main);
+    border: 1px solid var(--app-input-border);
+    @apply block w-full rounded-lg text-sm px-3.5 py-2.5 transition-colors shadow-sm outline-none;
+  }
+
+  .app-input:focus {
+    border-color: var(--app-btn-primary-bg);
+    box-shadow: 0 0 0 3px var(--app-input-focus-ring);
+  }
+
+  .app-input-error {
+    border-color: #ef4444 !important;
+  }
+
+  .app-input-error:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
+  }
+
+  .app-checkbox {
+    border-color: var(--app-input-border);
+    background-color: var(--app-input-bg);
+    @apply h-4 w-4 rounded text-blue-600 cursor-pointer transition-colors focus:ring-2 focus:ring-blue-500/20;
+  }
+
+  .app-error-box {
+    background-color: var(--app-danger-bg);
+    border: 1px solid var(--app-danger-border);
+    color: var(--app-danger-text);
+    @apply p-4 mb-6 text-sm rounded-lg;
+  }
+
+  /* --- КНОПКИ --- */
+  .app-btn-primary {
+    background-color: var(--app-btn-primary-bg);
+    color: var(--app-btn-primary-text);
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2.5 text-sm font-medium transition-colors shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500/40;
+  }
+
+  .app-btn-primary:hover {
+    background-color: var(--app-btn-primary-hover);
+  }
+
+  .app-btn-secondary {
+    background-color: var(--app-btn-secondary-bg);
+    color: var(--app-btn-secondary-text);
+    border: 1px solid var(--app-border-color);
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2.5 text-sm font-medium transition-colors cursor-pointer focus:outline-none;
+  }
+
+  .app-btn-secondary:hover {
+    background-color: var(--app-btn-secondary-hover);
+  }
+
+  /* --- СПИСКИ --- */
+  .app-list {
+    border: 1px solid var(--app-border-color);
+    @apply divide-y rounded-xl overflow-hidden shadow-sm;
+  }
+
+  .app-list-item {
+    background-color: var(--app-bg-card);
+    border-color: var(--app-border-color);
+    color: var(--app-text-main);
+    @apply p-4 transition-colors flex items-center justify-between;
+  }
+
+  .app-list-item:hover {
+    background-color: var(--app-list-item-hover);
+  }
+}

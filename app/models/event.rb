@@ -1,7 +1,6 @@
 class Event < ApplicationRecord
     include RecurrenceUi::HasRecurrence
-
-
+    
     has_recurrence  rules:      :schedule_json,
                     start_time: :starts_at,
                     end_time:   :finishes_at,
