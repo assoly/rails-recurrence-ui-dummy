@@ -65,6 +65,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:title, :description, :recurring_rules)
+      params.require(:event).permit(:title, :description, :start_at, :end_at, :time_zone, :recurring_rules)
     end
 end
