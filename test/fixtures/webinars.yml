@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  starts_at: 2026-09-25 06:40:41
+  finishes_at: 2026-09-25 06:40:41
+  time_zone_name: MyString
+  schedule_json: 
+
+two:
+  title: MyString
+  description: MyText
+  starts_at: 2026-09-25 06:40:41
+  finishes_at: 2026-09-25 06:40:41
+  time_zone_name: MyString
+  schedule_json: 

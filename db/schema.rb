@@ -10,11 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2026_08_13_135306) do
+ActiveRecord::Schema[7.1].define(version: 2026_09_24_214053) do
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.text "recurring_rules"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.string "time_zone", default: "UTC", null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+    t.boolean "completed"
+    t.datetime "due_date"
+    t.json "recurrence_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "webinars", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "starts_at"
+    t.datetime "finishes_at"
+    t.string "time_zone_name"
+    t.json "schedule_json"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

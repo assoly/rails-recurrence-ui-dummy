@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  completed: false
+  due_date: 2026-09-25 06:40:53
+  recurrence_data: 
+
+two:
+  title: MyString
+  completed: false
+  due_date: 2026-09-25 06:40:53
+  recurrence_data: 

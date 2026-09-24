@@ -1,0 +1,32 @@
+/* app/assets/stylesheets/theme_variables.css */
+:root {
+  /* Базовый шрифт */
+  --app-font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --app-font-size-base: 16px;
+
+  /* Светлая тема */
+  --app-bg-main: #f8fafc;
+  --app-bg-card: #ffffff;
+  --app-bg-nav: #f1f5f9;
+  --app-text-main: #0f172a;
+  --app-text-muted: #64748b;
+  --app-border-color: #e2e8f0;
+}
+
+/* Тёмная тема */
+html.dark {
+  --app-bg-main: #0f172a;
+  --app-bg-card: #1e293b;
+  --app-bg-nav: #1e293b;
+  --app-text-main: #f8fafc;
+  --app-text-muted: #94a3b8;
+  --app-border-color: #334155;
+}
+
+body {
+  font-family: var(--app-font-family);
+  font-size: var(--app-font-size-base);
+  background-color: var(--app-bg-main);
+  color: var(--app-text-main);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}

@@ -6,23 +6,55 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <!-- Инициализация темы без задержки при загрузке -->
+    <script>
+      if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
   </head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <nav class="gap-4 p-4 bg-gray-100 mb-6">    
-        <span class="font-bold">Язык / Language:</span>
-        <%= link_to "RU", url_for(locale: :ru), class: "underline #{'font-bold text-blue-600' if I18n.locale == :ru}" %>
-        <%= link_to "EN", url_for(locale: :en), class: "underline #{'font-bold text-blue-600' if I18n.locale == :en}" %>
-        <%= link_to "JA", url_for(locale: :ja), class: "underline #{'font-bold text-blue-600' if I18n.locale == :ja}" %>
-        <%= link_to "UK", url_for(locale: :uk), class: "underline #{'font-bold text-blue-600' if I18n.locale == :uk}" %>
-        <%= link_to "BE", url_for(locale: :be), class: "underline #{'font-bold text-blue-600' if I18n.locale == :be}" %>
+  <body class="min-h-screen">
+    <main class="container mx-auto mt-10 px-5 flex flex-col">
+      <!-- Панель управления (Языки и Тема) -->
+      <nav class="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl border border-[var(--app-border-color)] bg-[var(--app-bg-nav)] mb-6 shadow-sm">
+        
+        <!-- Динамический список языков по порядку из конфигурации -->
+        <div class="flex items-center gap-2">
+          <span class="font-bold text-sm">Язык / Language:</span>
+          <% (I18n.available_locales || []).each do |loc| %>
+            <%= link_to loc.to_s.upcase, 
+                        url_for(locale: loc), 
+                        class: "px-2 py-1 rounded text-sm transition-colors #{I18n.locale == loc ? 'font-bold bg-blue-600 text-white' : 'underline text-[var(--app-text-muted)] hover:text-[var(--app-text-main)]'}" %>
+          <% end %>
+        </div>
 
-        </nav>
+        <!-- Кнопка переключения темы -->
+        <button type="button" 
+                onclick="toggleTheme()" 
+                class="px-3 py-1.5 text-xs font-medium rounded-md border border-[var(--app-border-color)] bg-[var(--app-bg-card)] text-[var(--app-text-main)] hover:opacity-80 transition-colors shadow-sm">
+          🌙 / ☀️ Toggle Theme
+        </button>
+      </nav>
+
       <%= yield %>
     </main>
+
+    <script>
+      function toggleTheme() {
+        if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('theme', 'light');
+        } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+        }
+      }
+    </script>
   </body>
 </html>
