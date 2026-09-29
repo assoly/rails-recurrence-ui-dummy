@@ -1,9 +1,14 @@
 <%= form_with(model: webinar, class: "contents") do |form| %>
   <% if webinar.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
-      <h2><%= pluralize(webinar.errors.count, "error") %> prohibited this webinar from being saved:</h2>
+    <div class="app-error-box" role="alert">
+      <div class="flex items-center gap-2 font-semibold mb-2">
+        <svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+        </svg>
+        <h2><%= pluralize(webinar.errors.count, "ошибка", "ошибки", "ошибок") %> помешали сохранить вебинар:</h2>
+      </div>
 
-      <ul class="list-disc ml-6">
+      <ul class="list-disc list-inside space-y-1">
         <% webinar.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
@@ -11,37 +16,52 @@
     </div>
   <% end %>
 
+  <%# Название %>
   <div class="my-5">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": webinar.errors[:title].none?, "border-red-400 focus:outline-red-600": webinar.errors[:title].any?}] %>
+    <%= form.label :title, class: "app-label" %>
+    <%= form.text_field :title, class: ["app-input", ("app-input-error" if webinar.errors[:title].any?)] %>
   </div>
 
+  <%# Описание %>
   <div class="my-5">
-    <%= form.label :description %>
-    <%= form.text_area :description, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": webinar.errors[:description].none?, "border-red-400 focus:outline-red-600": webinar.errors[:description].any?}] %>
+    <%= form.label :description, class: "app-label" %>
+    <%= form.text_area :description, rows: 3, class: ["app-input", ("app-input-error" if webinar.errors[:description].any?)] %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :starts_at %>
-    <%= form.datetime_field :starts_at, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": webinar.errors[:starts_at].none?, "border-red-400 focus:outline-red-600": webinar.errors[:starts_at].any?}] %>
+  <%# Время начала и окончания %>
+  <div class="my-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div>
+      <%= form.label :starts_at, class: "app-label" %>
+      <%= form.datetime_field :starts_at, class: ["app-input", ("app-input-error" if webinar.errors[:starts_at].any?)] %>
+    </div>
+
+    <div>
+      <%= form.label :finishes_at, class: "app-label" %>
+      <%= form.datetime_field :finishes_at, class: ["app-input", ("app-input-error" if webinar.errors[:finishes_at].any?)] %>
+    </div>
   </div>
 
+  <%# Часовой пояс %>
   <div class="my-5">
-    <%= form.label :finishes_at %>
-    <%= form.datetime_field :finishes_at, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": webinar.errors[:finishes_at].none?, "border-red-400 focus:outline-red-600": webinar.errors[:finishes_at].any?}] %>
+    <%= form.label :time_zone_name, class: "app-label" %>
+    <%= form.time_zone_select :time_zone_name, 
+          ActiveSupport::TimeZone.us_zones, 
+          { default: webinar.time_zone_name.presence || Time.zone.name }, 
+          { class: ["app-input cursor-pointer", ("app-input-error" if webinar.errors[:time_zone_name].any?)] } %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :time_zone_name %>
-    <%= form.text_field :time_zone_name, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": webinar.errors[:time_zone_name].none?, "border-red-400 focus:outline-red-600": webinar.errors[:time_zone_name].any?}] %>
+  <%# Компонент повторения гема RecurrenceUi %>
+  <div class="my-6">
+    <%= render RecurrenceUi::PickerComponent.new(
+          form: form, 
+          record: webinar, 
+          field_name: :schedule_json
+        ) %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :schedule_json %>
-    <%= form.text_field :schedule_json, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": webinar.errors[:schedule_json].none?, "border-red-400 focus:outline-red-600": webinar.errors[:schedule_json].any?}] %>
-  </div>
-
-  <div class="inline">
-    <%= form.submit class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+  <%# Кнопки действия %>
+  <div class="mt-8 flex items-center justify-end gap-3">
+    <%= link_to "Отмена", webinars_path, class: "app-btn-secondary" %>
+    <%= form.submit class: "app-btn-primary" %>
   </div>
 <% end %>

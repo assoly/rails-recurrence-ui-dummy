@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root "calendar#index" # Главная страница приложения
+  get "calendar", to: "calendar#index"
   resources :tasks
   resources :webinars
   resources :events

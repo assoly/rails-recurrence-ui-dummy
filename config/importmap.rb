@@ -7,4 +7,7 @@ pin "@hotwired/stimulus-loading", to: "stimulus-loading.js"
 pin_all_from "app/javascript/controllers", under: "controllers"
 
 # recurrence_ui: должно работать и без этого
-# pin_all_from File.expand_path("../../recurrence_ui/app/javascript/controllers", __dir__), under: "controllers"
+pin "@fullcalendar/core", to: "@fullcalendar--core.js" # @6.1.21
+pin "@fullcalendar/daygrid", to: "@fullcalendar--daygrid.js" # @6.1.21
+pin "@fullcalendar/interaction", to: "@fullcalendar--interaction.js" # @6.1.21
+pin "@fullcalendar/timegrid", to: "@fullcalendar--timegrid.js" # @6.1.21

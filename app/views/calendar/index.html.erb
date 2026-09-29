@@ -1,0 +1,57 @@
+<div class="w-full max-w-7xl mx-auto px-2 sm:px-4 py-6 space-y-6">
+  
+  <!-- Верхняя панель: Переключение модулей и видов -->
+  <div class="app-card !p-4 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+    <!-- Навигация по модулям -->
+    <nav class="flex flex-wrap items-center gap-2">
+      <%= link_to "Все события", calendar_path, class: "app-btn-primary !py-1.5 !px-3 text-xs" %>
+      <%= link_to "События", events_path, class: "app-btn-secondary !py-1.5 !px-3 text-xs" if defined?(Event) %>
+      <%= link_to "Задачи", tasks_path, class: "app-btn-secondary !py-1.5 !px-3 text-xs" if defined?(Task) %>
+      <%= link_to "Вебинары", webinars_path, class: "app-btn-secondary !py-1.5 !px-3 text-xs" if defined?(Webinar) %>
+    </nav>
+
+    <!-- Легенда типом мероприятий -->
+    <div class="flex items-center gap-3 text-xs font-medium">
+      <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span> События</span>
+      <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span> Задачи</span>
+      <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-purple-600"></span> Вебинары</span>
+    </div>
+  </div>
+
+  <!-- Контейнер календаря с горизонтальным скроллом на маленьких экранах -->
+  <div class="app-card overflow-x-auto min-w-full">
+    <div class="min-w-[650px]"> <%# Гарантирует, что сетка не скомкается на мобильных %>
+      <%= month_calendar(events: @calendar_events, attribute: :start_at) do |date, events| %>
+        <!-- Номер дня -->
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-xs font-bold <%= date == Date.today ? 'inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-600 text-white' : 'text-[var(--app-text-main)]' %>">
+            <%= date.day %>
+          </span>
+          <% if events.any? %>
+            <span class="text-[10px] text-[var(--app-text-muted)] font-medium"><%= events.size %></span>
+          <% end %>
+        </div>
+
+        <!-- Список событий за день -->
+        <div class="space-y-1 max-h-28 overflow-y-auto pr-0.5 custom-scrollbar">
+          <% events.each do |event| %>
+            <div class="group relative text-[11px] leading-tight p-1.5 rounded-md font-medium transition-all shadow-xs hover:scale-[1.02] cursor-pointer <%= event.color %>"
+                 title="<%= event.title %> (<%= event.start_at.strftime('%H:%M') %> - <%= event.end_at.strftime('%H:%M') %>)">
+              
+              <!-- Время проведения (Начало — Окончание) -->
+              <div class="text-[9px] opacity-90 font-mono flex items-center gap-1 font-semibold">
+                <span>🕒</span>
+                <span><%= event.start_at.strftime("%H:%M") %> – <%= event.end_at.strftime("%H:%M") %></span>
+              </div>
+
+              <!-- Название события -->
+              <div class="truncate font-semibold mt-0.5">
+                <%= event.title %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

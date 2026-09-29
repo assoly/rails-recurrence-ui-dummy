@@ -1,26 +1,45 @@
-<div id="<%= dom_id webinar %>" class="w-full sm:w-auto my-5 space-y-5">
-  <div>
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= webinar.title %>
+<div id="<%= dom_id webinar %>" class="app-card space-y-4">
+  <!-- Заголовок -->
+  <div class="flex items-start justify-between gap-3">
+    <h3 class="text-lg font-semibold tracking-tight leading-snug">
+      <%= link_to webinar.title, webinar, class: "hover:text-[var(--app-btn-primary-bg)] transition-colors" %>
+    </h3>
   </div>
-  <div>
-    <strong class="block font-medium mb-1">Description:</strong>
-    <%= webinar.description %>
+
+  <!-- Описание и правило повторения -->
+  <% if webinar.description.present? %>
+    <p class="text-sm text-[var(--app-text-muted)] line-clamp-2"><%= webinar.description %></p>
+  <% end %>
+
+  <div class="flex items-center gap-2 text-sm flex-wrap">
+    <span class="app-label-muted !mb-0">Правило:</span>
+    <% rules_summary = RecurrenceUi::PickerComponent.new(record: webinar, field_name: :schedule_json).recurrence_summary %>
+    <% if rules_summary.present? %>
+      <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
+        <%= rules_summary %>
+      </span>
+    <% else %>
+      <span class="text-xs text-[var(--app-text-muted)] italic">Без повторений</span>
+    <% end %>
   </div>
-  <div>
-    <strong class="block font-medium mb-1">Starts at:</strong>
-    <%= webinar.starts_at %>
-  </div>
-  <div>
-    <strong class="block font-medium mb-1">Finishes at:</strong>
-    <%= webinar.finishes_at %>
-  </div>
-  <div>
-    <strong class="block font-medium mb-1">Time zone name:</strong>
-    <%= webinar.time_zone_name %>
-  </div>
-  <div>
-    <strong class="block font-medium mb-1">Schedule json:</strong>
-    <%= webinar.schedule_json %>
+
+  <!-- Ближайшие 5 повторений (IceCube) -->
+  <div class="p-3.5 rounded-lg bg-[var(--app-bg-nav)] border border-[var(--app-border-color)]">
+    <span class="app-label-muted mb-2 flex items-center gap-1.5">
+      <span>📹</span> Ближайшие 5 вебинаров:
+    </span>
+    
+    <% occurrences = webinar.respond_to?(:upcoming_occurrences) ? webinar.upcoming_occurrences(5) : [] %>
+    <% if occurrences.any? %>
+      <div class="flex flex-wrap gap-2">
+        <% occurrences.each do |occ| %>
+          <span class="inline-flex items-center px-2.5 py-1 text-xs font-mono rounded-md bg-[var(--app-bg-card)] border border-[var(--app-border-color)] shadow-2xs">
+            <%= occ.to_time.strftime("%d.%m.%Y %H:%M") %>
+          </span>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="text-xs text-[var(--app-text-muted)] italic">Нет запланированных повторений</p>
+    <% end %>
   </div>
 </div>

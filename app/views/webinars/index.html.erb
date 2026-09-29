@@ -1,29 +1,33 @@
-<% content_for :title, "Webinars" %>
+<% content_for :title, "Вебинары" %>
 
-<div class="w-full">
+<div class="w-full max-w-5xl mx-auto py-8 space-y-6">
   <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
+    <div class="p-4 text-sm rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400" id="notice">
+      <%= notice %>
+    </div>
   <% end %>
 
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Webinars</h1>
-    <%= link_to "New webinar", new_webinar_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
+    <h1 class="text-3xl font-bold tracking-tight">Вебинары</h1>
+    <%= link_to "Новый вебинар", new_webinar_path, class: "app-btn-primary" %>
   </div>
 
-  <div id="webinars" class="min-w-full divide-y divide-gray-200 space-y-5">
+  <div id="webinars" class="space-y-4">
     <% if @webinars.any? %>
       <% @webinars.each do |webinar| %>
-        <div class="flex flex-col sm:flex-row justify-between items-center pb-5 sm:pb-0">
+        <div class="space-y-3">
           <%= render webinar %>
-          <div class="w-full sm:w-auto flex flex-col sm:flex-row space-x-2 space-y-2">
-            <%= link_to "Show", webinar, class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-            <%= link_to "Edit", edit_webinar_path(webinar), class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-            <%= button_to "Destroy", webinar, method: :delete, class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 text-white bg-red-600 hover:bg-red-500 font-medium cursor-pointer", data: { turbo_confirm: "Are you sure?" } %>
+          <div class="flex items-center justify-end gap-2 pr-1">
+            <%= link_to "Просмотр", webinar, class: "app-btn-secondary !py-1.5 !px-3 !text-xs" %>
+            <%= link_to "Изменить", edit_webinar_path(webinar), class: "app-btn-secondary !py-1.5 !px-3 !text-xs" %>
+            <%= button_to "Удалить", webinar, method: :delete, class: "app-btn-secondary !bg-red-500/10 !text-red-600 dark:!text-red-400 !border-red-500/20 hover:!bg-red-500/20 !py-1.5 !px-3 !text-xs cursor-pointer", data: { turbo_confirm: "Вы уверены?" } %>
           </div>
         </div>
       <% end %>
     <% else %>
-      <p class="text-center my-10">No webinars found.</p>
+      <div class="app-card text-center py-10 text-[var(--app-text-muted)]">
+        Вебинары не найдены.
+      </div>
     <% end %>
   </div>
 </div>
