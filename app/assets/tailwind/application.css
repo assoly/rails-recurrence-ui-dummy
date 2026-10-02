@@ -1,4 +1,4 @@
-/* /home/assoly/projects/recurrence_project/dummy/app/assets/tailwind/application.css */
+/* app/assets/tailwind/application.css */
 @import "tailwindcss";
 
 /* 1. Подключаем переменные темы из соседней папки stylesheets */
@@ -16,6 +16,19 @@
     background-color: var(--app-bg-card);
     border: 1px solid var(--app-border-color);
     @apply rounded-xl p-5 shadow-sm transition-colors;
+  }
+
+  /* --- ЗАГОЛОВКИ И УВЕДОМЛЕНИЯ --- */
+  .app-heading-1 {
+    color: var(--app-text-main);
+    @apply font-bold text-3xl sm:text-4xl mb-4 transition-colors;
+  }
+
+  .app-notice {
+    background-color: var(--app-notice-bg);
+    border: 1px solid var(--app-notice-border);
+    color: var(--app-notice-text);
+    @apply py-2 px-3.5 mb-5 font-medium rounded-lg inline-block text-sm transition-colors;
   }
 
   /* --- ФОРМЫ И ЭЛЕМЕНТЫ ВВОДА --- */
@@ -77,11 +90,25 @@
     background-color: var(--app-btn-secondary-bg);
     color: var(--app-btn-secondary-text);
     border: 1px solid var(--app-border-color);
-    @apply inline-flex items-center justify-center rounded-lg px-4 py-2.5 text-sm font-medium transition-colors cursor-pointer focus:outline-none;
+    @apply w-full sm:w-auto text-center rounded-lg px-4 py-2.5 inline-flex items-center justify-center font-medium transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500/20 shadow-xs;
   }
 
   .app-btn-secondary:hover {
     background-color: var(--app-btn-secondary-hover);
+  }
+
+  .app-btn-danger {
+    background-color: var(--app-btn-danger-bg);
+    color: var(--app-btn-danger-text);
+    @apply w-full sm:w-auto rounded-lg px-4 py-2.5 inline-flex items-center justify-center font-medium transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-red-500/20 shadow-xs;
+  }
+
+  .app-btn-danger:hover {
+    background-color: var(--app-btn-danger-hover);
+  }
+
+  .app-actions-group {
+    @apply mt-6 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3;
   }
 
   /* --- СПИСКИ --- */
@@ -92,7 +119,6 @@
 
   .app-list-item {
     background-color: var(--app-bg-card);
-    border-color: var(--app-border-color);
     color: var(--app-text-main);
     @apply p-4 transition-colors flex items-center justify-between;
   }
@@ -100,5 +126,51 @@
   .app-list-item:hover {
     background-color: var(--app-list-item-hover);
   }
-}
 
+  /* --- FULLCALENDAR --- */
+  .fc {
+    --fc-border-color: var(--app-border-color);
+    --fc-page-bg-color: var(--app-bg-card);
+    --fc-neutral-bg-color: var(--app-bg-nav);
+    --fc-list-event-hover-bg-color: var(--app-list-item-hover);
+    --fc-today-bg-color: rgba(59, 130, 246, 0.08);
+    font-family: inherit;
+  }
+
+  .fc .fc-toolbar-title {
+    color: var(--app-text-main);
+    @apply text-xl font-bold;
+  }
+
+  .fc .fc-button-primary {
+    background-color: var(--app-btn-secondary-bg);
+    color: var(--app-btn-secondary-text);
+    border-color: var(--app-border-color);
+    @apply font-medium transition-colors shadow-2xs;
+  }
+
+  .fc .fc-button-primary:hover {
+    background-color: var(--app-btn-secondary-hover);
+    border-color: var(--app-border-color);
+  }
+
+  .fc .fc-button-active {
+    background-color: var(--app-btn-primary-bg) !important;
+    color: var(--app-btn-primary-text) !important;
+    border-color: var(--app-btn-primary-bg) !important;
+  }
+
+  .fc colgroup {
+    border-color: var(--app-border-color);
+  }
+
+  .fc th {
+    color: var(--app-text-muted);
+    @apply text-xs font-semibold uppercase tracking-wider py-2;
+  }
+
+  .fc-theme-standard td, .fc-theme-standard th {
+    border-color: var(--app-border-color);
+  }
+
+}

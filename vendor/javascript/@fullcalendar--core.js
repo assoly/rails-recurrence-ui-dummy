@@ -1,4 +1,2224 @@
-// @fullcalendar/core@6.1.21 downloaded from https://ga.jspm.io/npm:@fullcalendar/core@6.1.21/index.js
+// @fullcalendar/core@6.1.21 downloaded from https://unpkg.com/@fullcalendar/core@6.1.21/index.js
 
-import{m as e,g as t,i as n,T as r,a as i,B as a,V as o,C as s,b as c,c as l,d as u,e as d,f,h as p,j as m,p as h,k as g,u as _,l as v,n as y,r as b,o as x,s as ee,q as te,t as S,v as ne,w as re,D as C,x as w,y as ie,z as T,A as E,E as ae,F as oe,G as D,H as O,I as se,J as ce,K as k,L as A,M as le,N as ue,O as j,P as de,Q as M,R as fe,S as N,U as pe,W as me,X as P,Y as F,Z as he,_ as I,$ as ge,a0 as _e,a1 as ve,a2 as ye,a3 as be,a4 as xe,a5 as L,a6 as Se,a7 as Ce,a8 as R,a9 as we,aa as Te,ab as Ee,ac as De,ad as Oe}from"./_/DSJtP67n.js";export{ae as JsonRequestError}from"./_/DSJtP67n.js";import{createElement as z,createRef as B,Fragment as V,render as H}from"preact";import"preact/compat";const U=[],W={code:`en`,week:{dow:0,doy:4},direction:`ltr`,buttonText:{prev:`prev`,next:`next`,prevYear:`prev year`,nextYear:`next year`,year:`year`,today:`today`,month:`month`,week:`week`,day:`day`,list:`list`},weekText:`W`,weekTextLong:`Week`,closeHint:`Close`,timeHint:`Time`,eventHint:`Event`,allDayText:`all-day`,moreLinkText:`more`,noEventsText:`No events to display`},G=Object.assign(Object.assign({},W),{buttonHints:{prev:`Previous $0`,next:`Next $0`,today(e,t){return t===`day`?`Today`:`This ${e}`}},viewHint:`$0 view`,navLinkHint:`Go to $0`,moreLinkHint(e){return`Show ${e} more event${e===1?``:`s`}`}});function K(e){let t=e.length>0?e[0].code:`en`,n=U.concat(e),r={en:G};for(let e of n)r[e.code]=e;return{map:r,defaultCode:t}}function q(e,t){return typeof e==`object`&&!Array.isArray(e)?J(e.code,[e.code],e):ke(e,t)}function ke(e,t){let n=[].concat(e||[]);return J(e,n,Ae(n,t)||G)}function Ae(e,t){for(let n=0;n<e.length;n+=1){let r=e[n].toLocaleLowerCase().split(`-`);for(let e=r.length;e>0;--e){let n=r.slice(0,e).join(`-`);if(t[n])return t[n]}}return null}function J(t,n,r){let i=e([W,r],[`buttonText`]);delete i.code;let{week:a}=i;return delete i.week,{codeArg:t,codes:n,week:a,simpleNumberFormat:new Intl.NumberFormat(t),options:i}}function Y(e){return{id:t(),name:e.name,premiumReleaseDate:e.premiumReleaseDate?new Date(e.premiumReleaseDate):void 0,deps:e.deps||[],reducers:e.reducers||[],isLoadingFuncs:e.isLoadingFuncs||[],contextInit:[].concat(e.contextInit||[]),eventRefiners:e.eventRefiners||{},eventDefMemberAdders:e.eventDefMemberAdders||[],eventSourceRefiners:e.eventSourceRefiners||{},isDraggableTransformers:e.isDraggableTransformers||[],eventDragMutationMassagers:e.eventDragMutationMassagers||[],eventDefMutationAppliers:e.eventDefMutationAppliers||[],dateSelectionTransformers:e.dateSelectionTransformers||[],datePointTransforms:e.datePointTransforms||[],dateSpanTransforms:e.dateSpanTransforms||[],views:e.views||{},viewPropsTransformers:e.viewPropsTransformers||[],isPropsValid:e.isPropsValid||null,externalDefTransforms:e.externalDefTransforms||[],viewContainerAppends:e.viewContainerAppends||[],eventDropTransformers:e.eventDropTransformers||[],componentInteractions:e.componentInteractions||[],calendarInteractions:e.calendarInteractions||[],themeClasses:e.themeClasses||{},eventSourceDefs:e.eventSourceDefs||[],cmdFormatter:e.cmdFormatter,recurringTypes:e.recurringTypes||[],namedTimeZonedImpl:e.namedTimeZonedImpl,initialView:e.initialView||``,elementDraggingImpl:e.elementDraggingImpl,optionChangeHandlers:e.optionChangeHandlers||{},scrollGridImpl:e.scrollGridImpl||null,listenerRefiners:e.listenerRefiners||{},optionRefiners:e.optionRefiners||{},propSetHandlers:e.propSetHandlers||{}}}function je(e,t){let n={},r={premiumReleaseDate:void 0,reducers:[],isLoadingFuncs:[],contextInit:[],eventRefiners:{},eventDefMemberAdders:[],eventSourceRefiners:{},isDraggableTransformers:[],eventDragMutationMassagers:[],eventDefMutationAppliers:[],dateSelectionTransformers:[],datePointTransforms:[],dateSpanTransforms:[],views:{},viewPropsTransformers:[],isPropsValid:null,externalDefTransforms:[],viewContainerAppends:[],eventDropTransformers:[],componentInteractions:[],calendarInteractions:[],themeClasses:{},eventSourceDefs:[],cmdFormatter:null,recurringTypes:[],namedTimeZonedImpl:null,initialView:``,elementDraggingImpl:null,optionChangeHandlers:{},scrollGridImpl:null,listenerRefiners:{},optionRefiners:{},propSetHandlers:{}};function i(e){for(let t of e){let e=t.name,a=n[e];a===void 0?(n[e]=t.id,i(t.deps),r=Ne(r,t)):a!==t.id&&console.warn(`Duplicate plugin '${e}'`)}}return e&&i(e),i(t),r}function Me(){let e=[],t=[],r;return(i,a)=>((!r||!n(i,e)||!n(a,t))&&(r=je(i,a)),e=i,t=a,r)}function Ne(e,t){return{premiumReleaseDate:Pe(e.premiumReleaseDate,t.premiumReleaseDate),reducers:e.reducers.concat(t.reducers),isLoadingFuncs:e.isLoadingFuncs.concat(t.isLoadingFuncs),contextInit:e.contextInit.concat(t.contextInit),eventRefiners:Object.assign(Object.assign({},e.eventRefiners),t.eventRefiners),eventDefMemberAdders:e.eventDefMemberAdders.concat(t.eventDefMemberAdders),eventSourceRefiners:Object.assign(Object.assign({},e.eventSourceRefiners),t.eventSourceRefiners),isDraggableTransformers:e.isDraggableTransformers.concat(t.isDraggableTransformers),eventDragMutationMassagers:e.eventDragMutationMassagers.concat(t.eventDragMutationMassagers),eventDefMutationAppliers:e.eventDefMutationAppliers.concat(t.eventDefMutationAppliers),dateSelectionTransformers:e.dateSelectionTransformers.concat(t.dateSelectionTransformers),datePointTransforms:e.datePointTransforms.concat(t.datePointTransforms),dateSpanTransforms:e.dateSpanTransforms.concat(t.dateSpanTransforms),views:Object.assign(Object.assign({},e.views),t.views),viewPropsTransformers:e.viewPropsTransformers.concat(t.viewPropsTransformers),isPropsValid:t.isPropsValid||e.isPropsValid,externalDefTransforms:e.externalDefTransforms.concat(t.externalDefTransforms),viewContainerAppends:e.viewContainerAppends.concat(t.viewContainerAppends),eventDropTransformers:e.eventDropTransformers.concat(t.eventDropTransformers),calendarInteractions:e.calendarInteractions.concat(t.calendarInteractions),componentInteractions:e.componentInteractions.concat(t.componentInteractions),themeClasses:Object.assign(Object.assign({},e.themeClasses),t.themeClasses),eventSourceDefs:e.eventSourceDefs.concat(t.eventSourceDefs),cmdFormatter:t.cmdFormatter||e.cmdFormatter,recurringTypes:e.recurringTypes.concat(t.recurringTypes),namedTimeZonedImpl:t.namedTimeZonedImpl||e.namedTimeZonedImpl,initialView:e.initialView||t.initialView,elementDraggingImpl:e.elementDraggingImpl||t.elementDraggingImpl,optionChangeHandlers:Object.assign(Object.assign({},e.optionChangeHandlers),t.optionChangeHandlers),scrollGridImpl:t.scrollGridImpl||e.scrollGridImpl,listenerRefiners:Object.assign(Object.assign({},e.listenerRefiners),t.listenerRefiners),optionRefiners:Object.assign(Object.assign({},e.optionRefiners),t.optionRefiners),propSetHandlers:Object.assign(Object.assign({},e.propSetHandlers),t.propSetHandlers)}}function Pe(e,t){return e===void 0?t:t===void 0?e:new Date(Math.max(e.valueOf(),t.valueOf()))}class StandardTheme extends r{}StandardTheme.prototype.classes={root:`fc-theme-standard`,tableCellShaded:`fc-cell-shaded`,buttonGroup:`fc-button-group`,button:`fc-button fc-button-primary`,buttonActive:`fc-button-active`},StandardTheme.prototype.baseIconClass=`fc-icon`,StandardTheme.prototype.iconClasses={close:`fc-icon-x`,prev:`fc-icon-chevron-left`,next:`fc-icon-chevron-right`,prevYear:`fc-icon-chevrons-left`,nextYear:`fc-icon-chevrons-right`},StandardTheme.prototype.rtlIconClasses={prev:`fc-icon-chevron-right`,next:`fc-icon-chevron-left`,prevYear:`fc-icon-chevrons-right`,nextYear:`fc-icon-chevrons-left`},StandardTheme.prototype.iconOverrideOption=`buttonIcons`,StandardTheme.prototype.iconOverrideCustomButtonOption=`icon`,StandardTheme.prototype.iconOverridePrefix=`fc-icon-`;function Fe(e,t){let n={},r;for(r in e)X(r,n,e,t);for(r in t)X(r,n,e,t);return n}function X(e,t,n,r){if(t[e])return t[e];let i=Ie(e,t,n,r);return i&&(t[e]=i),i}function Ie(e,t,n,r){let i=n[e],a=r[e],o=e=>i&&i[e]!==null?i[e]:a&&a[e]!==null?a[e]:null,s=o(`component`),c=o(`superType`),l=null;if(c){if(c===e)throw Error(`Can't have a custom view type that references itself`);l=X(c,t,n,r)}return!s&&l&&(s=l.component),s?{type:e,component:s,defaults:Object.assign(Object.assign({},l?l.defaults:{}),i?i.rawOptions:{}),overrides:Object.assign(Object.assign({},l?l.overrides:{}),a?a.rawOptions:{})}:null}function Le(e){return i(e,Re)}function Re(e){let t=typeof e==`function`?{component:e}:e,{component:n}=t;return t.content?n=ze(t):n&&!(n.prototype instanceof a)&&(n=ze(Object.assign(Object.assign({},t),{content:n}))),{superType:t.type,component:n,rawOptions:t}}function ze(e){return t=>z(o.Consumer,null,n=>z(s,{elTag:`div`,elClasses:c(n.viewSpec),renderProps:Object.assign(Object.assign({},t),{nextDayThreshold:n.options.nextDayThreshold}),generatorName:void 0,customGenerator:e.content,classNameGenerator:e.classNames,didMount:e.didMount,willUnmount:e.willUnmount}))}function Be(e,t,n,r){let a=Le(e),o=Le(t.views);return i(Fe(a,o),e=>Ve(e,o,t,n,r))}function Ve(e,t,n,r,i){let a=e.overrides.duration||e.defaults.duration||r.duration||n.duration,o=null,s=``,c=``,d={};if(a&&(o=Ue(a),o)){let e=l(o);s=e.unit,e.value===1&&(c=s,d=t[s]?t[s].rawOptions:{})}let f=t=>{let n=t.buttonText||{},r=e.defaults.buttonTextKey;return r!=null&&n[r]!=null?n[r]:n[e.type]==null?n[c]==null?null:n[c]:n[e.type]},p=t=>{let n=t.buttonHints||{},r=e.defaults.buttonTextKey;return r!=null&&n[r]!=null?n[r]:n[e.type]==null?n[c]==null?null:n[c]:n[e.type]};return{type:e.type,component:e.component,duration:o,durationUnit:s,singleUnit:c,optionDefaults:e.defaults,optionOverrides:Object.assign(Object.assign({},d),e.overrides),buttonTextOverride:f(r)||f(n)||e.overrides.buttonText,buttonTextDefault:f(i)||e.defaults.buttonText||f(u)||e.type,buttonTitleOverride:p(r)||p(n)||e.overrides.buttonHint,buttonTitleDefault:p(i)||e.defaults.buttonHint||p(u)}}let He={};function Ue(e){let t=JSON.stringify(e),n=He[t];return n===void 0&&(n=d(e),He[t]=n),n}function We(e,t){switch(t.type){case`CHANGE_VIEW_TYPE`:e=t.viewType}return e}function Ge(e,t){switch(t.type){case`CHANGE_DATE`:return t.dateMarker;default:return e}}function Ke(e,t,n){let r=e.initialDate;return r==null?n.getDateMarker():t.createMarker(r)}function qe(e,t){switch(t.type){case`SET_OPTION`:return Object.assign(Object.assign({},e),{[t.optionName]:t.rawOptionValue});default:return e}}function Je(e,t,n,r){let i;switch(t.type){case`CHANGE_VIEW_TYPE`:return r.build(t.dateMarker||n);case`CHANGE_DATE`:return r.build(t.dateMarker);case`PREV`:if(i=r.buildPrev(e,n),i.isValid)return i;break;case`NEXT`:if(i=r.buildNext(e,n),i.isValid)return i;break}return e}function Ye(e,t,n){let r=t?t.activeRange:null;return $e({},ot(e,n),r,n)}function Xe(e,t,n,r){let i=n?n.activeRange:null;switch(t.type){case`ADD_EVENT_SOURCES`:return $e(e,t.sources,i,r);case`REMOVE_EVENT_SOURCE`:return et(e,t.sourceId);case`PREV`:case`NEXT`:case`CHANGE_DATE`:case`CHANGE_VIEW_TYPE`:return n?tt(e,i,r):e;case`FETCH_EVENT_SOURCES`:return Z(e,t.sourceIds?f(t.sourceIds):at(e,r),i,t.isRefetch||!1,r);case`RECEIVE_EVENTS`:case`RECEIVE_EVENT_ERROR`:return it(e,t.sourceId,t.fetchId,t.fetchRange);case`REMOVE_ALL_EVENT_SOURCES`:return{};default:return e}}function Ze(e,t,n){let r=t?t.activeRange:null;return Z(e,at(e,n),r,!0,n)}function Qe(e){for(let t in e)if(e[t].isFetching)return!0;return!1}function $e(e,t,n,r){let i={};for(let e of t)i[e.sourceId]=e;return n&&(i=tt(i,n,r)),Object.assign(Object.assign({},e),i)}function et(e,t){return p(e,e=>e.sourceId!==t)}function tt(e,t,n){return Z(e,p(e,e=>nt(e,t,n)),t,!1,n)}function nt(e,t,n){return st(e,n)?!n.options.lazyFetching||!e.fetchRange||e.isFetching||t.start<e.fetchRange.start||t.end>e.fetchRange.end:!e.latestFetchId}function Z(e,t,n,r,i){let a={};for(let o in e){let s=e[o];t[o]?a[o]=rt(s,n,r,i):a[o]=s}return a}function rt(e,n,r,i){let{options:a,calendarApi:o}=i,s=i.pluginHooks.eventSourceDefs[e.sourceDefId],c=t();return s.fetch({eventSource:e,range:n,isRefetch:r,context:i},t=>{let{rawEvents:r}=t;a.eventSourceSuccess&&(r=a.eventSourceSuccess.call(o,r,t.response)||r),e.success&&(r=e.success.call(o,r,t.response)||r),i.dispatch({type:`RECEIVE_EVENTS`,sourceId:e.sourceId,fetchId:c,fetchRange:n,rawEvents:r})},t=>{let r=!1;a.eventSourceFailure&&(a.eventSourceFailure.call(o,t),r=!0),e.failure&&(e.failure(t),r=!0),r||console.warn(t.message,t),i.dispatch({type:`RECEIVE_EVENT_ERROR`,sourceId:e.sourceId,fetchId:c,fetchRange:n,error:t})}),Object.assign(Object.assign({},e),{isFetching:!0,latestFetchId:c})}function it(e,t,n,r){let i=e[t];return i&&n===i.latestFetchId?Object.assign(Object.assign({},e),{[t]:Object.assign(Object.assign({},i),{isFetching:!1,fetchRange:r})}):e}function at(e,t){return p(e,e=>st(e,t))}function ot(e,t){let n=m(t),r=[].concat(e.eventSources||[]),i=[];e.initialEvents&&r.unshift(e.initialEvents),e.events&&r.unshift(e.events);for(let e of r){let r=h(e,t,n);r&&i.push(r)}return i}function st(e,t){return!t.pluginHooks.eventSourceDefs[e.sourceDefId].ignoreRange}function ct(e,t){switch(t.type){case`UNSELECT_DATES`:return null;case`SELECT_DATES`:return t.selection;default:return e}}function lt(e,t){switch(t.type){case`UNSELECT_EVENT`:return``;case`SELECT_EVENT`:return t.eventInstanceId;default:return e}}function ut(e,t){let n;switch(t.type){case`UNSET_EVENT_DRAG`:return null;case`SET_EVENT_DRAG`:return n=t.state,{affectedEvents:n.affectedEvents,mutatedEvents:n.mutatedEvents,isEvent:n.isEvent};default:return e}}function dt(e,t){let n;switch(t.type){case`UNSET_EVENT_RESIZE`:return null;case`SET_EVENT_RESIZE`:return n=t.state,{affectedEvents:n.affectedEvents,mutatedEvents:n.mutatedEvents,isEvent:n.isEvent};default:return e}}function ft(e,t,n,r,i){return{header:e.headerToolbar?pt(e.headerToolbar,e,t,n,r,i):null,footer:e.footerToolbar?pt(e.footerToolbar,e,t,n,r,i):null}}function pt(e,t,n,r,i,a){let o={},s=[],c=!1;for(let l in e){let u=e[l],d=mt(u,t,n,r,i,a);o[l]=d.widgets,s.push(...d.viewsWithButtons),c=c||d.hasTitle}return{sectionWidgets:o,viewsWithButtons:s,hasTitle:c}}function mt(e,t,n,r,i,a){let o=t.direction===`rtl`,s=t.customButtons||{},c=n.buttonText||{},l=t.buttonText||{},u=n.buttonHints||{},d=t.buttonHints||{},f=e?e.split(` `):[],p=[],m=!1;return{widgets:f.map(e=>e.split(`,`).map(e=>{if(e===`title`)return m=!0,{buttonName:e};let n,f,h,_,v,y;if(n=s[e])h=e=>{n.click&&n.click.call(e.target,e,e.target)},(_=r.getCustomButtonIconClass(n))||(_=r.getIconClass(e,o))||(v=n.text),y=n.hint||n.text;else if(f=i[e]){p.push(e),h=()=>{a.changeView(e)},(v=f.buttonTextOverride)||(_=r.getIconClass(e,o))||(v=f.buttonTextDefault);let n=f.buttonTextOverride||f.buttonTextDefault;y=g(f.buttonTitleOverride||f.buttonTitleDefault||t.viewHint,[n,e],n)}else if(a[e])if(h=()=>{a[e]()},(v=c[e])||(_=r.getIconClass(e,o))||(v=l[e]),e===`prevYear`||e===`nextYear`){let t=e===`prevYear`?`prev`:`next`;y=g(u[t]||d[t],[l.year||`year`,`year`],l[e])}else y=t=>g(u[e]||d[e],[l[t]||t,t],l[e]);return{buttonName:e,buttonClick:h,buttonIcon:_,buttonText:v,buttonHint:y}})),viewsWithButtons:p,hasTitle:m}}class ViewImpl{constructor(e,t,n){this.type=e,this.getCurrentData=t,this.dateEnv=n}get calendar(){return this.getCurrentData().calendarApi}get title(){return this.getCurrentData().viewTitle}get activeStart(){return this.dateEnv.toDate(this.getCurrentData().dateProfile.activeRange.start)}get activeEnd(){return this.dateEnv.toDate(this.getCurrentData().dateProfile.activeRange.end)}get currentStart(){return this.dateEnv.toDate(this.getCurrentData().dateProfile.currentRange.start)}get currentEnd(){return this.dateEnv.toDate(this.getCurrentData().dateProfile.currentRange.end)}getOption(e){return this.getCurrentData().options[e]}}const ht=Y({name:`array-event-source`,eventSourceDefs:[{ignoreRange:!0,parseMeta(e){return Array.isArray(e.events)?e.events:null},fetch(e,t){t({rawEvents:e.eventSource.meta})}}]}),gt=Y({name:`func-event-source`,eventSourceDefs:[{parseMeta(e){return typeof e.events==`function`?e.events:null},fetch(e,t,n){let{dateEnv:r}=e.context,i=e.eventSource.meta;_(i.bind(null,v(e.range,r)),e=>t({rawEvents:e}),n)}}]}),_t=Y({name:`json-event-source`,eventSourceRefiners:{method:String,extraParams:y,startParam:String,endParam:String,timeZoneParam:String},eventSourceDefs:[{parseMeta(e){return e.url&&(e.format===`json`||!e.format)?{url:e.url,format:`json`,method:(e.method||`GET`).toUpperCase(),extraParams:e.extraParams,startParam:e.startParam,endParam:e.endParam,timeZoneParam:e.timeZoneParam}:null},fetch(e,t,n){let{meta:r}=e.eventSource,i=vt(r,e.range,e.context);b(r.method,r.url,i).then(([e,n])=>{t({rawEvents:e,response:n})},n)}}]});function vt(e,t,n){let{dateEnv:r,options:i}=n,a,o,s,c,l={};return a=e.startParam,a==null&&(a=i.startParam),o=e.endParam,o==null&&(o=i.endParam),s=e.timeZoneParam,s==null&&(s=i.timeZoneParam),c=typeof e.extraParams==`function`?e.extraParams():e.extraParams||{},Object.assign(l,c),l[a]=r.formatIso(t.start),l[o]=r.formatIso(t.end),r.timeZone!==`local`&&(l[s]=r.timeZone),l}const yt=Y({name:`simple-recurring-event`,recurringTypes:[{parse(e,t){if(e.daysOfWeek||e.startTime||e.endTime||e.startRecur||e.endRecur){let n={daysOfWeek:e.daysOfWeek||null,startTime:e.startTime||null,endTime:e.endTime||null,startRecur:e.startRecur?t.createMarker(e.startRecur):null,endRecur:e.endRecur?t.createMarker(e.endRecur):null,dateEnv:t},r;return e.duration&&(r=e.duration),!r&&e.startTime&&e.endTime&&(r=ee(e.endTime,e.startTime)),{allDayGuess:!e.startTime&&!e.endTime,duration:r,typeData:n}}return null},expand(e,t,n){let r=x(t,{start:e.startRecur,end:e.endRecur});return r?bt(e.daysOfWeek,e.startTime,e.dateEnv,n,r):[]}}],eventRefiners:{daysOfWeek:y,startTime:d,endTime:d,duration:d,startRecur:y,endRecur:y}});function bt(e,t,n,r,i){let a=e?f(e):null,o=te(i.start),s=i.end,c=[];for(t&&(t.milliseconds<0?s=S(s,1):t.milliseconds>=1e3*60*60*24&&(o=S(o,-1)));o<s;){let e;(!a||a[o.getUTCDay()])&&(e=t?r.add(o,t):o,c.push(r.createMarker(n.toDate(e)))),o=S(o,1)}return c}const xt=Y({name:`change-handler`,optionChangeHandlers:{events(e,t){St([e],t)},eventSources:St}});function St(e,t){let n=ne(t.getCurrentData().eventSources);if(n.length===1&&e.length===1&&Array.isArray(n[0]._raw)&&Array.isArray(e[0])){t.dispatch({type:`RESET_RAW_EVENTS`,sourceId:n[0].sourceId,rawEvents:e[0]});return}let r=[];for(let t of e){let e=!1;for(let r=0;r<n.length;r+=1)if(n[r]._raw===t){n.splice(r,1),e=!0;break}e||r.push(t)}for(let e of n)t.dispatch({type:`REMOVE_EVENT_SOURCE`,sourceId:e.sourceId});for(let e of r)t.calendarApi.addEventSource(e)}function Ct(e,t){t.emitter.trigger(`datesSet`,Object.assign(Object.assign({},v(e.activeRange,t.dateEnv)),{view:t.viewApi}))}function wt(e,t){let{emitter:n}=t;n.hasHandlers(`eventsSet`)&&n.trigger(`eventsSet`,re(e,t))}const Tt=[ht,gt,_t,yt,xt,Y({name:`misc`,isLoadingFuncs:[e=>Qe(e.eventSources)],propSetHandlers:{dateProfile:Ct,eventStore:wt}})];class TaskRunner{constructor(e,t){this.runTaskOption=e,this.drainedOption=t,this.queue=[],this.delayedRunner=new C(this.drain.bind(this))}request(e,t){this.queue.push(e),this.delayedRunner.request(t)}pause(e){this.delayedRunner.pause(e)}resume(e,t){this.delayedRunner.resume(e,t)}drain(){let{queue:e}=this;for(;e.length;){let t=[],n;for(;n=e.shift();)this.runTask(n),t.push(n);this.drained(t)}}runTask(e){this.runTaskOption&&this.runTaskOption(e)}drained(e){this.drainedOption&&this.drainedOption(e)}}function Et(e,t,n){let r;return r=/^(year|month)$/.test(e.currentRangeUnit)?e.currentRange:e.activeRange,n.formatRange(r.start,r.end,w(t.titleFormat||Dt(e)),{isEndExclusive:e.isRangeAllDay,defaultSeparator:t.titleRangeSeparator})}function Dt(e){let{currentRangeUnit:t}=e;if(t===`year`)return{year:`numeric`};if(t===`month`)return{year:`numeric`,month:`long`};let n=ie(e.currentRange.start,e.currentRange.end);return n!==null&&n>1?{year:`numeric`,month:`short`,day:`numeric`}:{year:`numeric`,month:`long`,day:`numeric`}}class CalendarNowManager{constructor(){this.resetListeners=/* @__PURE__ */ new Set}handleInput(e,t){let n=this.dateEnv;if(e!==n&&(typeof t==`function`?this.nowFn=t:n||(this.nowAnchorDate=e.toDate(t?e.createMarker(t):e.createNowMarker()),this.nowAnchorQueried=Date.now()),this.dateEnv=e,n))for(let e of this.resetListeners.values())e()}getDateMarker(){return this.nowAnchorDate?this.dateEnv.timestampToMarker(this.nowAnchorDate.valueOf()+(Date.now()-this.nowAnchorQueried)):this.dateEnv.createMarker(this.nowFn())}addResetListener(e){this.resetListeners.add(e)}removeResetListener(e){this.resetListeners.delete(e)}}class CalendarDataManager{constructor(e){this.computeCurrentViewData=T(this._computeCurrentViewData),this.organizeRawLocales=T(K),this.buildLocale=T(q),this.buildPluginHooks=Me(),this.buildDateEnv=T(Ot),this.buildTheme=T(kt),this.parseToolbars=T(ft),this.buildViewSpecs=T(Be),this.buildDateProfileGenerator=E(At),this.buildViewApi=T(jt),this.buildViewUiProps=E(Pt),this.buildEventUiBySource=T(Mt,ae),this.buildEventUiBases=T(Nt),this.parseContextBusinessHours=E(Ft),this.buildTitle=T(Et),this.nowManager=new CalendarNowManager,this.emitter=new oe,this.actionRunner=new TaskRunner(this._handleAction.bind(this),this.updateData.bind(this)),this.currentCalendarOptionsInput={},this.currentCalendarOptionsRefined={},this.currentViewOptionsInput={},this.currentViewOptionsRefined={},this.currentCalendarOptionsRefiners={},this.optionsForRefining=[],this.optionsForHandling=[],this.getCurrentData=()=>this.data,this.dispatch=e=>{this.actionRunner.request(e)},this.props=e,this.actionRunner.pause(),this.nowManager=new CalendarNowManager;let t={},n=this.computeOptionsData(e.optionOverrides,t,e.calendarApi),r=n.calendarOptions.initialView||n.pluginHooks.initialView,i=this.computeCurrentViewData(r,n,e.optionOverrides,t);e.calendarApi.currentDataManager=this,this.emitter.setThisContext(e.calendarApi),this.emitter.setOptions(i.options);let a={nowManager:this.nowManager,dateEnv:n.dateEnv,options:n.calendarOptions,pluginHooks:n.pluginHooks,calendarApi:e.calendarApi,dispatch:this.dispatch,emitter:this.emitter,getCurrentData:this.getCurrentData},o=Ke(n.calendarOptions,n.dateEnv,this.nowManager),s=i.dateProfileGenerator.build(o);D(s.activeRange,o)||(o=s.currentRange.start);for(let e of n.pluginHooks.contextInit)e(a);let c=Ye(n.calendarOptions,s,a),l={dynamicOptionOverrides:t,currentViewType:r,currentDate:o,dateProfile:s,businessHours:this.parseContextBusinessHours(a),eventSources:c,eventUiBases:{},eventStore:O(),renderableEventStore:O(),dateSelection:null,eventSelection:``,eventDrag:null,eventResize:null,selectionConfig:this.buildViewUiProps(a).selectionConfig},u=Object.assign(Object.assign({},a),l);for(let e of n.pluginHooks.reducers)Object.assign(l,e(null,null,u));Q(l,a)&&this.emitter.trigger(`loading`,!0),this.state=l,this.updateData(),this.actionRunner.resume()}resetOptions(e,t){let{props:n}=this;t===void 0?n.optionOverrides=e:(n.optionOverrides=Object.assign(Object.assign({},n.optionOverrides||{}),e),this.optionsForRefining.push(...t)),(t===void 0||t.length)&&this.actionRunner.request({type:`NOTHING`})}_handleAction(e){let{props:t,state:n,emitter:r}=this,i=qe(n.dynamicOptionOverrides,e),a=this.computeOptionsData(t.optionOverrides,i,t.calendarApi),o=We(n.currentViewType,e),s=this.computeCurrentViewData(o,a,t.optionOverrides,i);t.calendarApi.currentDataManager=this,r.setThisContext(t.calendarApi),r.setOptions(s.options);let c={nowManager:this.nowManager,dateEnv:a.dateEnv,options:a.calendarOptions,pluginHooks:a.pluginHooks,calendarApi:t.calendarApi,dispatch:this.dispatch,emitter:r,getCurrentData:this.getCurrentData},{currentDate:l,dateProfile:u}=n;this.data&&this.data.dateProfileGenerator!==s.dateProfileGenerator&&(u=s.dateProfileGenerator.build(l)),l=Ge(l,e),u=Je(u,e,l,s.dateProfileGenerator),(e.type===`PREV`||e.type===`NEXT`||!D(u.currentRange,l))&&(l=u.currentRange.start);let d=Xe(n.eventSources,e,u,c),f=se(n.eventStore,e,d,u,c),p=Qe(d)&&!s.options.progressiveEventRendering&&n.renderableEventStore||f,{eventUiSingleBase:m,selectionConfig:h}=this.buildViewUiProps(c),g=this.buildEventUiBySource(d),_=this.buildEventUiBases(p.defs,m,g),v={dynamicOptionOverrides:i,currentViewType:o,currentDate:l,dateProfile:u,eventSources:d,eventStore:f,renderableEventStore:p,selectionConfig:h,eventUiBases:_,businessHours:this.parseContextBusinessHours(c),dateSelection:ct(n.dateSelection,e),eventSelection:lt(n.eventSelection,e),eventDrag:ut(n.eventDrag,e),eventResize:dt(n.eventResize,e)},y=Object.assign(Object.assign({},c),v);for(let t of a.pluginHooks.reducers)Object.assign(v,t(n,e,y));let b=Q(n,c),x=Q(v,c);!b&&x?r.trigger(`loading`,!0):b&&!x&&r.trigger(`loading`,!1),this.state=v,t.onAction&&t.onAction(e)}updateData(){let{props:e,state:t}=this,n=this.data,r=this.computeOptionsData(e.optionOverrides,t.dynamicOptionOverrides,e.calendarApi),i=this.computeCurrentViewData(t.currentViewType,r,e.optionOverrides,t.dynamicOptionOverrides),a=this.data=Object.assign(Object.assign(Object.assign({nowManager:this.nowManager,viewTitle:this.buildTitle(t.dateProfile,i.options,r.dateEnv),calendarApi:e.calendarApi,dispatch:this.dispatch,emitter:this.emitter,getCurrentData:this.getCurrentData},r),i),t),o=r.pluginHooks.optionChangeHandlers,s=n&&n.calendarOptions,c=r.calendarOptions;if(s&&s!==c){s.timeZone!==c.timeZone&&(t.eventSources=a.eventSources=Ze(a.eventSources,t.dateProfile,a),t.eventStore=a.eventStore=ce(a.eventStore,n.dateEnv,a.dateEnv),t.renderableEventStore=a.renderableEventStore=ce(a.renderableEventStore,n.dateEnv,a.dateEnv));for(let e in o)(this.optionsForHandling.indexOf(e)!==-1||s[e]!==c[e])&&o[e](c[e],a)}this.optionsForHandling=[],e.onData&&e.onData(a)}computeOptionsData(e,t,n){if(!this.optionsForRefining.length&&e===this.stableOptionOverrides&&t===this.stableDynamicOptionOverrides)return this.stableCalendarOptionsData;let{refinedOptions:r,pluginHooks:i,localeDefaults:a,availableLocaleData:o,extra:s}=this.processRawCalendarOptions(e,t);It(s);let c=this.buildDateEnv(r.timeZone,r.locale,r.weekNumberCalculation,r.firstDay,r.weekText,i,o,r.defaultRangeSeparator),l=this.buildViewSpecs(i.views,this.stableOptionOverrides,this.stableDynamicOptionOverrides,a),u=this.buildTheme(r,i),d=this.parseToolbars(r,this.stableOptionOverrides,u,l,n);return this.stableCalendarOptionsData={calendarOptions:r,pluginHooks:i,dateEnv:c,viewSpecs:l,theme:u,toolbarConfig:d,localeDefaults:a,availableRawLocales:o.map}}processRawCalendarOptions(e,t){let{locales:n,locale:r}=k([u,e,t]),i=this.organizeRawLocales(n),a=i.map,o=this.buildLocale(r||i.defaultCode,a).options,s=this.buildPluginHooks(e.plugins||[],Tt),c=this.currentCalendarOptionsRefiners=Object.assign(Object.assign(Object.assign(Object.assign(Object.assign({},A),le),ue),s.listenerRefiners),s.optionRefiners),l={},d=k([u,o,e,t]),f={},p=this.currentCalendarOptionsInput,m=this.currentCalendarOptionsRefined,h=!1;for(let e in d)this.optionsForRefining.indexOf(e)===-1&&(d[e]===p[e]||j[e]&&e in p&&j[e](p[e],d[e]))?f[e]=m[e]:c[e]?(f[e]=c[e](d[e]),h=!0):l[e]=p[e];return h&&(this.currentCalendarOptionsInput=d,this.currentCalendarOptionsRefined=f,this.stableOptionOverrides=e,this.stableDynamicOptionOverrides=t),this.optionsForHandling.push(...this.optionsForRefining),this.optionsForRefining=[],{rawOptions:this.currentCalendarOptionsInput,refinedOptions:this.currentCalendarOptionsRefined,pluginHooks:s,availableLocaleData:i,localeDefaults:o,extra:l}}_computeCurrentViewData(e,t,n,r){let i=t.viewSpecs[e];if(!i)throw Error(`viewType "${e}" is not available. Please make sure you've loaded all neccessary plugins`);let{refinedOptions:a,extra:o}=this.processRawViewOptions(i,t.pluginHooks,t.localeDefaults,n,r);return It(o),this.nowManager.handleInput(t.dateEnv,a.now),{viewSpec:i,options:a,dateProfileGenerator:this.buildDateProfileGenerator({dateProfileGeneratorClass:i.optionDefaults.dateProfileGeneratorClass,nowManager:this.nowManager,duration:i.duration,durationUnit:i.durationUnit,usesMinMaxTime:i.optionDefaults.usesMinMaxTime,dateEnv:t.dateEnv,calendarApi:this.props.calendarApi,slotMinTime:a.slotMinTime,slotMaxTime:a.slotMaxTime,showNonCurrentDates:a.showNonCurrentDates,dayCount:a.dayCount,dateAlignment:a.dateAlignment,dateIncrement:a.dateIncrement,hiddenDays:a.hiddenDays,weekends:a.weekends,validRangeInput:a.validRange,visibleRangeInput:a.visibleRange,fixedWeekCount:a.fixedWeekCount}),viewApi:this.buildViewApi(e,this.getCurrentData,t.dateEnv)}}processRawViewOptions(e,t,n,r,i){let a=k([u,e.optionDefaults,n,r,e.optionOverrides,i]),o=Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign({},A),le),ue),de),t.listenerRefiners),t.optionRefiners),s={},c=this.currentViewOptionsInput,l=this.currentViewOptionsRefined,d=!1,f={};for(let e in a)a[e]===c[e]||j[e]&&j[e](a[e],c[e])?s[e]=l[e]:(a[e]===this.currentCalendarOptionsInput[e]||j[e]&&j[e](a[e],this.currentCalendarOptionsInput[e])?e in this.currentCalendarOptionsRefined&&(s[e]=this.currentCalendarOptionsRefined[e]):o[e]?s[e]=o[e](a[e]):f[e]=a[e],d=!0);return d&&(this.currentViewOptionsInput=a,this.currentViewOptionsRefined=s),{rawOptions:this.currentViewOptionsInput,refinedOptions:this.currentViewOptionsRefined,extra:f}}}function Ot(e,t,n,r,i,a,o,s){let c=q(t||o.defaultCode,o.map);return new M({calendarSystem:`gregory`,timeZone:e,namedTimeZoneImpl:a.namedTimeZonedImpl,locale:c,weekNumberCalculation:n,firstDay:r,weekText:i,cmdFormatter:a.cmdFormatter,defaultSeparator:s})}function kt(e,t){return new(t.themeClasses[e.themeSystem]||StandardTheme)(e)}function At(e){return new(e.dateProfileGeneratorClass||fe)(e)}function jt(e,t,n){return new ViewImpl(e,t,n)}function Mt(e){return i(e,e=>e.ui)}function Nt(e,t,n){let r={"":t};for(let t in e){let i=e[t];i.sourceId&&n[i.sourceId]&&(r[t]=n[i.sourceId])}return r}function Pt(e){let{options:t}=e;return{eventUiSingleBase:N({display:t.eventDisplay,editable:t.editable,startEditable:t.eventStartEditable,durationEditable:t.eventDurationEditable,constraint:t.eventConstraint,overlap:typeof t.eventOverlap==`boolean`?t.eventOverlap:void 0,allow:t.eventAllow,backgroundColor:t.eventBackgroundColor,borderColor:t.eventBorderColor,textColor:t.eventTextColor,color:t.eventColor},e),selectionConfig:N({constraint:t.selectConstraint,overlap:typeof t.selectOverlap==`boolean`?t.selectOverlap:void 0,allow:t.selectAllow},e)}}function Q(e,t){for(let n of t.pluginHooks.isLoadingFuncs)if(n(e))return!0;return!1}function Ft(e){return pe(e.options.businessHours,e)}function It(e,t){for(let n in e)console.warn(`Unknown option '${n}'`+(t?` for view '${t}'`:``))}class ToolbarSection extends a{render(){return z(`div`,{className:`fc-toolbar-chunk`},...this.props.widgetGroups.map(e=>this.renderWidgetGroup(e)))}renderWidgetGroup(e){let{props:t}=this,{theme:n}=this.context,r=[],i=!0;for(let a of e){let{buttonName:e,buttonClick:o,buttonText:s,buttonIcon:c,buttonHint:l}=a;if(e===`title`)i=!1,r.push(z(`h2`,{className:`fc-toolbar-title`,id:t.titleId},t.title));else{let i=e===t.activeButton,a=!t.isTodayEnabled&&e===`today`||!t.isPrevEnabled&&e===`prev`||!t.isNextEnabled&&e===`next`,u=[`fc-${e}-button`,n.getClass(`button`)];i&&u.push(n.getClass(`buttonActive`)),r.push(z(`button`,{type:`button`,title:typeof l==`function`?l(t.navUnit):l,disabled:a,"aria-pressed":i,className:u.join(` `),onClick:o},s||(c?z(`span`,{className:c,role:`img`}):``)))}}return r.length>1?z(`div`,{className:i&&n.getClass(`buttonGroup`)||``},...r):r[0]}}class Toolbar extends a{render(){let{model:e,extraClassName:t}=this.props,n=!1,r,i,a=e.sectionWidgets,o=a.center;return a.left?(n=!0,r=a.left):r=a.start,a.right?(n=!0,i=a.right):i=a.end,z(`div`,{className:[t||``,`fc-toolbar`,n?`fc-toolbar-ltr`:``].join(` `)},this.renderSection(`start`,r||[]),this.renderSection(`center`,o||[]),this.renderSection(`end`,i||[]))}renderSection(e,t){let{props:n}=this;return z(ToolbarSection,{key:e,widgetGroups:t,title:n.title,navUnit:n.navUnit,activeButton:n.activeButton,isTodayEnabled:n.isTodayEnabled,isPrevEnabled:n.isPrevEnabled,isNextEnabled:n.isNextEnabled,titleId:n.titleId})}}class ViewHarness extends a{constructor(){super(...arguments),this.state={availableWidth:null},this.handleEl=e=>{this.el=e,me(this.props.elRef,e),this.updateAvailableWidth()},this.handleResize=()=>{this.updateAvailableWidth()}}render(){let{props:e,state:t}=this,{aspectRatio:n}=e,r=[`fc-view-harness`,n||e.liquid||e.height?`fc-view-harness-active`:`fc-view-harness-passive`],i=``,a=``;return n?t.availableWidth===null?a=`${1/n*100}%`:i=t.availableWidth/n:i=e.height||``,z(`div`,{"aria-labelledby":e.labeledById,ref:this.handleEl,className:r.join(` `),style:{height:i,paddingBottom:a}},e.children)}componentDidMount(){this.context.addResizeHandler(this.handleResize)}componentWillUnmount(){this.context.removeResizeHandler(this.handleResize)}updateAvailableWidth(){this.el&&this.props.aspectRatio&&this.setState({availableWidth:this.el.offsetWidth})}}class EventClicking extends P{constructor(e){super(e),this.handleSegClick=(e,t)=>{let{component:n}=this,{context:r}=n,i=F(t);if(i&&n.isValidSegDownEl(e.target)){let a=he(e.target,`.fc-event-forced-url`),o=a?a.querySelector(`a[href]`).href:``;r.emitter.trigger(`eventClick`,{el:t,event:new I(n.context,i.eventRange.def,i.eventRange.instance),jsEvent:e,view:r.viewApi}),o&&!e.defaultPrevented&&(window.location.href=o)}},this.destroy=ge(e.el,`click`,`.fc-event`,this.handleSegClick)}}class EventHovering extends P{constructor(e){super(e),this.handleEventElRemove=e=>{e===this.currentSegEl&&this.handleSegLeave(null,this.currentSegEl)},this.handleSegEnter=(e,t)=>{F(t)&&(this.currentSegEl=t,this.triggerEvent(`eventMouseEnter`,e,t))},this.handleSegLeave=(e,t)=>{this.currentSegEl&&(this.currentSegEl=null,this.triggerEvent(`eventMouseLeave`,e,t))},this.removeHoverListeners=_e(e.el,`.fc-event`,this.handleSegEnter,this.handleSegLeave)}destroy(){this.removeHoverListeners()}triggerEvent(e,t,n){let{component:r}=this,{context:i}=r,a=F(n);(!t||r.isValidSegDownEl(t.target))&&i.emitter.trigger(e,{el:n,event:new I(i,a.eventRange.def,a.eventRange.instance),jsEvent:t,view:i.viewApi})}}class CalendarContent extends ve{constructor(){super(...arguments),this.buildViewContext=T(ye),this.buildViewPropTransformers=T(Rt),this.buildToolbarProps=T(Lt),this.headerRef=B(),this.footerRef=B(),this.interactionsStore={},this.state={viewLabelId:be()},this.registerInteractiveComponent=(e,t)=>{let n=xe(e,t),r=[EventClicking,EventHovering].concat(this.props.pluginHooks.componentInteractions).map(e=>new e(n));this.interactionsStore[e.uid]=r,L[e.uid]=n},this.unregisterInteractiveComponent=e=>{let t=this.interactionsStore[e.uid];if(t){for(let e of t)e.destroy();delete this.interactionsStore[e.uid]}delete L[e.uid]},this.resizeRunner=new C(()=>{this.props.emitter.trigger(`_resize`,!0),this.props.emitter.trigger(`windowResize`,{view:this.props.viewApi})}),this.handleWindowResize=e=>{let{options:t}=this.props;t.handleWindowResize&&e.target===window&&this.resizeRunner.request(t.windowResizeDelay)}}render(){let{props:e}=this,{toolbarConfig:t,options:n}=e,r=!1,i=``,a;e.isHeightAuto||e.forPrint?i=``:n.height==null?n.contentHeight==null?a=Math.max(n.aspectRatio,.5):i=n.contentHeight:r=!0;let s=this.buildViewContext(e.viewSpec,e.viewApi,e.options,e.dateProfileGenerator,e.dateEnv,e.nowManager,e.theme,e.pluginHooks,e.dispatch,e.getCurrentData,e.emitter,e.calendarApi,this.registerInteractiveComponent,this.unregisterInteractiveComponent),c=t.header&&t.header.hasTitle?this.state.viewLabelId:void 0;return z(o.Provider,{value:s},z(Se,{unit:`day`},n=>{let o=this.buildToolbarProps(e.viewSpec,e.dateProfile,e.dateProfileGenerator,e.currentDate,n,e.viewTitle);return z(V,null,t.header&&z(Toolbar,Object.assign({ref:this.headerRef,extraClassName:`fc-header-toolbar`,model:t.header,titleId:c},o)),z(ViewHarness,{liquid:r,height:i,aspectRatio:a,labeledById:c},this.renderView(e),this.buildAppendContent()),t.footer&&z(Toolbar,Object.assign({ref:this.footerRef,extraClassName:`fc-footer-toolbar`,model:t.footer,titleId:``},o)))}))}componentDidMount(){let{props:e}=this;this.calendarInteractions=e.pluginHooks.calendarInteractions.map(t=>new t(e)),window.addEventListener(`resize`,this.handleWindowResize);let{propSetHandlers:t}=e.pluginHooks;for(let n in t)t[n](e[n],e)}componentDidUpdate(e){let{props:t}=this,{propSetHandlers:n}=t.pluginHooks;for(let r in n)t[r]!==e[r]&&n[r](t[r],t)}componentWillUnmount(){window.removeEventListener(`resize`,this.handleWindowResize),this.resizeRunner.clear();for(let e of this.calendarInteractions)e.destroy();this.props.emitter.trigger(`_unmount`)}buildAppendContent(){let{props:e}=this;return z(V,{},...e.pluginHooks.viewContainerAppends.map(t=>t(e)))}renderView(e){let{pluginHooks:t}=e,{viewSpec:n}=e,r={dateProfile:e.dateProfile,businessHours:e.businessHours,eventStore:e.renderableEventStore,eventUiBases:e.eventUiBases,dateSelection:e.dateSelection,eventSelection:e.eventSelection,eventDrag:e.eventDrag,eventResize:e.eventResize,isHeightAuto:e.isHeightAuto,forPrint:e.forPrint},i=this.buildViewPropTransformers(t.viewPropsTransformers);for(let t of i)Object.assign(r,t.transform(r,e));let a=n.component;return z(a,Object.assign({},r))}}function Lt(e,t,n,r,i,a){let o=n.build(i,void 0,!1),s=n.buildPrev(t,r,!1),c=n.buildNext(t,r,!1);return{title:a,activeButton:e.type,navUnit:e.singleUnit,isTodayEnabled:o.isValid&&!D(t.currentRange,i),isPrevEnabled:s.isValid,isNextEnabled:c.isValid}}function Rt(e){return e.map(e=>new e)}class Calendar extends Ce{constructor(e,t={}){super(),this.isRendering=!1,this.isRendered=!1,this.currentClassNames=[],this.customContentRenderId=0,this.handleAction=e=>{switch(e.type){case`SET_EVENT_DRAG`:case`SET_EVENT_RESIZE`:this.renderRunner.tryDrain()}},this.handleData=e=>{this.currentData=e,this.renderRunner.request(e.calendarOptions.rerenderDelay)},this.handleRenderRequest=()=>{if(this.isRendering){this.isRendered=!0;let{currentData:e}=this;R(()=>{H(z(we,{options:e.calendarOptions,theme:e.theme,emitter:e.emitter},(t,n,r,i)=>(this.setClassNames(t),this.setHeight(n),z(Te.Provider,{value:this.customContentRenderId},z(CalendarContent,Object.assign({isHeightAuto:r,forPrint:i},e))))),this.el)})}else this.isRendered&&(this.isRendered=!1,H(null,this.el),this.setClassNames([]),this.setHeight(``))},Ee(e),this.el=e,this.renderRunner=new C(this.handleRenderRequest),new CalendarDataManager({optionOverrides:t,calendarApi:this,onAction:this.handleAction,onData:this.handleData})}render(){let e=this.isRendering;e?this.customContentRenderId+=1:this.isRendering=!0,this.renderRunner.request(),e&&this.updateSize()}destroy(){this.isRendering&&(this.isRendering=!1,this.renderRunner.request())}updateSize(){R(()=>{super.updateSize()})}batchRendering(e){this.renderRunner.pause(`batchRendering`),e(),this.renderRunner.resume(`batchRendering`)}pauseRendering(){this.renderRunner.pause(`pauseRendering`)}resumeRendering(){this.renderRunner.resume(`pauseRendering`,!0)}resetOptions(e,t){this.currentDataManager.resetOptions(e,t)}setClassNames(e){if(!n(e,this.currentClassNames)){let{classList:t}=this.el;for(let e of this.currentClassNames)t.remove(e);for(let n of e)t.add(n);this.currentClassNames=e}}setHeight(e){De(this.el,`height`,e)}}function zt(e,t={}){let n=$(t),r=w(t),i=n.createMarkerMeta(e);return i?n.format(i.marker,r,{forcedTzo:i.forcedTzo}):``}function Bt(e,t,n){let r=$(typeof n==`object`&&n?n:{}),i=w(n),a=r.createMarkerMeta(e),o=r.createMarkerMeta(t);return!a||!o?``:r.formatRange(a.marker,o.marker,i,{forcedStartTzo:a.forcedTzo,forcedEndTzo:o.forcedTzo,isEndExclusive:n.isEndExclusive,defaultSeparator:u.defaultRangeSeparator})}function $(e){let t=q(e.locale||`en`,K([]).map);return new M(Object.assign(Object.assign({timeZone:u.timeZone,calendarSystem:`gregory`},e),{locale:t}))}function Vt(e,t){return Oe(e.eventStore,e.eventUiBases,e.dateProfile.activeRange,t?e.nextDayThreshold:null).fg}const Ht=`6.1.21`;export{Calendar,Y as createPlugin,zt as formatDate,Bt as formatRange,U as globalLocales,Tt as globalPlugins,Vt as sliceEvents,Ht as version};
+import { m as mergeProps, g as guid, i as isArraysEqual, T as Theme, a as mapHash, B as BaseComponent, V as ViewContextType, C as ContentContainer, b as buildViewClassNames, c as greatestDurationDenominator, d as createDuration, e as BASE_OPTION_DEFAULTS, f as arrayToHash, h as filterHash, j as buildEventSourceRefiners, p as parseEventSource, k as formatWithOrdinals, u as unpromisify, l as buildRangeApiWithTimeZone, n as identity, r as requestJson, s as subtractDurations, o as intersectRanges, q as startOfDay, t as addDays, v as hashValuesToArray, w as buildEventApis, D as DelayedRunner, x as createFormatter, y as diffWholeDays, z as memoize, A as memoizeObjArg, E as isPropsEqual, F as Emitter, G as rangeContainsMarker, H as createEmptyEventStore, I as reduceEventStore, J as rezoneEventStoreDates, K as mergeRawOptions, L as BASE_OPTION_REFINERS, M as CALENDAR_LISTENER_REFINERS, N as CALENDAR_OPTION_REFINERS, O as COMPLEX_OPTION_COMPARATORS, P as VIEW_OPTION_REFINERS, Q as DateEnv, R as DateProfileGenerator, S as createEventUi, U as parseBusinessHours, W as setRef, X as Interaction, Y as getElSeg, Z as elementClosest, _ as EventImpl, $ as listenBySelector, a0 as listenToHoverBySelector, a1 as PureComponent, a2 as buildViewContext, a3 as getUniqueDomId, a4 as parseInteractionSettings, a5 as interactionSettingsStore, a6 as NowTimer, a7 as CalendarImpl, a8 as flushSync, a9 as CalendarRoot, aa as RenderId, ab as ensureElHasStyles, ac as applyStyleProp, ad as sliceEventStore } from './internal-common.js';
+export { ae as JsonRequestError } from './internal-common.js';
+import { createElement, createRef, Fragment, render } from 'preact';
+import 'preact/compat';
 
+const globalLocales = [];
+
+const MINIMAL_RAW_EN_LOCALE = {
+    code: 'en',
+    week: {
+        dow: 0,
+        doy: 4, // 4 days need to be within the year to be considered the first week
+    },
+    direction: 'ltr',
+    buttonText: {
+        prev: 'prev',
+        next: 'next',
+        prevYear: 'prev year',
+        nextYear: 'next year',
+        year: 'year',
+        today: 'today',
+        month: 'month',
+        week: 'week',
+        day: 'day',
+        list: 'list',
+    },
+    weekText: 'W',
+    weekTextLong: 'Week',
+    closeHint: 'Close',
+    timeHint: 'Time',
+    eventHint: 'Event',
+    allDayText: 'all-day',
+    moreLinkText: 'more',
+    noEventsText: 'No events to display',
+};
+const RAW_EN_LOCALE = Object.assign(Object.assign({}, MINIMAL_RAW_EN_LOCALE), { 
+    // Includes things we don't want other locales to inherit,
+    // things that derive from other translatable strings.
+    buttonHints: {
+        prev: 'Previous $0',
+        next: 'Next $0',
+        today(buttonText, unit) {
+            return (unit === 'day')
+                ? 'Today'
+                : `This ${buttonText}`;
+        },
+    }, viewHint: '$0 view', navLinkHint: 'Go to $0', moreLinkHint(eventCnt) {
+        return `Show ${eventCnt} more event${eventCnt === 1 ? '' : 's'}`;
+    } });
+function organizeRawLocales(explicitRawLocales) {
+    let defaultCode = explicitRawLocales.length > 0 ? explicitRawLocales[0].code : 'en';
+    let allRawLocales = globalLocales.concat(explicitRawLocales);
+    let rawLocaleMap = {
+        en: RAW_EN_LOCALE,
+    };
+    for (let rawLocale of allRawLocales) {
+        rawLocaleMap[rawLocale.code] = rawLocale;
+    }
+    return {
+        map: rawLocaleMap,
+        defaultCode,
+    };
+}
+function buildLocale(inputSingular, available) {
+    if (typeof inputSingular === 'object' && !Array.isArray(inputSingular)) {
+        return parseLocale(inputSingular.code, [inputSingular.code], inputSingular);
+    }
+    return queryLocale(inputSingular, available);
+}
+function queryLocale(codeArg, available) {
+    let codes = [].concat(codeArg || []); // will convert to array
+    let raw = queryRawLocale(codes, available) || RAW_EN_LOCALE;
+    return parseLocale(codeArg, codes, raw);
+}
+function queryRawLocale(codes, available) {
+    for (let i = 0; i < codes.length; i += 1) {
+        let parts = codes[i].toLocaleLowerCase().split('-');
+        for (let j = parts.length; j > 0; j -= 1) {
+            let simpleId = parts.slice(0, j).join('-');
+            if (available[simpleId]) {
+                return available[simpleId];
+            }
+        }
+    }
+    return null;
+}
+function parseLocale(codeArg, codes, raw) {
+    let merged = mergeProps([MINIMAL_RAW_EN_LOCALE, raw], ['buttonText']);
+    delete merged.code; // don't want this part of the options
+    let { week } = merged;
+    delete merged.week;
+    return {
+        codeArg,
+        codes,
+        week,
+        simpleNumberFormat: new Intl.NumberFormat(codeArg),
+        options: merged,
+    };
+}
+
+// TODO: easier way to add new hooks? need to update a million things
+function createPlugin(input) {
+    return {
+        id: guid(),
+        name: input.name,
+        premiumReleaseDate: input.premiumReleaseDate ? new Date(input.premiumReleaseDate) : undefined,
+        deps: input.deps || [],
+        reducers: input.reducers || [],
+        isLoadingFuncs: input.isLoadingFuncs || [],
+        contextInit: [].concat(input.contextInit || []),
+        eventRefiners: input.eventRefiners || {},
+        eventDefMemberAdders: input.eventDefMemberAdders || [],
+        eventSourceRefiners: input.eventSourceRefiners || {},
+        isDraggableTransformers: input.isDraggableTransformers || [],
+        eventDragMutationMassagers: input.eventDragMutationMassagers || [],
+        eventDefMutationAppliers: input.eventDefMutationAppliers || [],
+        dateSelectionTransformers: input.dateSelectionTransformers || [],
+        datePointTransforms: input.datePointTransforms || [],
+        dateSpanTransforms: input.dateSpanTransforms || [],
+        views: input.views || {},
+        viewPropsTransformers: input.viewPropsTransformers || [],
+        isPropsValid: input.isPropsValid || null,
+        externalDefTransforms: input.externalDefTransforms || [],
+        viewContainerAppends: input.viewContainerAppends || [],
+        eventDropTransformers: input.eventDropTransformers || [],
+        componentInteractions: input.componentInteractions || [],
+        calendarInteractions: input.calendarInteractions || [],
+        themeClasses: input.themeClasses || {},
+        eventSourceDefs: input.eventSourceDefs || [],
+        cmdFormatter: input.cmdFormatter,
+        recurringTypes: input.recurringTypes || [],
+        namedTimeZonedImpl: input.namedTimeZonedImpl,
+        initialView: input.initialView || '',
+        elementDraggingImpl: input.elementDraggingImpl,
+        optionChangeHandlers: input.optionChangeHandlers || {},
+        scrollGridImpl: input.scrollGridImpl || null,
+        listenerRefiners: input.listenerRefiners || {},
+        optionRefiners: input.optionRefiners || {},
+        propSetHandlers: input.propSetHandlers || {},
+    };
+}
+function buildPluginHooks(pluginDefs, globalDefs) {
+    let currentPluginIds = {};
+    let hooks = {
+        premiumReleaseDate: undefined,
+        reducers: [],
+        isLoadingFuncs: [],
+        contextInit: [],
+        eventRefiners: {},
+        eventDefMemberAdders: [],
+        eventSourceRefiners: {},
+        isDraggableTransformers: [],
+        eventDragMutationMassagers: [],
+        eventDefMutationAppliers: [],
+        dateSelectionTransformers: [],
+        datePointTransforms: [],
+        dateSpanTransforms: [],
+        views: {},
+        viewPropsTransformers: [],
+        isPropsValid: null,
+        externalDefTransforms: [],
+        viewContainerAppends: [],
+        eventDropTransformers: [],
+        componentInteractions: [],
+        calendarInteractions: [],
+        themeClasses: {},
+        eventSourceDefs: [],
+        cmdFormatter: null,
+        recurringTypes: [],
+        namedTimeZonedImpl: null,
+        initialView: '',
+        elementDraggingImpl: null,
+        optionChangeHandlers: {},
+        scrollGridImpl: null,
+        listenerRefiners: {},
+        optionRefiners: {},
+        propSetHandlers: {},
+    };
+    function addDefs(defs) {
+        for (let def of defs) {
+            const pluginName = def.name;
+            const currentId = currentPluginIds[pluginName];
+            if (currentId === undefined) {
+                currentPluginIds[pluginName] = def.id;
+                addDefs(def.deps);
+                hooks = combineHooks(hooks, def);
+            }
+            else if (currentId !== def.id) {
+                // different ID than the one already added
+                console.warn(`Duplicate plugin '${pluginName}'`);
+            }
+        }
+    }
+    if (pluginDefs) {
+        addDefs(pluginDefs);
+    }
+    addDefs(globalDefs);
+    return hooks;
+}
+function buildBuildPluginHooks() {
+    let currentOverrideDefs = [];
+    let currentGlobalDefs = [];
+    let currentHooks;
+    return (overrideDefs, globalDefs) => {
+        if (!currentHooks || !isArraysEqual(overrideDefs, currentOverrideDefs) || !isArraysEqual(globalDefs, currentGlobalDefs)) {
+            currentHooks = buildPluginHooks(overrideDefs, globalDefs);
+        }
+        currentOverrideDefs = overrideDefs;
+        currentGlobalDefs = globalDefs;
+        return currentHooks;
+    };
+}
+function combineHooks(hooks0, hooks1) {
+    return {
+        premiumReleaseDate: compareOptionalDates(hooks0.premiumReleaseDate, hooks1.premiumReleaseDate),
+        reducers: hooks0.reducers.concat(hooks1.reducers),
+        isLoadingFuncs: hooks0.isLoadingFuncs.concat(hooks1.isLoadingFuncs),
+        contextInit: hooks0.contextInit.concat(hooks1.contextInit),
+        eventRefiners: Object.assign(Object.assign({}, hooks0.eventRefiners), hooks1.eventRefiners),
+        eventDefMemberAdders: hooks0.eventDefMemberAdders.concat(hooks1.eventDefMemberAdders),
+        eventSourceRefiners: Object.assign(Object.assign({}, hooks0.eventSourceRefiners), hooks1.eventSourceRefiners),
+        isDraggableTransformers: hooks0.isDraggableTransformers.concat(hooks1.isDraggableTransformers),
+        eventDragMutationMassagers: hooks0.eventDragMutationMassagers.concat(hooks1.eventDragMutationMassagers),
+        eventDefMutationAppliers: hooks0.eventDefMutationAppliers.concat(hooks1.eventDefMutationAppliers),
+        dateSelectionTransformers: hooks0.dateSelectionTransformers.concat(hooks1.dateSelectionTransformers),
+        datePointTransforms: hooks0.datePointTransforms.concat(hooks1.datePointTransforms),
+        dateSpanTransforms: hooks0.dateSpanTransforms.concat(hooks1.dateSpanTransforms),
+        views: Object.assign(Object.assign({}, hooks0.views), hooks1.views),
+        viewPropsTransformers: hooks0.viewPropsTransformers.concat(hooks1.viewPropsTransformers),
+        isPropsValid: hooks1.isPropsValid || hooks0.isPropsValid,
+        externalDefTransforms: hooks0.externalDefTransforms.concat(hooks1.externalDefTransforms),
+        viewContainerAppends: hooks0.viewContainerAppends.concat(hooks1.viewContainerAppends),
+        eventDropTransformers: hooks0.eventDropTransformers.concat(hooks1.eventDropTransformers),
+        calendarInteractions: hooks0.calendarInteractions.concat(hooks1.calendarInteractions),
+        componentInteractions: hooks0.componentInteractions.concat(hooks1.componentInteractions),
+        themeClasses: Object.assign(Object.assign({}, hooks0.themeClasses), hooks1.themeClasses),
+        eventSourceDefs: hooks0.eventSourceDefs.concat(hooks1.eventSourceDefs),
+        cmdFormatter: hooks1.cmdFormatter || hooks0.cmdFormatter,
+        recurringTypes: hooks0.recurringTypes.concat(hooks1.recurringTypes),
+        namedTimeZonedImpl: hooks1.namedTimeZonedImpl || hooks0.namedTimeZonedImpl,
+        initialView: hooks0.initialView || hooks1.initialView,
+        elementDraggingImpl: hooks0.elementDraggingImpl || hooks1.elementDraggingImpl,
+        optionChangeHandlers: Object.assign(Object.assign({}, hooks0.optionChangeHandlers), hooks1.optionChangeHandlers),
+        scrollGridImpl: hooks1.scrollGridImpl || hooks0.scrollGridImpl,
+        listenerRefiners: Object.assign(Object.assign({}, hooks0.listenerRefiners), hooks1.listenerRefiners),
+        optionRefiners: Object.assign(Object.assign({}, hooks0.optionRefiners), hooks1.optionRefiners),
+        propSetHandlers: Object.assign(Object.assign({}, hooks0.propSetHandlers), hooks1.propSetHandlers),
+    };
+}
+function compareOptionalDates(date0, date1) {
+    if (date0 === undefined) {
+        return date1;
+    }
+    if (date1 === undefined) {
+        return date0;
+    }
+    return new Date(Math.max(date0.valueOf(), date1.valueOf()));
+}
+
+class StandardTheme extends Theme {
+}
+StandardTheme.prototype.classes = {
+    root: 'fc-theme-standard',
+    tableCellShaded: 'fc-cell-shaded',
+    buttonGroup: 'fc-button-group',
+    button: 'fc-button fc-button-primary',
+    buttonActive: 'fc-button-active',
+};
+StandardTheme.prototype.baseIconClass = 'fc-icon';
+StandardTheme.prototype.iconClasses = {
+    close: 'fc-icon-x',
+    prev: 'fc-icon-chevron-left',
+    next: 'fc-icon-chevron-right',
+    prevYear: 'fc-icon-chevrons-left',
+    nextYear: 'fc-icon-chevrons-right',
+};
+StandardTheme.prototype.rtlIconClasses = {
+    prev: 'fc-icon-chevron-right',
+    next: 'fc-icon-chevron-left',
+    prevYear: 'fc-icon-chevrons-right',
+    nextYear: 'fc-icon-chevrons-left',
+};
+StandardTheme.prototype.iconOverrideOption = 'buttonIcons'; // TODO: make TS-friendly
+StandardTheme.prototype.iconOverrideCustomButtonOption = 'icon';
+StandardTheme.prototype.iconOverridePrefix = 'fc-icon-';
+
+function compileViewDefs(defaultConfigs, overrideConfigs) {
+    let hash = {};
+    let viewType;
+    for (viewType in defaultConfigs) {
+        ensureViewDef(viewType, hash, defaultConfigs, overrideConfigs);
+    }
+    for (viewType in overrideConfigs) {
+        ensureViewDef(viewType, hash, defaultConfigs, overrideConfigs);
+    }
+    return hash;
+}
+function ensureViewDef(viewType, hash, defaultConfigs, overrideConfigs) {
+    if (hash[viewType]) {
+        return hash[viewType];
+    }
+    let viewDef = buildViewDef(viewType, hash, defaultConfigs, overrideConfigs);
+    if (viewDef) {
+        hash[viewType] = viewDef;
+    }
+    return viewDef;
+}
+function buildViewDef(viewType, hash, defaultConfigs, overrideConfigs) {
+    let defaultConfig = defaultConfigs[viewType];
+    let overrideConfig = overrideConfigs[viewType];
+    let queryProp = (name) => ((defaultConfig && defaultConfig[name] !== null) ? defaultConfig[name] :
+        ((overrideConfig && overrideConfig[name] !== null) ? overrideConfig[name] : null));
+    let theComponent = queryProp('component');
+    let superType = queryProp('superType');
+    let superDef = null;
+    if (superType) {
+        if (superType === viewType) {
+            throw new Error('Can\'t have a custom view type that references itself');
+        }
+        superDef = ensureViewDef(superType, hash, defaultConfigs, overrideConfigs);
+    }
+    if (!theComponent && superDef) {
+        theComponent = superDef.component;
+    }
+    if (!theComponent) {
+        return null; // don't throw a warning, might be settings for a single-unit view
+    }
+    return {
+        type: viewType,
+        component: theComponent,
+        defaults: Object.assign(Object.assign({}, (superDef ? superDef.defaults : {})), (defaultConfig ? defaultConfig.rawOptions : {})),
+        overrides: Object.assign(Object.assign({}, (superDef ? superDef.overrides : {})), (overrideConfig ? overrideConfig.rawOptions : {})),
+    };
+}
+
+function parseViewConfigs(inputs) {
+    return mapHash(inputs, parseViewConfig);
+}
+function parseViewConfig(input) {
+    let rawOptions = typeof input === 'function' ?
+        { component: input } :
+        input;
+    let { component } = rawOptions;
+    if (rawOptions.content) {
+        // TODO: remove content/classNames/didMount/etc from options?
+        component = createViewHookComponent(rawOptions);
+    }
+    else if (component && !(component.prototype instanceof BaseComponent)) {
+        // WHY?: people were using `component` property for `content`
+        // TODO: converge on one setting name
+        component = createViewHookComponent(Object.assign(Object.assign({}, rawOptions), { content: component }));
+    }
+    return {
+        superType: rawOptions.type,
+        component: component,
+        rawOptions, // includes type and component too :(
+    };
+}
+function createViewHookComponent(options) {
+    return (viewProps) => (createElement(ViewContextType.Consumer, null, (context) => (createElement(ContentContainer, { elTag: "div", elClasses: buildViewClassNames(context.viewSpec), renderProps: Object.assign(Object.assign({}, viewProps), { nextDayThreshold: context.options.nextDayThreshold }), generatorName: undefined, customGenerator: options.content, classNameGenerator: options.classNames, didMount: options.didMount, willUnmount: options.willUnmount }))));
+}
+
+function buildViewSpecs(defaultInputs, optionOverrides, dynamicOptionOverrides, localeDefaults) {
+    let defaultConfigs = parseViewConfigs(defaultInputs);
+    let overrideConfigs = parseViewConfigs(optionOverrides.views);
+    let viewDefs = compileViewDefs(defaultConfigs, overrideConfigs);
+    return mapHash(viewDefs, (viewDef) => buildViewSpec(viewDef, overrideConfigs, optionOverrides, dynamicOptionOverrides, localeDefaults));
+}
+function buildViewSpec(viewDef, overrideConfigs, optionOverrides, dynamicOptionOverrides, localeDefaults) {
+    let durationInput = viewDef.overrides.duration ||
+        viewDef.defaults.duration ||
+        dynamicOptionOverrides.duration ||
+        optionOverrides.duration;
+    let duration = null;
+    let durationUnit = '';
+    let singleUnit = '';
+    let singleUnitOverrides = {};
+    if (durationInput) {
+        duration = createDurationCached(durationInput);
+        if (duration) { // valid?
+            let denom = greatestDurationDenominator(duration);
+            durationUnit = denom.unit;
+            if (denom.value === 1) {
+                singleUnit = durationUnit;
+                singleUnitOverrides = overrideConfigs[durationUnit] ? overrideConfigs[durationUnit].rawOptions : {};
+            }
+        }
+    }
+    let queryButtonText = (optionsSubset) => {
+        let buttonTextMap = optionsSubset.buttonText || {};
+        let buttonTextKey = viewDef.defaults.buttonTextKey;
+        if (buttonTextKey != null && buttonTextMap[buttonTextKey] != null) {
+            return buttonTextMap[buttonTextKey];
+        }
+        if (buttonTextMap[viewDef.type] != null) {
+            return buttonTextMap[viewDef.type];
+        }
+        if (buttonTextMap[singleUnit] != null) {
+            return buttonTextMap[singleUnit];
+        }
+        return null;
+    };
+    let queryButtonTitle = (optionsSubset) => {
+        let buttonHints = optionsSubset.buttonHints || {};
+        let buttonKey = viewDef.defaults.buttonTextKey; // use same key as text
+        if (buttonKey != null && buttonHints[buttonKey] != null) {
+            return buttonHints[buttonKey];
+        }
+        if (buttonHints[viewDef.type] != null) {
+            return buttonHints[viewDef.type];
+        }
+        if (buttonHints[singleUnit] != null) {
+            return buttonHints[singleUnit];
+        }
+        return null;
+    };
+    return {
+        type: viewDef.type,
+        component: viewDef.component,
+        duration,
+        durationUnit,
+        singleUnit,
+        optionDefaults: viewDef.defaults,
+        optionOverrides: Object.assign(Object.assign({}, singleUnitOverrides), viewDef.overrides),
+        buttonTextOverride: queryButtonText(dynamicOptionOverrides) ||
+            queryButtonText(optionOverrides) || // constructor-specified buttonText lookup hash takes precedence
+            viewDef.overrides.buttonText,
+        buttonTextDefault: queryButtonText(localeDefaults) ||
+            viewDef.defaults.buttonText ||
+            queryButtonText(BASE_OPTION_DEFAULTS) ||
+            viewDef.type,
+        // not DRY
+        buttonTitleOverride: queryButtonTitle(dynamicOptionOverrides) ||
+            queryButtonTitle(optionOverrides) ||
+            viewDef.overrides.buttonHint,
+        buttonTitleDefault: queryButtonTitle(localeDefaults) ||
+            viewDef.defaults.buttonHint ||
+            queryButtonTitle(BASE_OPTION_DEFAULTS),
+        // will eventually fall back to buttonText
+    };
+}
+// hack to get memoization working
+let durationInputMap = {};
+function createDurationCached(durationInput) {
+    let json = JSON.stringify(durationInput);
+    let res = durationInputMap[json];
+    if (res === undefined) {
+        res = createDuration(durationInput);
+        durationInputMap[json] = res;
+    }
+    return res;
+}
+
+function reduceViewType(viewType, action) {
+    switch (action.type) {
+        case 'CHANGE_VIEW_TYPE':
+            viewType = action.viewType;
+    }
+    return viewType;
+}
+
+function reduceCurrentDate(currentDate, action) {
+    switch (action.type) {
+        case 'CHANGE_DATE':
+            return action.dateMarker;
+        default:
+            return currentDate;
+    }
+}
+// should be initialized once and stay constant
+// this will change too
+function getInitialDate(options, dateEnv, nowManager) {
+    let initialDateInput = options.initialDate;
+    // compute the initial ambig-timezone date
+    if (initialDateInput != null) {
+        return dateEnv.createMarker(initialDateInput);
+    }
+    return nowManager.getDateMarker();
+}
+
+function reduceDynamicOptionOverrides(dynamicOptionOverrides, action) {
+    switch (action.type) {
+        case 'SET_OPTION':
+            return Object.assign(Object.assign({}, dynamicOptionOverrides), { [action.optionName]: action.rawOptionValue });
+        default:
+            return dynamicOptionOverrides;
+    }
+}
+
+function reduceDateProfile(currentDateProfile, action, currentDate, dateProfileGenerator) {
+    let dp;
+    switch (action.type) {
+        case 'CHANGE_VIEW_TYPE':
+            return dateProfileGenerator.build(action.dateMarker || currentDate);
+        case 'CHANGE_DATE':
+            return dateProfileGenerator.build(action.dateMarker);
+        case 'PREV':
+            dp = dateProfileGenerator.buildPrev(currentDateProfile, currentDate);
+            if (dp.isValid) {
+                return dp;
+            }
+            break;
+        case 'NEXT':
+            dp = dateProfileGenerator.buildNext(currentDateProfile, currentDate);
+            if (dp.isValid) {
+                return dp;
+            }
+            break;
+    }
+    return currentDateProfile;
+}
+
+function initEventSources(calendarOptions, dateProfile, context) {
+    let activeRange = dateProfile ? dateProfile.activeRange : null;
+    return addSources({}, parseInitialSources(calendarOptions, context), activeRange, context);
+}
+function reduceEventSources(eventSources, action, dateProfile, context) {
+    let activeRange = dateProfile ? dateProfile.activeRange : null; // need this check?
+    switch (action.type) {
+        case 'ADD_EVENT_SOURCES': // already parsed
+            return addSources(eventSources, action.sources, activeRange, context);
+        case 'REMOVE_EVENT_SOURCE':
+            return removeSource(eventSources, action.sourceId);
+        case 'PREV': // TODO: how do we track all actions that affect dateProfile :(
+        case 'NEXT':
+        case 'CHANGE_DATE':
+        case 'CHANGE_VIEW_TYPE':
+            if (dateProfile) {
+                return fetchDirtySources(eventSources, activeRange, context);
+            }
+            return eventSources;
+        case 'FETCH_EVENT_SOURCES':
+            return fetchSourcesByIds(eventSources, action.sourceIds ? // why no type?
+                arrayToHash(action.sourceIds) :
+                excludeStaticSources(eventSources, context), activeRange, action.isRefetch || false, context);
+        case 'RECEIVE_EVENTS':
+        case 'RECEIVE_EVENT_ERROR':
+            return receiveResponse(eventSources, action.sourceId, action.fetchId, action.fetchRange);
+        case 'REMOVE_ALL_EVENT_SOURCES':
+            return {};
+        default:
+            return eventSources;
+    }
+}
+function reduceEventSourcesNewTimeZone(eventSources, dateProfile, context) {
+    let activeRange = dateProfile ? dateProfile.activeRange : null; // need this check?
+    return fetchSourcesByIds(eventSources, excludeStaticSources(eventSources, context), activeRange, true, context);
+}
+function computeEventSourcesLoading(eventSources) {
+    for (let sourceId in eventSources) {
+        if (eventSources[sourceId].isFetching) {
+            return true;
+        }
+    }
+    return false;
+}
+function addSources(eventSourceHash, sources, fetchRange, context) {
+    let hash = {};
+    for (let source of sources) {
+        hash[source.sourceId] = source;
+    }
+    if (fetchRange) {
+        hash = fetchDirtySources(hash, fetchRange, context);
+    }
+    return Object.assign(Object.assign({}, eventSourceHash), hash);
+}
+function removeSource(eventSourceHash, sourceId) {
+    return filterHash(eventSourceHash, (eventSource) => eventSource.sourceId !== sourceId);
+}
+function fetchDirtySources(sourceHash, fetchRange, context) {
+    return fetchSourcesByIds(sourceHash, filterHash(sourceHash, (eventSource) => isSourceDirty(eventSource, fetchRange, context)), fetchRange, false, context);
+}
+function isSourceDirty(eventSource, fetchRange, context) {
+    if (!doesSourceNeedRange(eventSource, context)) {
+        return !eventSource.latestFetchId;
+    }
+    return !context.options.lazyFetching ||
+        !eventSource.fetchRange ||
+        eventSource.isFetching || // always cancel outdated in-progress fetches
+        fetchRange.start < eventSource.fetchRange.start ||
+        fetchRange.end > eventSource.fetchRange.end;
+}
+function fetchSourcesByIds(prevSources, sourceIdHash, fetchRange, isRefetch, context) {
+    let nextSources = {};
+    for (let sourceId in prevSources) {
+        let source = prevSources[sourceId];
+        if (sourceIdHash[sourceId]) {
+            nextSources[sourceId] = fetchSource(source, fetchRange, isRefetch, context);
+        }
+        else {
+            nextSources[sourceId] = source;
+        }
+    }
+    return nextSources;
+}
+function fetchSource(eventSource, fetchRange, isRefetch, context) {
+    let { options, calendarApi } = context;
+    let sourceDef = context.pluginHooks.eventSourceDefs[eventSource.sourceDefId];
+    let fetchId = guid();
+    sourceDef.fetch({
+        eventSource,
+        range: fetchRange,
+        isRefetch,
+        context,
+    }, (res) => {
+        let { rawEvents } = res;
+        if (options.eventSourceSuccess) {
+            rawEvents = options.eventSourceSuccess.call(calendarApi, rawEvents, res.response) || rawEvents;
+        }
+        if (eventSource.success) {
+            rawEvents = eventSource.success.call(calendarApi, rawEvents, res.response) || rawEvents;
+        }
+        context.dispatch({
+            type: 'RECEIVE_EVENTS',
+            sourceId: eventSource.sourceId,
+            fetchId,
+            fetchRange,
+            rawEvents,
+        });
+    }, (error) => {
+        let errorHandled = false;
+        if (options.eventSourceFailure) {
+            options.eventSourceFailure.call(calendarApi, error);
+            errorHandled = true;
+        }
+        if (eventSource.failure) {
+            eventSource.failure(error);
+            errorHandled = true;
+        }
+        if (!errorHandled) {
+            console.warn(error.message, error);
+        }
+        context.dispatch({
+            type: 'RECEIVE_EVENT_ERROR',
+            sourceId: eventSource.sourceId,
+            fetchId,
+            fetchRange,
+            error,
+        });
+    });
+    return Object.assign(Object.assign({}, eventSource), { isFetching: true, latestFetchId: fetchId });
+}
+function receiveResponse(sourceHash, sourceId, fetchId, fetchRange) {
+    let eventSource = sourceHash[sourceId];
+    if (eventSource && // not already removed
+        fetchId === eventSource.latestFetchId) {
+        return Object.assign(Object.assign({}, sourceHash), { [sourceId]: Object.assign(Object.assign({}, eventSource), { isFetching: false, fetchRange }) });
+    }
+    return sourceHash;
+}
+function excludeStaticSources(eventSources, context) {
+    return filterHash(eventSources, (eventSource) => doesSourceNeedRange(eventSource, context));
+}
+function parseInitialSources(rawOptions, context) {
+    let refiners = buildEventSourceRefiners(context);
+    let rawSources = [].concat(rawOptions.eventSources || []);
+    let sources = []; // parsed
+    if (rawOptions.initialEvents) {
+        rawSources.unshift(rawOptions.initialEvents);
+    }
+    if (rawOptions.events) {
+        rawSources.unshift(rawOptions.events);
+    }
+    for (let rawSource of rawSources) {
+        let source = parseEventSource(rawSource, context, refiners);
+        if (source) {
+            sources.push(source);
+        }
+    }
+    return sources;
+}
+function doesSourceNeedRange(eventSource, context) {
+    let defs = context.pluginHooks.eventSourceDefs;
+    return !defs[eventSource.sourceDefId].ignoreRange;
+}
+
+function reduceDateSelection(currentSelection, action) {
+    switch (action.type) {
+        case 'UNSELECT_DATES':
+            return null;
+        case 'SELECT_DATES':
+            return action.selection;
+        default:
+            return currentSelection;
+    }
+}
+
+function reduceSelectedEvent(currentInstanceId, action) {
+    switch (action.type) {
+        case 'UNSELECT_EVENT':
+            return '';
+        case 'SELECT_EVENT':
+            return action.eventInstanceId;
+        default:
+            return currentInstanceId;
+    }
+}
+
+function reduceEventDrag(currentDrag, action) {
+    let newDrag;
+    switch (action.type) {
+        case 'UNSET_EVENT_DRAG':
+            return null;
+        case 'SET_EVENT_DRAG':
+            newDrag = action.state;
+            return {
+                affectedEvents: newDrag.affectedEvents,
+                mutatedEvents: newDrag.mutatedEvents,
+                isEvent: newDrag.isEvent,
+            };
+        default:
+            return currentDrag;
+    }
+}
+
+function reduceEventResize(currentResize, action) {
+    let newResize;
+    switch (action.type) {
+        case 'UNSET_EVENT_RESIZE':
+            return null;
+        case 'SET_EVENT_RESIZE':
+            newResize = action.state;
+            return {
+                affectedEvents: newResize.affectedEvents,
+                mutatedEvents: newResize.mutatedEvents,
+                isEvent: newResize.isEvent,
+            };
+        default:
+            return currentResize;
+    }
+}
+
+function parseToolbars(calendarOptions, calendarOptionOverrides, theme, viewSpecs, calendarApi) {
+    let header = calendarOptions.headerToolbar ? parseToolbar(calendarOptions.headerToolbar, calendarOptions, calendarOptionOverrides, theme, viewSpecs, calendarApi) : null;
+    let footer = calendarOptions.footerToolbar ? parseToolbar(calendarOptions.footerToolbar, calendarOptions, calendarOptionOverrides, theme, viewSpecs, calendarApi) : null;
+    return { header, footer };
+}
+function parseToolbar(sectionStrHash, calendarOptions, calendarOptionOverrides, theme, viewSpecs, calendarApi) {
+    let sectionWidgets = {};
+    let viewsWithButtons = [];
+    let hasTitle = false;
+    for (let sectionName in sectionStrHash) {
+        let sectionStr = sectionStrHash[sectionName];
+        let sectionRes = parseSection(sectionStr, calendarOptions, calendarOptionOverrides, theme, viewSpecs, calendarApi);
+        sectionWidgets[sectionName] = sectionRes.widgets;
+        viewsWithButtons.push(...sectionRes.viewsWithButtons);
+        hasTitle = hasTitle || sectionRes.hasTitle;
+    }
+    return { sectionWidgets, viewsWithButtons, hasTitle };
+}
+/*
+BAD: querying icons and text here. should be done at render time
+*/
+function parseSection(sectionStr, calendarOptions, // defaults+overrides, then refined
+calendarOptionOverrides, // overrides only!, unrefined :(
+theme, viewSpecs, calendarApi) {
+    let isRtl = calendarOptions.direction === 'rtl';
+    let calendarCustomButtons = calendarOptions.customButtons || {};
+    let calendarButtonTextOverrides = calendarOptionOverrides.buttonText || {};
+    let calendarButtonText = calendarOptions.buttonText || {};
+    let calendarButtonHintOverrides = calendarOptionOverrides.buttonHints || {};
+    let calendarButtonHints = calendarOptions.buttonHints || {};
+    let sectionSubstrs = sectionStr ? sectionStr.split(' ') : [];
+    let viewsWithButtons = [];
+    let hasTitle = false;
+    let widgets = sectionSubstrs.map((buttonGroupStr) => (buttonGroupStr.split(',').map((buttonName) => {
+        if (buttonName === 'title') {
+            hasTitle = true;
+            return { buttonName };
+        }
+        let customButtonProps;
+        let viewSpec;
+        let buttonClick;
+        let buttonIcon; // only one of these will be set
+        let buttonText; // "
+        let buttonHint;
+        // ^ for the title="" attribute, for accessibility
+        if ((customButtonProps = calendarCustomButtons[buttonName])) {
+            buttonClick = (ev) => {
+                if (customButtonProps.click) {
+                    customButtonProps.click.call(ev.target, ev, ev.target); // TODO: use Calendar this context?
+                }
+            };
+            (buttonIcon = theme.getCustomButtonIconClass(customButtonProps)) ||
+                (buttonIcon = theme.getIconClass(buttonName, isRtl)) ||
+                (buttonText = customButtonProps.text);
+            buttonHint = customButtonProps.hint || customButtonProps.text;
+        }
+        else if ((viewSpec = viewSpecs[buttonName])) {
+            viewsWithButtons.push(buttonName);
+            buttonClick = () => {
+                calendarApi.changeView(buttonName);
+            };
+            (buttonText = viewSpec.buttonTextOverride) ||
+                (buttonIcon = theme.getIconClass(buttonName, isRtl)) ||
+                (buttonText = viewSpec.buttonTextDefault);
+            let textFallback = viewSpec.buttonTextOverride ||
+                viewSpec.buttonTextDefault;
+            buttonHint = formatWithOrdinals(viewSpec.buttonTitleOverride ||
+                viewSpec.buttonTitleDefault ||
+                calendarOptions.viewHint, [textFallback, buttonName], // view-name = buttonName
+            textFallback);
+        }
+        else if (calendarApi[buttonName]) { // a calendarApi method
+            buttonClick = () => {
+                calendarApi[buttonName]();
+            };
+            (buttonText = calendarButtonTextOverrides[buttonName]) ||
+                (buttonIcon = theme.getIconClass(buttonName, isRtl)) ||
+                (buttonText = calendarButtonText[buttonName]); // everything else is considered default
+            if (buttonName === 'prevYear' || buttonName === 'nextYear') {
+                let prevOrNext = buttonName === 'prevYear' ? 'prev' : 'next';
+                buttonHint = formatWithOrdinals(calendarButtonHintOverrides[prevOrNext] ||
+                    calendarButtonHints[prevOrNext], [
+                    calendarButtonText.year || 'year',
+                    'year',
+                ], calendarButtonText[buttonName]);
+            }
+            else {
+                buttonHint = (navUnit) => formatWithOrdinals(calendarButtonHintOverrides[buttonName] ||
+                    calendarButtonHints[buttonName], [
+                    calendarButtonText[navUnit] || navUnit,
+                    navUnit,
+                ], calendarButtonText[buttonName]);
+            }
+        }
+        return { buttonName, buttonClick, buttonIcon, buttonText, buttonHint };
+    })));
+    return { widgets, viewsWithButtons, hasTitle };
+}
+
+// always represents the current view. otherwise, it'd need to change value every time date changes
+class ViewImpl {
+    constructor(type, getCurrentData, dateEnv) {
+        this.type = type;
+        this.getCurrentData = getCurrentData;
+        this.dateEnv = dateEnv;
+    }
+    get calendar() {
+        return this.getCurrentData().calendarApi;
+    }
+    get title() {
+        return this.getCurrentData().viewTitle;
+    }
+    get activeStart() {
+        return this.dateEnv.toDate(this.getCurrentData().dateProfile.activeRange.start);
+    }
+    get activeEnd() {
+        return this.dateEnv.toDate(this.getCurrentData().dateProfile.activeRange.end);
+    }
+    get currentStart() {
+        return this.dateEnv.toDate(this.getCurrentData().dateProfile.currentRange.start);
+    }
+    get currentEnd() {
+        return this.dateEnv.toDate(this.getCurrentData().dateProfile.currentRange.end);
+    }
+    getOption(name) {
+        return this.getCurrentData().options[name]; // are the view-specific options
+    }
+}
+
+let eventSourceDef$2 = {
+    ignoreRange: true,
+    parseMeta(refined) {
+        if (Array.isArray(refined.events)) {
+            return refined.events;
+        }
+        return null;
+    },
+    fetch(arg, successCallback) {
+        successCallback({
+            rawEvents: arg.eventSource.meta,
+        });
+    },
+};
+const arrayEventSourcePlugin = createPlugin({
+    name: 'array-event-source',
+    eventSourceDefs: [eventSourceDef$2],
+});
+
+let eventSourceDef$1 = {
+    parseMeta(refined) {
+        if (typeof refined.events === 'function') {
+            return refined.events;
+        }
+        return null;
+    },
+    fetch(arg, successCallback, errorCallback) {
+        const { dateEnv } = arg.context;
+        const func = arg.eventSource.meta;
+        unpromisify(func.bind(null, buildRangeApiWithTimeZone(arg.range, dateEnv)), (rawEvents) => successCallback({ rawEvents }), errorCallback);
+    },
+};
+const funcEventSourcePlugin = createPlugin({
+    name: 'func-event-source',
+    eventSourceDefs: [eventSourceDef$1],
+});
+
+const JSON_FEED_EVENT_SOURCE_REFINERS = {
+    method: String,
+    extraParams: identity,
+    startParam: String,
+    endParam: String,
+    timeZoneParam: String,
+};
+
+let eventSourceDef = {
+    parseMeta(refined) {
+        if (refined.url && (refined.format === 'json' || !refined.format)) {
+            return {
+                url: refined.url,
+                format: 'json',
+                method: (refined.method || 'GET').toUpperCase(),
+                extraParams: refined.extraParams,
+                startParam: refined.startParam,
+                endParam: refined.endParam,
+                timeZoneParam: refined.timeZoneParam,
+            };
+        }
+        return null;
+    },
+    fetch(arg, successCallback, errorCallback) {
+        const { meta } = arg.eventSource;
+        const requestParams = buildRequestParams(meta, arg.range, arg.context);
+        requestJson(meta.method, meta.url, requestParams).then(([rawEvents, response]) => {
+            successCallback({ rawEvents, response });
+        }, errorCallback);
+    },
+};
+const jsonFeedEventSourcePlugin = createPlugin({
+    name: 'json-event-source',
+    eventSourceRefiners: JSON_FEED_EVENT_SOURCE_REFINERS,
+    eventSourceDefs: [eventSourceDef],
+});
+function buildRequestParams(meta, range, context) {
+    let { dateEnv, options } = context;
+    let startParam;
+    let endParam;
+    let timeZoneParam;
+    let customRequestParams;
+    let params = {};
+    startParam = meta.startParam;
+    if (startParam == null) {
+        startParam = options.startParam;
+    }
+    endParam = meta.endParam;
+    if (endParam == null) {
+        endParam = options.endParam;
+    }
+    timeZoneParam = meta.timeZoneParam;
+    if (timeZoneParam == null) {
+        timeZoneParam = options.timeZoneParam;
+    }
+    // retrieve any outbound GET/POST data from the options
+    if (typeof meta.extraParams === 'function') {
+        // supplied as a function that returns a key/value object
+        customRequestParams = meta.extraParams();
+    }
+    else {
+        // probably supplied as a straight key/value object
+        customRequestParams = meta.extraParams || {};
+    }
+    Object.assign(params, customRequestParams);
+    params[startParam] = dateEnv.formatIso(range.start);
+    params[endParam] = dateEnv.formatIso(range.end);
+    if (dateEnv.timeZone !== 'local') {
+        params[timeZoneParam] = dateEnv.timeZone;
+    }
+    return params;
+}
+
+const SIMPLE_RECURRING_REFINERS = {
+    daysOfWeek: identity,
+    startTime: createDuration,
+    endTime: createDuration,
+    duration: createDuration,
+    startRecur: identity,
+    endRecur: identity,
+};
+
+let recurring = {
+    parse(refined, dateEnv) {
+        if (refined.daysOfWeek || refined.startTime || refined.endTime || refined.startRecur || refined.endRecur) {
+            let recurringData = {
+                daysOfWeek: refined.daysOfWeek || null,
+                startTime: refined.startTime || null,
+                endTime: refined.endTime || null,
+                startRecur: refined.startRecur ? dateEnv.createMarker(refined.startRecur) : null,
+                endRecur: refined.endRecur ? dateEnv.createMarker(refined.endRecur) : null,
+                dateEnv,
+            };
+            let duration;
+            if (refined.duration) {
+                duration = refined.duration;
+            }
+            if (!duration && refined.startTime && refined.endTime) {
+                duration = subtractDurations(refined.endTime, refined.startTime);
+            }
+            return {
+                allDayGuess: Boolean(!refined.startTime && !refined.endTime),
+                duration,
+                typeData: recurringData, // doesn't need endTime anymore but oh well
+            };
+        }
+        return null;
+    },
+    expand(typeData, framingRange, dateEnv) {
+        let clippedFramingRange = intersectRanges(framingRange, { start: typeData.startRecur, end: typeData.endRecur });
+        if (clippedFramingRange) {
+            return expandRanges(typeData.daysOfWeek, typeData.startTime, typeData.dateEnv, dateEnv, clippedFramingRange);
+        }
+        return [];
+    },
+};
+const simpleRecurringEventsPlugin = createPlugin({
+    name: 'simple-recurring-event',
+    recurringTypes: [recurring],
+    eventRefiners: SIMPLE_RECURRING_REFINERS,
+});
+function expandRanges(daysOfWeek, startTime, eventDateEnv, calendarDateEnv, framingRange) {
+    let dowHash = daysOfWeek ? arrayToHash(daysOfWeek) : null;
+    let dayMarker = startOfDay(framingRange.start);
+    let endMarker = framingRange.end;
+    let instanceStarts = [];
+    // https://github.com/fullcalendar/fullcalendar/issues/7934
+    if (startTime) {
+        if (startTime.milliseconds < 0) {
+            // possible for next-day to have negative business hours that go into current day
+            endMarker = addDays(endMarker, 1);
+        }
+        else if (startTime.milliseconds >= 1000 * 60 * 60 * 24) {
+            // possible for prev-day to have >24hr business hours that go into current day
+            dayMarker = addDays(dayMarker, -1);
+        }
+    }
+    while (dayMarker < endMarker) {
+        let instanceStart;
+        // if everyday, or this particular day-of-week
+        if (!dowHash || dowHash[dayMarker.getUTCDay()]) {
+            if (startTime) {
+                instanceStart = calendarDateEnv.add(dayMarker, startTime);
+            }
+            else {
+                instanceStart = dayMarker;
+            }
+            instanceStarts.push(calendarDateEnv.createMarker(eventDateEnv.toDate(instanceStart)));
+        }
+        dayMarker = addDays(dayMarker, 1);
+    }
+    return instanceStarts;
+}
+
+const changeHandlerPlugin = createPlugin({
+    name: 'change-handler',
+    optionChangeHandlers: {
+        events(events, context) {
+            handleEventSources([events], context);
+        },
+        eventSources: handleEventSources,
+    },
+});
+/*
+BUG: if `event` was supplied, all previously-given `eventSources` will be wiped out
+*/
+function handleEventSources(inputs, context) {
+    let unfoundSources = hashValuesToArray(context.getCurrentData().eventSources);
+    if (unfoundSources.length === 1 &&
+        inputs.length === 1 &&
+        Array.isArray(unfoundSources[0]._raw) &&
+        Array.isArray(inputs[0])) {
+        context.dispatch({
+            type: 'RESET_RAW_EVENTS',
+            sourceId: unfoundSources[0].sourceId,
+            rawEvents: inputs[0],
+        });
+        return;
+    }
+    let newInputs = [];
+    for (let input of inputs) {
+        let inputFound = false;
+        for (let i = 0; i < unfoundSources.length; i += 1) {
+            if (unfoundSources[i]._raw === input) {
+                unfoundSources.splice(i, 1); // delete
+                inputFound = true;
+                break;
+            }
+        }
+        if (!inputFound) {
+            newInputs.push(input);
+        }
+    }
+    for (let unfoundSource of unfoundSources) {
+        context.dispatch({
+            type: 'REMOVE_EVENT_SOURCE',
+            sourceId: unfoundSource.sourceId,
+        });
+    }
+    for (let newInput of newInputs) {
+        context.calendarApi.addEventSource(newInput);
+    }
+}
+
+function handleDateProfile(dateProfile, context) {
+    context.emitter.trigger('datesSet', Object.assign(Object.assign({}, buildRangeApiWithTimeZone(dateProfile.activeRange, context.dateEnv)), { view: context.viewApi }));
+}
+
+function handleEventStore(eventStore, context) {
+    let { emitter } = context;
+    if (emitter.hasHandlers('eventsSet')) {
+        emitter.trigger('eventsSet', buildEventApis(eventStore, context));
+    }
+}
+
+/*
+this array is exposed on the root namespace so that UMD plugins can add to it.
+see the rollup-bundles script.
+*/
+const globalPlugins = [
+    arrayEventSourcePlugin,
+    funcEventSourcePlugin,
+    jsonFeedEventSourcePlugin,
+    simpleRecurringEventsPlugin,
+    changeHandlerPlugin,
+    createPlugin({
+        name: 'misc',
+        isLoadingFuncs: [
+            (state) => computeEventSourcesLoading(state.eventSources),
+        ],
+        propSetHandlers: {
+            dateProfile: handleDateProfile,
+            eventStore: handleEventStore,
+        },
+    }),
+];
+
+class TaskRunner {
+    constructor(runTaskOption, drainedOption) {
+        this.runTaskOption = runTaskOption;
+        this.drainedOption = drainedOption;
+        this.queue = [];
+        this.delayedRunner = new DelayedRunner(this.drain.bind(this));
+    }
+    request(task, delay) {
+        this.queue.push(task);
+        this.delayedRunner.request(delay);
+    }
+    pause(scope) {
+        this.delayedRunner.pause(scope);
+    }
+    resume(scope, force) {
+        this.delayedRunner.resume(scope, force);
+    }
+    drain() {
+        let { queue } = this;
+        while (queue.length) {
+            let completedTasks = [];
+            let task;
+            while ((task = queue.shift())) {
+                this.runTask(task);
+                completedTasks.push(task);
+            }
+            this.drained(completedTasks);
+        } // keep going, in case new tasks were added in the drained handler
+    }
+    runTask(task) {
+        if (this.runTaskOption) {
+            this.runTaskOption(task);
+        }
+    }
+    drained(completedTasks) {
+        if (this.drainedOption) {
+            this.drainedOption(completedTasks);
+        }
+    }
+}
+
+// Computes what the title at the top of the calendarApi should be for this view
+function buildTitle(dateProfile, viewOptions, dateEnv) {
+    let range;
+    // for views that span a large unit of time, show the proper interval, ignoring stray days before and after
+    if (/^(year|month)$/.test(dateProfile.currentRangeUnit)) {
+        range = dateProfile.currentRange;
+    }
+    else { // for day units or smaller, use the actual day range
+        range = dateProfile.activeRange;
+    }
+    return dateEnv.formatRange(range.start, range.end, createFormatter(viewOptions.titleFormat || buildTitleFormat(dateProfile)), {
+        isEndExclusive: dateProfile.isRangeAllDay,
+        defaultSeparator: viewOptions.titleRangeSeparator,
+    });
+}
+// Generates the format string that should be used to generate the title for the current date range.
+// Attempts to compute the most appropriate format if not explicitly specified with `titleFormat`.
+function buildTitleFormat(dateProfile) {
+    let { currentRangeUnit } = dateProfile;
+    if (currentRangeUnit === 'year') {
+        return { year: 'numeric' };
+    }
+    if (currentRangeUnit === 'month') {
+        return { year: 'numeric', month: 'long' }; // like "September 2014"
+    }
+    let days = diffWholeDays(dateProfile.currentRange.start, dateProfile.currentRange.end);
+    if (days !== null && days > 1) {
+        // multi-day range. shorter, like "Sep 9 - 10 2014"
+        return { year: 'numeric', month: 'short', day: 'numeric' };
+    }
+    // one day. longer, like "September 9 2014"
+    return { year: 'numeric', month: 'long', day: 'numeric' };
+}
+
+/*
+TODO: test switching timezones when NO timezone plugin
+*/
+class CalendarNowManager {
+    constructor() {
+        this.resetListeners = new Set();
+    }
+    handleInput(dateEnv, // will change if timezone setup changed
+    nowInput) {
+        const oldDateEnv = this.dateEnv;
+        if (dateEnv !== oldDateEnv) {
+            if (typeof nowInput === 'function') {
+                this.nowFn = nowInput;
+            }
+            else if (!oldDateEnv) { // first time?
+                this.nowAnchorDate = dateEnv.toDate(nowInput
+                    ? dateEnv.createMarker(nowInput)
+                    : dateEnv.createNowMarker());
+                this.nowAnchorQueried = Date.now();
+            }
+            this.dateEnv = dateEnv;
+            // not first time? fire reset handlers
+            if (oldDateEnv) {
+                for (const resetListener of this.resetListeners.values()) {
+                    resetListener();
+                }
+            }
+        }
+    }
+    getDateMarker() {
+        return this.nowAnchorDate
+            ? this.dateEnv.timestampToMarker(this.nowAnchorDate.valueOf() +
+                (Date.now() - this.nowAnchorQueried))
+            : this.dateEnv.createMarker(this.nowFn());
+    }
+    addResetListener(handler) {
+        this.resetListeners.add(handler);
+    }
+    removeResetListener(handler) {
+        this.resetListeners.delete(handler);
+    }
+}
+
+// in future refactor, do the redux-style function(state=initial) for initial-state
+// also, whatever is happening in constructor, have it happen in action queue too
+class CalendarDataManager {
+    constructor(props) {
+        this.computeCurrentViewData = memoize(this._computeCurrentViewData);
+        this.organizeRawLocales = memoize(organizeRawLocales);
+        this.buildLocale = memoize(buildLocale);
+        this.buildPluginHooks = buildBuildPluginHooks();
+        this.buildDateEnv = memoize(buildDateEnv$1);
+        this.buildTheme = memoize(buildTheme);
+        this.parseToolbars = memoize(parseToolbars);
+        this.buildViewSpecs = memoize(buildViewSpecs);
+        this.buildDateProfileGenerator = memoizeObjArg(buildDateProfileGenerator);
+        this.buildViewApi = memoize(buildViewApi);
+        this.buildViewUiProps = memoizeObjArg(buildViewUiProps);
+        this.buildEventUiBySource = memoize(buildEventUiBySource, isPropsEqual);
+        this.buildEventUiBases = memoize(buildEventUiBases);
+        this.parseContextBusinessHours = memoizeObjArg(parseContextBusinessHours);
+        this.buildTitle = memoize(buildTitle);
+        this.nowManager = new CalendarNowManager();
+        this.emitter = new Emitter();
+        this.actionRunner = new TaskRunner(this._handleAction.bind(this), this.updateData.bind(this));
+        this.currentCalendarOptionsInput = {};
+        this.currentCalendarOptionsRefined = {};
+        this.currentViewOptionsInput = {};
+        this.currentViewOptionsRefined = {};
+        this.currentCalendarOptionsRefiners = {};
+        this.optionsForRefining = [];
+        this.optionsForHandling = [];
+        this.getCurrentData = () => this.data;
+        this.dispatch = (action) => {
+            this.actionRunner.request(action); // protects against recursive calls to _handleAction
+        };
+        this.props = props;
+        this.actionRunner.pause();
+        this.nowManager = new CalendarNowManager();
+        let dynamicOptionOverrides = {};
+        let optionsData = this.computeOptionsData(props.optionOverrides, dynamicOptionOverrides, props.calendarApi);
+        let currentViewType = optionsData.calendarOptions.initialView || optionsData.pluginHooks.initialView;
+        let currentViewData = this.computeCurrentViewData(currentViewType, optionsData, props.optionOverrides, dynamicOptionOverrides);
+        // wire things up
+        // TODO: not DRY
+        props.calendarApi.currentDataManager = this;
+        this.emitter.setThisContext(props.calendarApi);
+        this.emitter.setOptions(currentViewData.options);
+        let calendarContext = {
+            nowManager: this.nowManager,
+            dateEnv: optionsData.dateEnv,
+            options: optionsData.calendarOptions,
+            pluginHooks: optionsData.pluginHooks,
+            calendarApi: props.calendarApi,
+            dispatch: this.dispatch,
+            emitter: this.emitter,
+            getCurrentData: this.getCurrentData,
+        };
+        let currentDate = getInitialDate(optionsData.calendarOptions, optionsData.dateEnv, this.nowManager);
+        let dateProfile = currentViewData.dateProfileGenerator.build(currentDate);
+        if (!rangeContainsMarker(dateProfile.activeRange, currentDate)) {
+            currentDate = dateProfile.currentRange.start;
+        }
+        // needs to be after setThisContext
+        for (let callback of optionsData.pluginHooks.contextInit) {
+            callback(calendarContext);
+        }
+        // NOT DRY
+        let eventSources = initEventSources(optionsData.calendarOptions, dateProfile, calendarContext);
+        let initialState = {
+            dynamicOptionOverrides,
+            currentViewType,
+            currentDate,
+            dateProfile,
+            businessHours: this.parseContextBusinessHours(calendarContext),
+            eventSources,
+            eventUiBases: {},
+            eventStore: createEmptyEventStore(),
+            renderableEventStore: createEmptyEventStore(),
+            dateSelection: null,
+            eventSelection: '',
+            eventDrag: null,
+            eventResize: null,
+            selectionConfig: this.buildViewUiProps(calendarContext).selectionConfig,
+        };
+        let contextAndState = Object.assign(Object.assign({}, calendarContext), initialState);
+        for (let reducer of optionsData.pluginHooks.reducers) {
+            Object.assign(initialState, reducer(null, null, contextAndState));
+        }
+        if (computeIsLoading(initialState, calendarContext)) {
+            this.emitter.trigger('loading', true); // NOT DRY
+        }
+        this.state = initialState;
+        this.updateData();
+        this.actionRunner.resume();
+    }
+    resetOptions(optionOverrides, changedOptionNames) {
+        let { props } = this;
+        if (changedOptionNames === undefined) {
+            props.optionOverrides = optionOverrides;
+        }
+        else {
+            props.optionOverrides = Object.assign(Object.assign({}, (props.optionOverrides || {})), optionOverrides);
+            this.optionsForRefining.push(...changedOptionNames);
+        }
+        if (changedOptionNames === undefined || changedOptionNames.length) {
+            this.actionRunner.request({
+                type: 'NOTHING',
+            });
+        }
+    }
+    _handleAction(action) {
+        let { props, state, emitter } = this;
+        let dynamicOptionOverrides = reduceDynamicOptionOverrides(state.dynamicOptionOverrides, action);
+        let optionsData = this.computeOptionsData(props.optionOverrides, dynamicOptionOverrides, props.calendarApi);
+        let currentViewType = reduceViewType(state.currentViewType, action);
+        let currentViewData = this.computeCurrentViewData(currentViewType, optionsData, props.optionOverrides, dynamicOptionOverrides);
+        // wire things up
+        // TODO: not DRY
+        props.calendarApi.currentDataManager = this;
+        emitter.setThisContext(props.calendarApi);
+        emitter.setOptions(currentViewData.options);
+        let calendarContext = {
+            nowManager: this.nowManager,
+            dateEnv: optionsData.dateEnv,
+            options: optionsData.calendarOptions,
+            pluginHooks: optionsData.pluginHooks,
+            calendarApi: props.calendarApi,
+            dispatch: this.dispatch,
+            emitter,
+            getCurrentData: this.getCurrentData,
+        };
+        let { currentDate, dateProfile } = state;
+        if (this.data && this.data.dateProfileGenerator !== currentViewData.dateProfileGenerator) { // hack
+            dateProfile = currentViewData.dateProfileGenerator.build(currentDate);
+        }
+        currentDate = reduceCurrentDate(currentDate, action);
+        dateProfile = reduceDateProfile(dateProfile, action, currentDate, currentViewData.dateProfileGenerator);
+        if (action.type === 'PREV' || // TODO: move this logic into DateProfileGenerator
+            action.type === 'NEXT' || // "
+            !rangeContainsMarker(dateProfile.currentRange, currentDate)) {
+            currentDate = dateProfile.currentRange.start;
+        }
+        let eventSources = reduceEventSources(state.eventSources, action, dateProfile, calendarContext);
+        let eventStore = reduceEventStore(state.eventStore, action, eventSources, dateProfile, calendarContext);
+        let isEventsLoading = computeEventSourcesLoading(eventSources); // BAD. also called in this func in computeIsLoading
+        let renderableEventStore = (isEventsLoading && !currentViewData.options.progressiveEventRendering) ?
+            (state.renderableEventStore || eventStore) : // try from previous state
+            eventStore;
+        let { eventUiSingleBase, selectionConfig } = this.buildViewUiProps(calendarContext); // will memoize obj
+        let eventUiBySource = this.buildEventUiBySource(eventSources);
+        let eventUiBases = this.buildEventUiBases(renderableEventStore.defs, eventUiSingleBase, eventUiBySource);
+        let newState = {
+            dynamicOptionOverrides,
+            currentViewType,
+            currentDate,
+            dateProfile,
+            eventSources,
+            eventStore,
+            renderableEventStore,
+            selectionConfig,
+            eventUiBases,
+            businessHours: this.parseContextBusinessHours(calendarContext),
+            dateSelection: reduceDateSelection(state.dateSelection, action),
+            eventSelection: reduceSelectedEvent(state.eventSelection, action),
+            eventDrag: reduceEventDrag(state.eventDrag, action),
+            eventResize: reduceEventResize(state.eventResize, action),
+        };
+        let contextAndState = Object.assign(Object.assign({}, calendarContext), newState);
+        for (let reducer of optionsData.pluginHooks.reducers) {
+            Object.assign(newState, reducer(state, action, contextAndState)); // give the OLD state, for old value
+        }
+        let wasLoading = computeIsLoading(state, calendarContext);
+        let isLoading = computeIsLoading(newState, calendarContext);
+        // TODO: use propSetHandlers in plugin system
+        if (!wasLoading && isLoading) {
+            emitter.trigger('loading', true);
+        }
+        else if (wasLoading && !isLoading) {
+            emitter.trigger('loading', false);
+        }
+        this.state = newState;
+        if (props.onAction) {
+            props.onAction(action);
+        }
+    }
+    updateData() {
+        let { props, state } = this;
+        let oldData = this.data;
+        let optionsData = this.computeOptionsData(props.optionOverrides, state.dynamicOptionOverrides, props.calendarApi);
+        let currentViewData = this.computeCurrentViewData(state.currentViewType, optionsData, props.optionOverrides, state.dynamicOptionOverrides);
+        let data = this.data = Object.assign(Object.assign(Object.assign({ nowManager: this.nowManager, viewTitle: this.buildTitle(state.dateProfile, currentViewData.options, optionsData.dateEnv), calendarApi: props.calendarApi, dispatch: this.dispatch, emitter: this.emitter, getCurrentData: this.getCurrentData }, optionsData), currentViewData), state);
+        let changeHandlers = optionsData.pluginHooks.optionChangeHandlers;
+        let oldCalendarOptions = oldData && oldData.calendarOptions;
+        let newCalendarOptions = optionsData.calendarOptions;
+        if (oldCalendarOptions && oldCalendarOptions !== newCalendarOptions) {
+            if (oldCalendarOptions.timeZone !== newCalendarOptions.timeZone) {
+                // hack
+                state.eventSources = data.eventSources = reduceEventSourcesNewTimeZone(data.eventSources, state.dateProfile, data);
+                state.eventStore = data.eventStore = rezoneEventStoreDates(data.eventStore, oldData.dateEnv, data.dateEnv);
+                state.renderableEventStore = data.renderableEventStore = rezoneEventStoreDates(data.renderableEventStore, oldData.dateEnv, data.dateEnv);
+            }
+            for (let optionName in changeHandlers) {
+                if (this.optionsForHandling.indexOf(optionName) !== -1 ||
+                    oldCalendarOptions[optionName] !== newCalendarOptions[optionName]) {
+                    changeHandlers[optionName](newCalendarOptions[optionName], data);
+                }
+            }
+        }
+        this.optionsForHandling = [];
+        if (props.onData) {
+            props.onData(data);
+        }
+    }
+    computeOptionsData(optionOverrides, dynamicOptionOverrides, calendarApi) {
+        // TODO: blacklist options that are handled by optionChangeHandlers
+        if (!this.optionsForRefining.length &&
+            optionOverrides === this.stableOptionOverrides &&
+            dynamicOptionOverrides === this.stableDynamicOptionOverrides) {
+            return this.stableCalendarOptionsData;
+        }
+        let { refinedOptions, pluginHooks, localeDefaults, availableLocaleData, extra, } = this.processRawCalendarOptions(optionOverrides, dynamicOptionOverrides);
+        warnUnknownOptions(extra);
+        let dateEnv = this.buildDateEnv(refinedOptions.timeZone, refinedOptions.locale, refinedOptions.weekNumberCalculation, refinedOptions.firstDay, refinedOptions.weekText, pluginHooks, availableLocaleData, refinedOptions.defaultRangeSeparator);
+        let viewSpecs = this.buildViewSpecs(pluginHooks.views, this.stableOptionOverrides, this.stableDynamicOptionOverrides, localeDefaults);
+        let theme = this.buildTheme(refinedOptions, pluginHooks);
+        let toolbarConfig = this.parseToolbars(refinedOptions, this.stableOptionOverrides, theme, viewSpecs, calendarApi);
+        return this.stableCalendarOptionsData = {
+            calendarOptions: refinedOptions,
+            pluginHooks,
+            dateEnv,
+            viewSpecs,
+            theme,
+            toolbarConfig,
+            localeDefaults,
+            availableRawLocales: availableLocaleData.map,
+        };
+    }
+    // always called from behind a memoizer
+    processRawCalendarOptions(optionOverrides, dynamicOptionOverrides) {
+        let { locales, locale } = mergeRawOptions([
+            BASE_OPTION_DEFAULTS,
+            optionOverrides,
+            dynamicOptionOverrides,
+        ]);
+        let availableLocaleData = this.organizeRawLocales(locales);
+        let availableRawLocales = availableLocaleData.map;
+        let localeDefaults = this.buildLocale(locale || availableLocaleData.defaultCode, availableRawLocales).options;
+        let pluginHooks = this.buildPluginHooks(optionOverrides.plugins || [], globalPlugins);
+        let refiners = this.currentCalendarOptionsRefiners = Object.assign(Object.assign(Object.assign(Object.assign(Object.assign({}, BASE_OPTION_REFINERS), CALENDAR_LISTENER_REFINERS), CALENDAR_OPTION_REFINERS), pluginHooks.listenerRefiners), pluginHooks.optionRefiners);
+        let extra = {};
+        let raw = mergeRawOptions([
+            BASE_OPTION_DEFAULTS,
+            localeDefaults,
+            optionOverrides,
+            dynamicOptionOverrides,
+        ]);
+        let refined = {};
+        let currentRaw = this.currentCalendarOptionsInput;
+        let currentRefined = this.currentCalendarOptionsRefined;
+        let anyChanges = false;
+        for (let optionName in raw) {
+            if (this.optionsForRefining.indexOf(optionName) === -1 && (raw[optionName] === currentRaw[optionName] || (COMPLEX_OPTION_COMPARATORS[optionName] &&
+                (optionName in currentRaw) &&
+                COMPLEX_OPTION_COMPARATORS[optionName](currentRaw[optionName], raw[optionName])))) {
+                refined[optionName] = currentRefined[optionName];
+            }
+            else if (refiners[optionName]) {
+                refined[optionName] = refiners[optionName](raw[optionName]);
+                anyChanges = true;
+            }
+            else {
+                extra[optionName] = currentRaw[optionName];
+            }
+        }
+        if (anyChanges) {
+            this.currentCalendarOptionsInput = raw;
+            this.currentCalendarOptionsRefined = refined;
+            this.stableOptionOverrides = optionOverrides;
+            this.stableDynamicOptionOverrides = dynamicOptionOverrides;
+        }
+        this.optionsForHandling.push(...this.optionsForRefining);
+        this.optionsForRefining = [];
+        return {
+            rawOptions: this.currentCalendarOptionsInput,
+            refinedOptions: this.currentCalendarOptionsRefined,
+            pluginHooks,
+            availableLocaleData,
+            localeDefaults,
+            extra,
+        };
+    }
+    _computeCurrentViewData(viewType, optionsData, optionOverrides, dynamicOptionOverrides) {
+        let viewSpec = optionsData.viewSpecs[viewType];
+        if (!viewSpec) {
+            throw new Error(`viewType "${viewType}" is not available. Please make sure you've loaded all neccessary plugins`);
+        }
+        let { refinedOptions, extra } = this.processRawViewOptions(viewSpec, optionsData.pluginHooks, optionsData.localeDefaults, optionOverrides, dynamicOptionOverrides);
+        warnUnknownOptions(extra);
+        this.nowManager.handleInput(optionsData.dateEnv, refinedOptions.now);
+        let dateProfileGenerator = this.buildDateProfileGenerator({
+            dateProfileGeneratorClass: viewSpec.optionDefaults.dateProfileGeneratorClass,
+            nowManager: this.nowManager,
+            duration: viewSpec.duration,
+            durationUnit: viewSpec.durationUnit,
+            usesMinMaxTime: viewSpec.optionDefaults.usesMinMaxTime,
+            dateEnv: optionsData.dateEnv,
+            calendarApi: this.props.calendarApi,
+            slotMinTime: refinedOptions.slotMinTime,
+            slotMaxTime: refinedOptions.slotMaxTime,
+            showNonCurrentDates: refinedOptions.showNonCurrentDates,
+            dayCount: refinedOptions.dayCount,
+            dateAlignment: refinedOptions.dateAlignment,
+            dateIncrement: refinedOptions.dateIncrement,
+            hiddenDays: refinedOptions.hiddenDays,
+            weekends: refinedOptions.weekends,
+            validRangeInput: refinedOptions.validRange,
+            visibleRangeInput: refinedOptions.visibleRange,
+            fixedWeekCount: refinedOptions.fixedWeekCount,
+        });
+        let viewApi = this.buildViewApi(viewType, this.getCurrentData, optionsData.dateEnv);
+        return { viewSpec, options: refinedOptions, dateProfileGenerator, viewApi };
+    }
+    processRawViewOptions(viewSpec, pluginHooks, localeDefaults, optionOverrides, dynamicOptionOverrides) {
+        let raw = mergeRawOptions([
+            BASE_OPTION_DEFAULTS,
+            viewSpec.optionDefaults,
+            localeDefaults,
+            optionOverrides,
+            viewSpec.optionOverrides,
+            dynamicOptionOverrides,
+        ]);
+        let refiners = Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign({}, BASE_OPTION_REFINERS), CALENDAR_LISTENER_REFINERS), CALENDAR_OPTION_REFINERS), VIEW_OPTION_REFINERS), pluginHooks.listenerRefiners), pluginHooks.optionRefiners);
+        let refined = {};
+        let currentRaw = this.currentViewOptionsInput;
+        let currentRefined = this.currentViewOptionsRefined;
+        let anyChanges = false;
+        let extra = {};
+        for (let optionName in raw) {
+            if (raw[optionName] === currentRaw[optionName] ||
+                (COMPLEX_OPTION_COMPARATORS[optionName] &&
+                    COMPLEX_OPTION_COMPARATORS[optionName](raw[optionName], currentRaw[optionName]))) {
+                refined[optionName] = currentRefined[optionName];
+            }
+            else {
+                if (raw[optionName] === this.currentCalendarOptionsInput[optionName] ||
+                    (COMPLEX_OPTION_COMPARATORS[optionName] &&
+                        COMPLEX_OPTION_COMPARATORS[optionName](raw[optionName], this.currentCalendarOptionsInput[optionName]))) {
+                    if (optionName in this.currentCalendarOptionsRefined) { // might be an "extra" prop
+                        refined[optionName] = this.currentCalendarOptionsRefined[optionName];
+                    }
+                }
+                else if (refiners[optionName]) {
+                    refined[optionName] = refiners[optionName](raw[optionName]);
+                }
+                else {
+                    extra[optionName] = raw[optionName];
+                }
+                anyChanges = true;
+            }
+        }
+        if (anyChanges) {
+            this.currentViewOptionsInput = raw;
+            this.currentViewOptionsRefined = refined;
+        }
+        return {
+            rawOptions: this.currentViewOptionsInput,
+            refinedOptions: this.currentViewOptionsRefined,
+            extra,
+        };
+    }
+}
+function buildDateEnv$1(timeZone, explicitLocale, weekNumberCalculation, firstDay, weekText, pluginHooks, availableLocaleData, defaultSeparator) {
+    let locale = buildLocale(explicitLocale || availableLocaleData.defaultCode, availableLocaleData.map);
+    return new DateEnv({
+        calendarSystem: 'gregory',
+        timeZone,
+        namedTimeZoneImpl: pluginHooks.namedTimeZonedImpl,
+        locale,
+        weekNumberCalculation,
+        firstDay,
+        weekText,
+        cmdFormatter: pluginHooks.cmdFormatter,
+        defaultSeparator,
+    });
+}
+function buildTheme(options, pluginHooks) {
+    let ThemeClass = pluginHooks.themeClasses[options.themeSystem] || StandardTheme;
+    return new ThemeClass(options);
+}
+function buildDateProfileGenerator(props) {
+    let DateProfileGeneratorClass = props.dateProfileGeneratorClass || DateProfileGenerator;
+    return new DateProfileGeneratorClass(props);
+}
+function buildViewApi(type, getCurrentData, dateEnv) {
+    return new ViewImpl(type, getCurrentData, dateEnv);
+}
+function buildEventUiBySource(eventSources) {
+    return mapHash(eventSources, (eventSource) => eventSource.ui);
+}
+function buildEventUiBases(eventDefs, eventUiSingleBase, eventUiBySource) {
+    let eventUiBases = { '': eventUiSingleBase };
+    for (let defId in eventDefs) {
+        let def = eventDefs[defId];
+        if (def.sourceId && eventUiBySource[def.sourceId]) {
+            eventUiBases[defId] = eventUiBySource[def.sourceId];
+        }
+    }
+    return eventUiBases;
+}
+function buildViewUiProps(calendarContext) {
+    let { options } = calendarContext;
+    return {
+        eventUiSingleBase: createEventUi({
+            display: options.eventDisplay,
+            editable: options.editable,
+            startEditable: options.eventStartEditable,
+            durationEditable: options.eventDurationEditable,
+            constraint: options.eventConstraint,
+            overlap: typeof options.eventOverlap === 'boolean' ? options.eventOverlap : undefined,
+            allow: options.eventAllow,
+            backgroundColor: options.eventBackgroundColor,
+            borderColor: options.eventBorderColor,
+            textColor: options.eventTextColor,
+            color: options.eventColor,
+            // classNames: options.eventClassNames // render hook will handle this
+        }, calendarContext),
+        selectionConfig: createEventUi({
+            constraint: options.selectConstraint,
+            overlap: typeof options.selectOverlap === 'boolean' ? options.selectOverlap : undefined,
+            allow: options.selectAllow,
+        }, calendarContext),
+    };
+}
+function computeIsLoading(state, context) {
+    for (let isLoadingFunc of context.pluginHooks.isLoadingFuncs) {
+        if (isLoadingFunc(state)) {
+            return true;
+        }
+    }
+    return false;
+}
+function parseContextBusinessHours(calendarContext) {
+    return parseBusinessHours(calendarContext.options.businessHours, calendarContext);
+}
+function warnUnknownOptions(options, viewName) {
+    for (let optionName in options) {
+        console.warn(`Unknown option '${optionName}'` +
+            (viewName ? ` for view '${viewName}'` : ''));
+    }
+}
+
+class ToolbarSection extends BaseComponent {
+    render() {
+        let children = this.props.widgetGroups.map((widgetGroup) => this.renderWidgetGroup(widgetGroup));
+        return createElement('div', { className: 'fc-toolbar-chunk' }, ...children);
+    }
+    renderWidgetGroup(widgetGroup) {
+        let { props } = this;
+        let { theme } = this.context;
+        let children = [];
+        let isOnlyButtons = true;
+        for (let widget of widgetGroup) {
+            let { buttonName, buttonClick, buttonText, buttonIcon, buttonHint } = widget;
+            if (buttonName === 'title') {
+                isOnlyButtons = false;
+                children.push(createElement("h2", { className: "fc-toolbar-title", id: props.titleId }, props.title));
+            }
+            else {
+                let isPressed = buttonName === props.activeButton;
+                let isDisabled = (!props.isTodayEnabled && buttonName === 'today') ||
+                    (!props.isPrevEnabled && buttonName === 'prev') ||
+                    (!props.isNextEnabled && buttonName === 'next');
+                let buttonClasses = [`fc-${buttonName}-button`, theme.getClass('button')];
+                if (isPressed) {
+                    buttonClasses.push(theme.getClass('buttonActive'));
+                }
+                children.push(createElement("button", { type: "button", title: typeof buttonHint === 'function' ? buttonHint(props.navUnit) : buttonHint, disabled: isDisabled, "aria-pressed": isPressed, className: buttonClasses.join(' '), onClick: buttonClick }, buttonText || (buttonIcon ? createElement("span", { className: buttonIcon, role: "img" }) : '')));
+            }
+        }
+        if (children.length > 1) {
+            let groupClassName = (isOnlyButtons && theme.getClass('buttonGroup')) || '';
+            return createElement('div', { className: groupClassName }, ...children);
+        }
+        return children[0];
+    }
+}
+
+class Toolbar extends BaseComponent {
+    render() {
+        let { model, extraClassName } = this.props;
+        let forceLtr = false;
+        let startContent;
+        let endContent;
+        let sectionWidgets = model.sectionWidgets;
+        let centerContent = sectionWidgets.center;
+        if (sectionWidgets.left) {
+            forceLtr = true;
+            startContent = sectionWidgets.left;
+        }
+        else {
+            startContent = sectionWidgets.start;
+        }
+        if (sectionWidgets.right) {
+            forceLtr = true;
+            endContent = sectionWidgets.right;
+        }
+        else {
+            endContent = sectionWidgets.end;
+        }
+        let classNames = [
+            extraClassName || '',
+            'fc-toolbar',
+            forceLtr ? 'fc-toolbar-ltr' : '',
+        ];
+        return (createElement("div", { className: classNames.join(' ') },
+            this.renderSection('start', startContent || []),
+            this.renderSection('center', centerContent || []),
+            this.renderSection('end', endContent || [])));
+    }
+    renderSection(key, widgetGroups) {
+        let { props } = this;
+        return (createElement(ToolbarSection, { key: key, widgetGroups: widgetGroups, title: props.title, navUnit: props.navUnit, activeButton: props.activeButton, isTodayEnabled: props.isTodayEnabled, isPrevEnabled: props.isPrevEnabled, isNextEnabled: props.isNextEnabled, titleId: props.titleId }));
+    }
+}
+
+class ViewHarness extends BaseComponent {
+    constructor() {
+        super(...arguments);
+        this.state = {
+            availableWidth: null,
+        };
+        this.handleEl = (el) => {
+            this.el = el;
+            setRef(this.props.elRef, el);
+            this.updateAvailableWidth();
+        };
+        this.handleResize = () => {
+            this.updateAvailableWidth();
+        };
+    }
+    render() {
+        let { props, state } = this;
+        let { aspectRatio } = props;
+        let classNames = [
+            'fc-view-harness',
+            (aspectRatio || props.liquid || props.height)
+                ? 'fc-view-harness-active' // harness controls the height
+                : 'fc-view-harness-passive', // let the view do the height
+        ];
+        let height = '';
+        let paddingBottom = '';
+        if (aspectRatio) {
+            if (state.availableWidth !== null) {
+                height = state.availableWidth / aspectRatio;
+            }
+            else {
+                // while waiting to know availableWidth, we can't set height to *zero*
+                // because will cause lots of unnecessary scrollbars within scrollgrid.
+                // BETTER: don't start rendering ANYTHING yet until we know container width
+                // NOTE: why not always use paddingBottom? Causes height oscillation (issue 5606)
+                paddingBottom = `${(1 / aspectRatio) * 100}%`;
+            }
+        }
+        else {
+            height = props.height || '';
+        }
+        return (createElement("div", { "aria-labelledby": props.labeledById, ref: this.handleEl, className: classNames.join(' '), style: { height, paddingBottom } }, props.children));
+    }
+    componentDidMount() {
+        this.context.addResizeHandler(this.handleResize);
+    }
+    componentWillUnmount() {
+        this.context.removeResizeHandler(this.handleResize);
+    }
+    updateAvailableWidth() {
+        if (this.el && // needed. but why?
+            this.props.aspectRatio // aspectRatio is the only height setting that needs availableWidth
+        ) {
+            this.setState({ availableWidth: this.el.offsetWidth });
+        }
+    }
+}
+
+/*
+Detects when the user clicks on an event within a DateComponent
+*/
+class EventClicking extends Interaction {
+    constructor(settings) {
+        super(settings);
+        this.handleSegClick = (ev, segEl) => {
+            let { component } = this;
+            let { context } = component;
+            let seg = getElSeg(segEl);
+            if (seg && // might be the <div> surrounding the more link
+                component.isValidSegDownEl(ev.target)) {
+                // our way to simulate a link click for elements that can't be <a> tags
+                // grab before trigger fired in case trigger trashes DOM thru rerendering
+                let hasUrlContainer = elementClosest(ev.target, '.fc-event-forced-url');
+                let url = hasUrlContainer ? hasUrlContainer.querySelector('a[href]').href : '';
+                context.emitter.trigger('eventClick', {
+                    el: segEl,
+                    event: new EventImpl(component.context, seg.eventRange.def, seg.eventRange.instance),
+                    jsEvent: ev,
+                    view: context.viewApi,
+                });
+                if (url && !ev.defaultPrevented) {
+                    window.location.href = url;
+                }
+            }
+        };
+        this.destroy = listenBySelector(settings.el, 'click', '.fc-event', // on both fg and bg events
+        this.handleSegClick);
+    }
+}
+
+/*
+Triggers events and adds/removes core classNames when the user's pointer
+enters/leaves event-elements of a component.
+*/
+class EventHovering extends Interaction {
+    constructor(settings) {
+        super(settings);
+        // for simulating an eventMouseLeave when the event el is destroyed while mouse is over it
+        this.handleEventElRemove = (el) => {
+            if (el === this.currentSegEl) {
+                this.handleSegLeave(null, this.currentSegEl);
+            }
+        };
+        this.handleSegEnter = (ev, segEl) => {
+            if (getElSeg(segEl)) { // TODO: better way to make sure not hovering over more+ link or its wrapper
+                this.currentSegEl = segEl;
+                this.triggerEvent('eventMouseEnter', ev, segEl);
+            }
+        };
+        this.handleSegLeave = (ev, segEl) => {
+            if (this.currentSegEl) {
+                this.currentSegEl = null;
+                this.triggerEvent('eventMouseLeave', ev, segEl);
+            }
+        };
+        this.removeHoverListeners = listenToHoverBySelector(settings.el, '.fc-event', // on both fg and bg events
+        this.handleSegEnter, this.handleSegLeave);
+    }
+    destroy() {
+        this.removeHoverListeners();
+    }
+    triggerEvent(publicEvName, ev, segEl) {
+        let { component } = this;
+        let { context } = component;
+        let seg = getElSeg(segEl);
+        if (!ev || component.isValidSegDownEl(ev.target)) {
+            context.emitter.trigger(publicEvName, {
+                el: segEl,
+                event: new EventImpl(context, seg.eventRange.def, seg.eventRange.instance),
+                jsEvent: ev,
+                view: context.viewApi,
+            });
+        }
+    }
+}
+
+class CalendarContent extends PureComponent {
+    constructor() {
+        super(...arguments);
+        this.buildViewContext = memoize(buildViewContext);
+        this.buildViewPropTransformers = memoize(buildViewPropTransformers);
+        this.buildToolbarProps = memoize(buildToolbarProps);
+        this.headerRef = createRef();
+        this.footerRef = createRef();
+        this.interactionsStore = {};
+        // eslint-disable-next-line
+        this.state = {
+            viewLabelId: getUniqueDomId(),
+        };
+        // Component Registration
+        // -----------------------------------------------------------------------------------------------------------------
+        this.registerInteractiveComponent = (component, settingsInput) => {
+            let settings = parseInteractionSettings(component, settingsInput);
+            let DEFAULT_INTERACTIONS = [
+                EventClicking,
+                EventHovering,
+            ];
+            let interactionClasses = DEFAULT_INTERACTIONS.concat(this.props.pluginHooks.componentInteractions);
+            let interactions = interactionClasses.map((TheInteractionClass) => new TheInteractionClass(settings));
+            this.interactionsStore[component.uid] = interactions;
+            interactionSettingsStore[component.uid] = settings;
+        };
+        this.unregisterInteractiveComponent = (component) => {
+            let listeners = this.interactionsStore[component.uid];
+            if (listeners) {
+                for (let listener of listeners) {
+                    listener.destroy();
+                }
+                delete this.interactionsStore[component.uid];
+            }
+            delete interactionSettingsStore[component.uid];
+        };
+        // Resizing
+        // -----------------------------------------------------------------------------------------------------------------
+        this.resizeRunner = new DelayedRunner(() => {
+            this.props.emitter.trigger('_resize', true); // should window resizes be considered "forced" ?
+            this.props.emitter.trigger('windowResize', { view: this.props.viewApi });
+        });
+        this.handleWindowResize = (ev) => {
+            let { options } = this.props;
+            if (options.handleWindowResize &&
+                ev.target === window // avoid jqui events
+            ) {
+                this.resizeRunner.request(options.windowResizeDelay);
+            }
+        };
+    }
+    /*
+    renders INSIDE of an outer div
+    */
+    render() {
+        let { props } = this;
+        let { toolbarConfig, options } = props;
+        let viewVGrow = false;
+        let viewHeight = '';
+        let viewAspectRatio;
+        if (props.isHeightAuto || props.forPrint) {
+            viewHeight = '';
+        }
+        else if (options.height != null) {
+            viewVGrow = true;
+        }
+        else if (options.contentHeight != null) {
+            viewHeight = options.contentHeight;
+        }
+        else {
+            viewAspectRatio = Math.max(options.aspectRatio, 0.5); // prevent from getting too tall
+        }
+        let viewContext = this.buildViewContext(props.viewSpec, props.viewApi, props.options, props.dateProfileGenerator, props.dateEnv, props.nowManager, props.theme, props.pluginHooks, props.dispatch, props.getCurrentData, props.emitter, props.calendarApi, this.registerInteractiveComponent, this.unregisterInteractiveComponent);
+        let viewLabelId = (toolbarConfig.header && toolbarConfig.header.hasTitle)
+            ? this.state.viewLabelId
+            : undefined;
+        return (createElement(ViewContextType.Provider, { value: viewContext },
+            createElement(NowTimer, { unit: "day" }, (nowDate) => {
+                let toolbarProps = this.buildToolbarProps(props.viewSpec, props.dateProfile, props.dateProfileGenerator, props.currentDate, nowDate, props.viewTitle);
+                return (createElement(Fragment, null,
+                    toolbarConfig.header && (createElement(Toolbar, Object.assign({ ref: this.headerRef, extraClassName: "fc-header-toolbar", model: toolbarConfig.header, titleId: viewLabelId }, toolbarProps))),
+                    createElement(ViewHarness, { liquid: viewVGrow, height: viewHeight, aspectRatio: viewAspectRatio, labeledById: viewLabelId },
+                        this.renderView(props),
+                        this.buildAppendContent()),
+                    toolbarConfig.footer && (createElement(Toolbar, Object.assign({ ref: this.footerRef, extraClassName: "fc-footer-toolbar", model: toolbarConfig.footer, titleId: "" }, toolbarProps)))));
+            })));
+    }
+    componentDidMount() {
+        let { props } = this;
+        this.calendarInteractions = props.pluginHooks.calendarInteractions
+            .map((CalendarInteractionClass) => new CalendarInteractionClass(props));
+        window.addEventListener('resize', this.handleWindowResize);
+        let { propSetHandlers } = props.pluginHooks;
+        for (let propName in propSetHandlers) {
+            propSetHandlers[propName](props[propName], props);
+        }
+    }
+    componentDidUpdate(prevProps) {
+        let { props } = this;
+        let { propSetHandlers } = props.pluginHooks;
+        for (let propName in propSetHandlers) {
+            if (props[propName] !== prevProps[propName]) {
+                propSetHandlers[propName](props[propName], props);
+            }
+        }
+    }
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleWindowResize);
+        this.resizeRunner.clear();
+        for (let interaction of this.calendarInteractions) {
+            interaction.destroy();
+        }
+        this.props.emitter.trigger('_unmount');
+    }
+    buildAppendContent() {
+        let { props } = this;
+        let children = props.pluginHooks.viewContainerAppends.map((buildAppendContent) => buildAppendContent(props));
+        return createElement(Fragment, {}, ...children);
+    }
+    renderView(props) {
+        let { pluginHooks } = props;
+        let { viewSpec } = props;
+        let viewProps = {
+            dateProfile: props.dateProfile,
+            businessHours: props.businessHours,
+            eventStore: props.renderableEventStore,
+            eventUiBases: props.eventUiBases,
+            dateSelection: props.dateSelection,
+            eventSelection: props.eventSelection,
+            eventDrag: props.eventDrag,
+            eventResize: props.eventResize,
+            isHeightAuto: props.isHeightAuto,
+            forPrint: props.forPrint,
+        };
+        let transformers = this.buildViewPropTransformers(pluginHooks.viewPropsTransformers);
+        for (let transformer of transformers) {
+            Object.assign(viewProps, transformer.transform(viewProps, props));
+        }
+        let ViewComponent = viewSpec.component;
+        return (createElement(ViewComponent, Object.assign({}, viewProps)));
+    }
+}
+function buildToolbarProps(viewSpec, dateProfile, dateProfileGenerator, currentDate, now, title) {
+    // don't force any date-profiles to valid date profiles (the `false`) so that we can tell if it's invalid
+    let todayInfo = dateProfileGenerator.build(now, undefined, false); // TODO: need `undefined` or else INFINITE LOOP for some reason
+    let prevInfo = dateProfileGenerator.buildPrev(dateProfile, currentDate, false);
+    let nextInfo = dateProfileGenerator.buildNext(dateProfile, currentDate, false);
+    return {
+        title,
+        activeButton: viewSpec.type,
+        navUnit: viewSpec.singleUnit,
+        isTodayEnabled: todayInfo.isValid && !rangeContainsMarker(dateProfile.currentRange, now),
+        isPrevEnabled: prevInfo.isValid,
+        isNextEnabled: nextInfo.isValid,
+    };
+}
+// Plugin
+// -----------------------------------------------------------------------------------------------------------------
+function buildViewPropTransformers(theClasses) {
+    return theClasses.map((TheClass) => new TheClass());
+}
+
+class Calendar extends CalendarImpl {
+    constructor(el, optionOverrides = {}) {
+        super();
+        this.isRendering = false;
+        this.isRendered = false;
+        this.currentClassNames = [];
+        this.customContentRenderId = 0;
+        this.handleAction = (action) => {
+            // actions we know we want to render immediately
+            switch (action.type) {
+                case 'SET_EVENT_DRAG':
+                case 'SET_EVENT_RESIZE':
+                    this.renderRunner.tryDrain();
+            }
+        };
+        this.handleData = (data) => {
+            this.currentData = data;
+            this.renderRunner.request(data.calendarOptions.rerenderDelay);
+        };
+        this.handleRenderRequest = () => {
+            if (this.isRendering) {
+                this.isRendered = true;
+                let { currentData } = this;
+                flushSync(() => {
+                    render(createElement(CalendarRoot, { options: currentData.calendarOptions, theme: currentData.theme, emitter: currentData.emitter }, (classNames, height, isHeightAuto, forPrint) => {
+                        this.setClassNames(classNames);
+                        this.setHeight(height);
+                        return (createElement(RenderId.Provider, { value: this.customContentRenderId },
+                            createElement(CalendarContent, Object.assign({ isHeightAuto: isHeightAuto, forPrint: forPrint }, currentData))));
+                    }), this.el);
+                });
+            }
+            else if (this.isRendered) {
+                this.isRendered = false;
+                render(null, this.el);
+                this.setClassNames([]);
+                this.setHeight('');
+            }
+        };
+        ensureElHasStyles(el);
+        this.el = el;
+        this.renderRunner = new DelayedRunner(this.handleRenderRequest);
+        new CalendarDataManager({
+            optionOverrides,
+            calendarApi: this,
+            onAction: this.handleAction,
+            onData: this.handleData,
+        });
+    }
+    render() {
+        let wasRendering = this.isRendering;
+        if (!wasRendering) {
+            this.isRendering = true;
+        }
+        else {
+            this.customContentRenderId += 1;
+        }
+        this.renderRunner.request();
+        if (wasRendering) {
+            this.updateSize();
+        }
+    }
+    destroy() {
+        if (this.isRendering) {
+            this.isRendering = false;
+            this.renderRunner.request();
+        }
+    }
+    updateSize() {
+        flushSync(() => {
+            super.updateSize();
+        });
+    }
+    batchRendering(func) {
+        this.renderRunner.pause('batchRendering');
+        func();
+        this.renderRunner.resume('batchRendering');
+    }
+    pauseRendering() {
+        this.renderRunner.pause('pauseRendering');
+    }
+    resumeRendering() {
+        this.renderRunner.resume('pauseRendering', true);
+    }
+    resetOptions(optionOverrides, changedOptionNames) {
+        this.currentDataManager.resetOptions(optionOverrides, changedOptionNames);
+    }
+    setClassNames(classNames) {
+        if (!isArraysEqual(classNames, this.currentClassNames)) {
+            let { classList } = this.el;
+            for (let className of this.currentClassNames) {
+                classList.remove(className);
+            }
+            for (let className of classNames) {
+                classList.add(className);
+            }
+            this.currentClassNames = classNames;
+        }
+    }
+    setHeight(height) {
+        applyStyleProp(this.el, 'height', height);
+    }
+}
+
+function formatDate(dateInput, options = {}) {
+    let dateEnv = buildDateEnv(options);
+    let formatter = createFormatter(options);
+    let dateMeta = dateEnv.createMarkerMeta(dateInput);
+    if (!dateMeta) { // TODO: warning?
+        return '';
+    }
+    return dateEnv.format(dateMeta.marker, formatter, {
+        forcedTzo: dateMeta.forcedTzo,
+    });
+}
+function formatRange(startInput, endInput, options) {
+    let dateEnv = buildDateEnv(typeof options === 'object' && options ? options : {}); // pass in if non-null object
+    let formatter = createFormatter(options);
+    let startMeta = dateEnv.createMarkerMeta(startInput);
+    let endMeta = dateEnv.createMarkerMeta(endInput);
+    if (!startMeta || !endMeta) { // TODO: warning?
+        return '';
+    }
+    return dateEnv.formatRange(startMeta.marker, endMeta.marker, formatter, {
+        forcedStartTzo: startMeta.forcedTzo,
+        forcedEndTzo: endMeta.forcedTzo,
+        isEndExclusive: options.isEndExclusive,
+        defaultSeparator: BASE_OPTION_DEFAULTS.defaultRangeSeparator,
+    });
+}
+// TODO: more DRY and optimized
+function buildDateEnv(settings) {
+    let locale = buildLocale(settings.locale || 'en', organizeRawLocales([]).map); // TODO: don't hardcode 'en' everywhere
+    return new DateEnv(Object.assign(Object.assign({ timeZone: BASE_OPTION_DEFAULTS.timeZone, calendarSystem: 'gregory' }, settings), { locale }));
+}
+
+// HELPERS
+/*
+if nextDayThreshold is specified, slicing is done in an all-day fashion.
+you can get nextDayThreshold from context.nextDayThreshold
+*/
+function sliceEvents(props, allDay) {
+    return sliceEventStore(props.eventStore, props.eventUiBases, props.dateProfile.activeRange, allDay ? props.nextDayThreshold : null).fg;
+}
+
+const version = '6.1.21';
+
+export { Calendar, createPlugin, formatDate, formatRange, globalLocales, globalPlugins, sliceEvents, version };

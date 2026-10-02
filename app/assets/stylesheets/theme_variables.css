@@ -16,9 +16,9 @@
   /* Инпуты и формы */
   --app-input-bg: #ffffff;
   --app-input-border: #cbd5e1;
-  --app-input-focus-ring: rgba(37, 99, 235, 0.2); /* blue focus halo */
+  --app-input-focus-ring: rgba(37, 99, 235, 0.2);
 
-  /* Кнопки (Primary, Secondary, Danger) */
+  /* Кнопки */
   --app-btn-primary-bg: #2563eb;       /* blue-600 */
   --app-btn-primary-hover: #1d4ed8;    /* blue-700 */
   --app-btn-primary-text: #ffffff;
@@ -27,6 +27,10 @@
   --app-btn-secondary-hover: #e2e8f0;  /* slate-200 */
   --app-btn-secondary-text: #334155;   /* slate-700 */
 
+  --app-btn-danger-bg: #dc2626;        /* red-600 */
+  --app-btn-danger-hover: #b91c1c;     /* red-700 */
+  --app-btn-danger-text: #ffffff;
+
   /* Карточки и Списки */
   --app-list-item-hover: #f1f5f9;
 
@@ -34,6 +38,11 @@
   --app-danger-bg: #fef2f2;
   --app-danger-border: #fecaca;
   --app-danger-text: #b91c1c;
+
+  /* Уведомления (Notice / Success) */
+  --app-notice-bg: #f0fdf4;
+  --app-notice-border: #bbf7d0;
+  --app-notice-text: #15803d;
 }
 
 /* --- ТЁМНАЯ ТЕМА --- */
@@ -60,6 +69,10 @@ html.dark {
   --app-btn-secondary-hover: #475569;  /* slate-600 */
   --app-btn-secondary-text: #f1f5f9;
 
+  --app-btn-danger-bg: #ef4444;        /* red-500 */
+  --app-btn-danger-hover: #dc2626;     /* red-600 */
+  --app-btn-danger-text: #ffffff;
+
   /* Карточки и Списки */
   --app-list-item-hover: #334155;
 
@@ -67,6 +80,11 @@ html.dark {
   --app-danger-bg: rgba(127, 29, 29, 0.2);
   --app-danger-border: #7f1d1d;
   --app-danger-text: #fca5a5;
+  
+  /* Уведомления (Notice / Success) */
+  --app-notice-bg: rgba(20, 83, 45, 0.2);
+  --app-notice-border: #166534;
+  --app-notice-text: #4ade80;
 }
 
 body {

@@ -1,4 +1,36 @@
-// @fullcalendar/daygrid@6.1.21 downloaded from https://ga.jspm.io/npm:@fullcalendar/daygrid@6.1.21/index.js
+// @fullcalendar/daygrid@6.1.21 downloaded from https://unpkg.com/@fullcalendar/daygrid@6.1.21/index.js
 
-import{createPlugin as e}from"@fullcalendar/core/index.js";import{TableDateProfileGenerator as t,DayGridView as n}from"./internal.js";import"@fullcalendar/core/internal.js";import"@fullcalendar/core/preact.js";var r=e({name:`@fullcalendar/daygrid`,initialView:`dayGridMonth`,views:{dayGrid:{component:n,dateProfileGeneratorClass:t},dayGridDay:{type:`dayGrid`,duration:{days:1}},dayGridWeek:{type:`dayGrid`,duration:{weeks:1}},dayGridMonth:{type:`dayGrid`,duration:{months:1},fixedWeekCount:!0},dayGridYear:{type:`dayGrid`,duration:{years:1}}}});export{r as default};
+import { createPlugin } from '@fullcalendar/core/index.js';
+import { DayGridView as DayTableView, TableDateProfileGenerator } from './internal.js';
+import '@fullcalendar/core/internal.js';
+import '@fullcalendar/core/preact.js';
 
+var index = createPlugin({
+    name: '@fullcalendar/daygrid',
+    initialView: 'dayGridMonth',
+    views: {
+        dayGrid: {
+            component: DayTableView,
+            dateProfileGeneratorClass: TableDateProfileGenerator,
+        },
+        dayGridDay: {
+            type: 'dayGrid',
+            duration: { days: 1 },
+        },
+        dayGridWeek: {
+            type: 'dayGrid',
+            duration: { weeks: 1 },
+        },
+        dayGridMonth: {
+            type: 'dayGrid',
+            duration: { months: 1 },
+            fixedWeekCount: true,
+        },
+        dayGridYear: {
+            type: 'dayGrid',
+            duration: { years: 1 },
+        },
+    },
+});
+
+export { index as default };

@@ -1,26 +1,25 @@
 import { Controller } from "@hotwired/stimulus"
-import { Calendar } from "@fullcalendar/core"
-import dayGridPlugin from "@fullcalendar/daygrid"
-import timeGridPlugin from "@fullcalendar/timegrid"
-import interactionPlugin from "@fullcalendar/interaction"
 
 export default class extends Controller {
   static targets = ["container"]
 
   connect() {
-    this.calendar = new Calendar(this.containerTarget, {
-      plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
-      initialView: "dayGridMonth", // По умолчанию вид месяца
+    // Используем глобальный класс FullCalendar
+    if (typeof window.FullCalendar === "undefined") {
+      console.error("FullCalendar script is not loaded")
+      return
+    }
+
+    this.calendar = new window.FullCalendar.Calendar(this.containerTarget, {
+      initialView: "dayGridMonth",
       headerToolbar: {
         left: "prev,next today",
         center: "title",
-        right: "dayGridMonth,timeGridWeek,timeGridDay" // Кнопки переключения
+        right: "dayGridMonth,timeGridWeek,timeGridDay"
       },
       firstDay: 1, // Понедельник
-      dayMaxEvents: 3, // Сворачивать события в "+X еще", если их много
-      events: "/calendar.json", // Запрос к Rails-контроллеру за данными
-      
-      // Клик по событию — переход на его страницу
+      dayMaxEvents: 3,
+      events: "/calendar.json",
       eventClick: (info) => {
         if (info.event.url) {
           info.jsEvent.preventDefault()
