@@ -16,18 +16,11 @@
     </div>
   <% end %>
 
-  <%# Название %>
-  <div class="my-5">
-    <%= form.label :title, class: "app-label" %>
-    <%= form.text_field :title, class: ["app-input", ("app-input-error" if webinar.errors[:title].any?)] %>
-  </div>
+  <!-- Поле Title (String) -->
+  <%= translated_field(form, :title, locales: @locales) %>
 
-  <%# Описание %>
-  <div class="my-5">
-    <%= form.label :description, class: "app-label" %>
-    <%= form.text_area :description, rows: 3, class: ["app-input", ("app-input-error" if webinar.errors[:description].any?)] %>
-  </div>
-
+  <!-- Поле Description (HTML/Text) -->
+  <%= translated_field(form, :description, locales: @locales, type: :text_area) %>
   <%# Время начала и окончания %>
   <div class="my-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
     <div>

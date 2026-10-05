@@ -65,6 +65,7 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:title, :completed, :due_date, :recurrence_data)
+      localized_fields = %i[title description].product(I18n.available_locales).map { |f, l| "#{f}_#{l}" }
+      params.require(:task).permit(:completed, :due_date, :recurrence_data, *localized_fields)
     end
 end

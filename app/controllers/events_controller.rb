@@ -65,6 +65,7 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:title, :description, :start_at, :end_at, :time_zone, :recurring_rules)
+      localized_fields = %i[title description].product(I18n.available_locales).map { |f, l| "#{f}_#{l}" }
+      params.require(:event).permit( :start_at, :end_at, :time_zone, :recurring_rules, *localized_fields )
     end
 end

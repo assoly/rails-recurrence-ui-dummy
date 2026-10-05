@@ -12,11 +12,11 @@
     </div>
   <% end %>
 
-  <%# Заголовок %>
-  <div class="my-5">
-    <%= form.label :title, class: "app-label" %>
-    <%= form.text_field :title, class: ["app-input", ("app-input-error" if task.errors[:title].any?)] %>
-  </div>
+<!-- Поле Title (String) -->
+<%= translated_field(form, :title, locales: @locales) %>
+
+<!-- Поле Description (HTML/Text) -->
+<%= translated_field(form, :description, locales: @locales, type: :text_area) %>
 
   <%# Чекбокс %>
   <div class="my-5 flex items-center gap-3 p-3 app-card">

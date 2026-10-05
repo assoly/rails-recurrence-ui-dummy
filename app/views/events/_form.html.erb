@@ -15,18 +15,11 @@
       </ul>
     </div>
   <% end %>
+<!-- Поле Title (String) -->
+<%= translated_field(form, :title, locales: @locales) %>
 
-  <%# Название события %>
-  <div class="my-5">
-    <%= form.label :title, class: "app-label" %>
-    <%= form.text_field :title, class: ["app-input", ("app-input-error" if event.errors[:title].any?)] %>
-  </div>
-
-  <%# Описание события %>
-  <div class="my-5">
-    <%= form.label :description, class: "app-label" %>
-    <%= form.text_area :description, rows: 3, class: ["app-input", ("app-input-error" if event.errors[:description].any?)] %>
-  </div>
+<!-- Поле Description (HTML/Text) -->
+<%= translated_field(form, :description, locales: @locales, type: :text_area) %>
 
   <%# Время начала и окончания события %>
   <div class="my-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
