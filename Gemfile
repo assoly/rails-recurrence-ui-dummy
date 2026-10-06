@@ -54,6 +54,7 @@ gem 'mobility', '~> 1.2'
 
 
 group :development, :test do
+  gem 'faker'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
 end
