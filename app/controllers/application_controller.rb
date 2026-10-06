@@ -1,7 +1,15 @@
 class ApplicationController < ActionController::Base
+  around_action :set_user_time_zone
   around_action :switch_locale
 
   private
+
+  def set_user_time_zone
+    # Берем временную зону из профиля пользователя, либо из параметров URL/дефолта
+    user_tz = current_user&.time_zone || params[:time_zone] || Time.zone.name
+    
+    Time.use_zone(user_tz) { yield }
+  end
 
   # Переключаем локаль для текущего HTTP-запроса
   def switch_locale(&action)

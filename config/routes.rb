@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
-  root "calendar#index" # Главная страница приложения
-  get "calendar", to: "calendar#index"
-  resources :tasks
-  resources :webinars
-  resources :events
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+    root "calendar#index",  as: :localized_root # Главная страница приложения
+    get "calendar", to: "calendar#index"
+    resources :tasks
+    resources :webinars
+    resources :events
+    # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+    # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
+    # Can be used by load balancers and uptime monitors to verify that the app is live.
+  end 
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")

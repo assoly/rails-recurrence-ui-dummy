@@ -1,0 +1,29 @@
+ <!-- Панель управления (Языки и Тема) -->
+
+ <nav class="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl border border-[var(--app-border-color)] bg-[var(--app-bg-nav)] mb-6 shadow-sm">
+
+<!-- Динамический список языков по порядку из конфигурации -->
+<div class="flex items-center gap-2">
+    <span class="font-bold text-sm">Язык / Language:</span>
+    <% (I18n.available_locales || []).each do |loc| %>
+    <%= link_to loc.to_s.upcase, 
+                url_for(locale: loc), 
+                class: "px-2 py-1 rounded text-sm transition-colors #{I18n.locale == loc ? 'font-bold bg-blue-600 text-white' : 'underline text-[var(--app-text-muted)] hover:text-[var(--app-text-main)]'}" %>
+    <% end %>
+</div>
+<div class="flex items-center space-x-4 text-sm text-gray-600" data-controller="clock">
+<!-- Отображение времени -->
+<div class="font-mono font-bold" data-clock-target="time">--:--:--</div>
+
+<!-- Отображение временной зоны -->
+<div class="bg-gray-100 px-2 py-1 rounded text-xs font-medium text-gray-700" data-clock-target="zone">
+    <%= Time.zone.name %>
+</div>
+</div>
+<!-- Кнопка переключения темы -->
+<button type="button" 
+        onclick="toggleTheme()" 
+        class="px-3 py-1.5 text-xs font-medium rounded-md border border-[var(--app-border-color)] bg-[var(--app-bg-card)] text-[var(--app-text-main)] hover:opacity-80 transition-colors shadow-sm">
+    🌙 / ☀️ Toggle Theme
+</button>
+</nav>
