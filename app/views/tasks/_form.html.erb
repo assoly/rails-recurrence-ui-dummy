@@ -12,11 +12,10 @@
     </div>
   <% end %>
 
-<!-- Поле Title (String) -->
-<%= translated_field(form, :title, locales: @locales) %>
-
-<!-- Поле Description (HTML/Text) -->
-<%= translated_field(form, :description, locales: @locales, type: :text_area) %>
+  <%= translated_fields(form, {
+    title: { type: :text_field, label: t('events.form.title', default: 'Title') },
+    description: { type: :text_area, rows: 5, label: t('events.form.description', default: 'Description') }
+  }, locales: @locales) %>
 
   <%# Чекбокс %>
   <div class="my-5 flex items-center gap-3 p-3 app-card">

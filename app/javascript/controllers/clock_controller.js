@@ -5,7 +5,6 @@ export default class extends Controller {
 
   connect() {
     this.updateClock()
-    // Обновляем время каждую секунду
     this.timer = setInterval(() => this.updateClock(), 1000)
   }
 
@@ -16,17 +15,26 @@ export default class extends Controller {
   updateClock() {
     const now = new Date()
 
-    // Определение именованной временной зоны пользователя (например, Europe/Moscow или Asia/Tokyo)
-    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
+    // Берем зону, переданную из Rails в zoneTarget (например, "Asia/Tokyo" или "Europe/Moscow")
+    const timeZone = this.hasZoneTarget && this.zoneTarget.textContent.trim() 
+      ? this.zoneTarget.textContent.trim() 
+      : Intl.DateTimeFormat().resolvedOptions().timeZone
 
-    // Форматирование времени под локаль
-    const timeString = now.toLocaleTimeString([], { 
-      hour: '2-digit', 
-      minute: '2-digit', 
-      second: '2-digit' 
-    })
+    try {
+      // Форматируем время с учетом часового пояса пользователя
+      const timeString = now.toLocaleTimeString([], { 
+        timeZone: timeZone,
+        hour: '2-digit', 
+        minute: '2-digit', 
+        second: '2-digit' 
+      })
 
-    if (this.hasTimeTarget) this.timeTarget.textContent = timeString
-    if (this.hasZoneTarget) this.zoneTarget.textContent = timeZone
+      if (this.hasTimeTarget) {
+        this.timeTarget.textContent = timeString
+      }
+    } catch (e) {
+      // Если передана некорректная зона, вывод системного времени браузера
+      this.timeTarget.textContent = now.toLocaleTimeString()
+    }
   }
 }

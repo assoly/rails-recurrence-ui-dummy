@@ -14,7 +14,8 @@ module Dummy
     # Configuration for locales and time zones 
     config.i18n.available_locales = [:en, :ru, :be, :uk, :ja]
     # Time zone for the application by default
-    config.time_zone = "Europe/Moscow" # or "Asia/Tokyo"
+    #config.time_zone = "Europe/Moscow" # or "Asia/Tokyo"
+    config.time_zone = "Asia/Tokyo"
 
     # Default locale for the application
     config.i18n.default_locale = :en # or :ru, :ja and so on.

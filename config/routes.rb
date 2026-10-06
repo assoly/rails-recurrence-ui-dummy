@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+    devise_for :users
     root "calendar#index",  as: :localized_root # Главная страница приложения
     get "calendar", to: "calendar#index"
     resources :tasks

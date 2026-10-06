@@ -15,12 +15,10 @@
       </ul>
     </div>
   <% end %>
-
-  <!-- Поле Title (String) -->
-  <%= translated_field(form, :title, locales: @locales) %>
-
-  <!-- Поле Description (HTML/Text) -->
-  <%= translated_field(form, :description, locales: @locales, type: :text_area) %>
+ <%= translated_fields(form, {
+    title: { type: :text_field, label: t('events.form.title', default: 'Title') },
+    description: { type: :text_area, rows: 5, label: t('events.form.description', default: 'Description') }
+  }, locales: @locales) %>
   <%# Время начала и окончания %>
   <div class="my-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
     <div>

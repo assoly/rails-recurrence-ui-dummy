@@ -1,0 +1,44 @@
+<div class="max-w-lg mx-auto app-card mt-8">
+  <h2 class="app-heading-1 !text-2xl mb-6"><%= t('devise.registrations.edit', default: 'Настройки профиля') %></h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "space-y-4" }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div>
+      <%= f.label :email, class: "app-label" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "app-input" %>
+    </div>
+
+    <!-- Поле выбора Часового пояса -->
+    <div>
+      <%= f.label :time_zone, t('common.time_zone', default: 'Часовой пояс'), class: "app-label" %>
+      <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.all, { default: Time.zone.name }, { class: "app-input cursor-pointer" } %>
+    </div>
+
+    <div class="border-t border-[var(--app-border-color)] my-4 pt-4">
+      <p class="app-label-muted mb-3"><%= t('devise.passwords.change_password', default: 'Изменение пароля (оставьте пустым, если не меняете)') %></p>
+      
+      <div class="space-y-3">
+        <div>
+          <%= f.label :password, class: "app-label" %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "app-input" %>
+        </div>
+
+        <div>
+          <%= f.label :password_confirmation, class: "app-label" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "app-input" %>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <%= f.label :current_password, class: "app-label" %>
+      <span class="text-xs text-[var(--app-text-muted)] block mb-1">(требуется для подтверждения изменений)</span>
+      <%= f.password_field :current_password, autocomplete: "current-password", class: "app-input" %>
+    </div>
+
+    <div class="pt-2">
+      <%= f.submit t('devise.registrations.update', default: 'Сохранить изменения'), class: "app-btn-primary w-full" %>
+    </div>
+  <% end %>
+</div>
