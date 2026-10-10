@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Dummy</title>
+    <title><%= content_for?(:title) ? yield(:title) : t('common.app_name', default: 'Dummy App') %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,56 +9,43 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+    
     <!-- Инициализация темы без задержки при загрузке -->
     <script>
-  function applyThemeUI(theme) {
-    const isDark = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    document.documentElement.classList.toggle('dark', isDark);
+      function applyThemeUI(theme) {
+        const isDark = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.classList.toggle('dark', isDark);
 
-    // Обновление состояния кнопок
-    document.querySelectorAll('[data-theme-set]').forEach(btn => {
-      const btnTheme = btn.getAttribute('data-theme-set');
-      const active = (btnTheme === 'dark' && isDark) || (btnTheme === 'light' && !isDark);
-      btn.setAttribute('aria-pressed', active);
-      if (active) {
-        btn.classList.add('bg-[var(--app-btn-primary-bg)]', 'text-white');
-        btn.classList.remove('text-[var(--app-text-muted)]');
-      } else {
-        btn.classList.remove('bg-[var(--app-btn-primary-bg)]', 'text-white');
-        btn.classList.add('text-[var(--app-text-muted)]');
+        document.querySelectorAll('[data-theme-set]').forEach(btn => {
+          const btnTheme = btn.getAttribute('data-theme-set');
+          const active = (btnTheme === 'dark' && isDark) || (btnTheme === 'light' && !isDark);
+          btn.setAttribute('aria-pressed', active);
+          if (active) {
+            btn.classList.add('bg-[var(--app-btn-primary-bg)]', 'text-white');
+            btn.classList.remove('text-[var(--app-text-muted)]');
+          } else {
+            btn.classList.remove('bg-[var(--app-btn-primary-bg)]', 'text-white');
+            btn.classList.add('text-[var(--app-text-muted)]');
+          }
+        });
       }
-    });
-  }
 
-  function setAppTheme(theme) {
-    localStorage.setItem('theme', theme);
-    applyThemeUI(theme);
-  }
+      function setAppTheme(theme) {
+        localStorage.setItem('theme', theme);
+        applyThemeUI(theme);
+      }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    applyThemeUI(localStorage.getItem('theme'));
-  });
-  applyThemeUI(localStorage.getItem('theme'));
-</script>
+      document.addEventListener('DOMContentLoaded', () => {
+        applyThemeUI(localStorage.getItem('theme'));
+      });
+      applyThemeUI(localStorage.getItem('theme'));
+    </script>
   </head>
 
   <body class="min-h-screen">
     <main class="container mx-auto mt-10 px-5 flex flex-col">
-<%= render "shared/navbar" %>
-
+      <%= render "shared/navbar" %>
       <%= yield %>
     </main>
-
-    <script>
-      function toggleTheme() {
-        if (document.documentElement.classList.contains('dark')) {
-          document.documentElement.classList.remove('dark');
-          localStorage.setItem('theme', 'light');
-        } else {
-          document.documentElement.classList.add('dark');
-          localStorage.setItem('theme', 'dark');
-        }
-      }
-    </script>
   </body>
 </html>

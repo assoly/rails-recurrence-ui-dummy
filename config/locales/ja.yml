@@ -1,0 +1,83 @@
+---
+ja:
+  activerecord:
+    attributes:
+      event:
+        description: Description
+        end_at: End Time
+        recurring_rules: Recurrence Rules
+        start_at: Start Time
+        time_zone: Time Zone
+        title: Title
+    models:
+      event:
+        one: Event
+        other: Events
+      task:
+        one: Task
+        other: Tasks
+      webinar:
+        one: Webinar
+        other: Webinars
+  calendar:
+    legend:
+      events: Events
+      tasks: Tasks
+      webinars: Webinars
+    nav:
+      all_events: All Events
+      events: Events
+      tasks: Tasks
+      webinars: Webinars
+  common:
+    actions:
+      cancel: Cancel
+      destroy: Delete
+      edit: Edit
+      save: Save
+      show: Show
+    app_name: Recurrence UI Demo
+    confirm_delete: Are you sure?
+    language: Language
+    theme:
+      dark: Dark theme
+      label: Theme selection
+      light: Light theme
+    time_zone: Time Zone
+  devise:
+    passwords:
+      change_password: Изменение пароля (оставьте пустым, если не меняете)
+    registrations:
+      edit: Настройки профиля
+      sign_up: Sign up
+      update: Сохранить изменения
+    sessions:
+      sign_in: Вход в систему
+      sign_out: Sign out
+  errors:
+    messages:
+      not_saved: Not saved
+    template:
+      header:
+        one: '1 error prohibited this %{model} from being saved:'
+        other: "%{count} errors prohibited this %{model} from being saved:"
+  events:
+    actions:
+      back_to_list: Back to events
+      destroy: Destroy
+    edit:
+      title: Editing event
+    form:
+      description: Description
+      title: Title
+    index:
+      add_new: New event
+      empty: No events found.
+      title: Events
+    show:
+      no_recurrence: No recurrence
+      no_upcoming_occurrences: No scheduled occurrences
+      page_title: Page title
+      rule_label: Recurrence rule
+      title: Event Details
+      upcoming_occurrences: Next %{count} occurrences

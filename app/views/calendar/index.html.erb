@@ -3,17 +3,17 @@
   <!-- Верхняя панель: Переключение модулей -->
   <div class="app-card !p-4 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
     <nav class="flex flex-wrap items-center gap-2">
-      <%= link_to "Все события", calendar_path, class: "app-btn-primary !py-1.5 !px-3 text-xs" %>
-      <%= link_to "События", events_path, class: "app-btn-secondary !py-1.5 !px-3 text-xs" if defined?(Event) %>
-      <%= link_to "Задачи", tasks_path, class: "app-btn-secondary !py-1.5 !px-3 text-xs" if defined?(Task) %>
-      <%= link_to "Вебинары", webinars_path, class: "app-btn-secondary !py-1.5 !px-3 text-xs" if defined?(Webinar) %>
+      <%= link_to t('calendar.nav.all_events'), calendar_path, class: "app-btn-primary !py-1.5 !px-3 text-xs" %>
+      <%= link_to t('calendar.nav.events'), events_path, class: "app-btn-secondary !py-1.5 !px-3 text-xs" if defined?(Event) %>
+      <%= link_to t('calendar.nav.tasks'), tasks_path, class: "app-btn-secondary !py-1.5 !px-3 text-xs" if defined?(Task) %>
+      <%= link_to t('calendar.nav.webinars'), webinars_path, class: "app-btn-secondary !py-1.5 !px-3 text-xs" if defined?(Webinar) %>
     </nav>
 
     <!-- Легенда -->
     <div class="flex items-center gap-3 text-xs font-medium">
-      <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span> События</span>
-      <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span> Задачи</span>
-      <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-purple-600"></span> Вебинары</span>
+      <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span> <%= t('calendar.legend.events') %></span>
+      <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span> <%= t('calendar.legend.tasks') %></span>
+      <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-purple-600"></span> <%= t('calendar.legend.webinars') %></span>
     </div>
   </div>
 

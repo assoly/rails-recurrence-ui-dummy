@@ -1,31 +1,83 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
+---
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      event:
+        description: Description
+        end_at: End Time
+        recurring_rules: Recurrence Rules
+        start_at: Start Time
+        time_zone: Time Zone
+        title: Title
+    models:
+      event:
+        one: Event
+        other: Events
+      task:
+        one: Task
+        other: Tasks
+      webinar:
+        one: Webinar
+        other: Webinars
+  calendar:
+    legend:
+      events: Events
+      tasks: Tasks
+      webinars: Webinars
+    nav:
+      all_events: All Events
+      events: Events
+      tasks: Tasks
+      webinars: Webinars
+  common:
+    actions:
+      cancel: Cancel
+      destroy: Delete
+      edit: Edit
+      save: Save
+      show: Show
+    app_name: Recurrence UI Demo
+    confirm_delete: Are you sure?
+    language: Language
+    theme:
+      dark: Dark theme
+      label: Theme selection
+      light: Light theme
+    time_zone: Time Zone
+  devise:
+    passwords:
+      change_password: Изменение пароля (оставьте пустым, если не меняете)
+    registrations:
+      edit: Настройки профиля
+      sign_up: Sign up
+      update: Сохранить изменения
+    sessions:
+      sign_in: Вход в систему
+      sign_out: Sign out
+  errors:
+    messages:
+      not_saved: Not saved
+    template:
+      header:
+        one: '1 error prohibited this %{model} from being saved:'
+        other: "%{count} errors prohibited this %{model} from being saved:"
+  events:
+    actions:
+      back_to_list: Back to events
+      destroy: Destroy
+    edit:
+      title: Editing event
+    form:
+      description: Description
+      title: Title
+    index:
+      add_new: New event
+      empty: No events found.
+      title: Events
+    show:
+      no_recurrence: No recurrence
+      no_upcoming_occurrences: No scheduled occurrences
+      page_title: Page title
+      rule_label: Recurrence rule
+      title: Event Details
+      upcoming_occurrences: Next %{count} occurrences

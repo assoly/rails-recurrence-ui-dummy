@@ -12,6 +12,7 @@ module Dummy
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
     # Configuration for locales and time zones 
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
     config.i18n.available_locales = [:en, :ru, :be, :uk, :ja]
     # Time zone for the application by default
     #config.time_zone = "Europe/Moscow" # or "Asia/Tokyo"
@@ -19,7 +20,7 @@ module Dummy
 
     # Default locale for the application
     config.i18n.default_locale = :en # or :ru, :ja and so on.
-
+    
     # First day of the week in Rails (:monday or :sunday)
     config.beginning_of_week = :monday
 

@@ -1,17 +1,17 @@
-<% content_for :title, "Showing event" %>
+<% content_for :title, t('events.show.page_title') %>
 
-<div class="md:w-2/3 w-full">
+<div class="md:w-2/3 w-full mx-auto space-y-6">
   <% if notice.present? %>
     <p class="app-notice" id="notice"><%= notice %></p>
   <% end %>
 
-  <h1 class="app-heading-1">Showing event</h1>
+  <h1 class="app-heading-1"><%= t('events.show.page_title') %></h1>
 
   <%= render @event %>
 
   <div class="app-actions-group">
-    <%= link_to "Edit this event", edit_event_path(@event), class: "app-btn-secondary" %>
-    <%= link_to "Back to events", events_path, class: "app-btn-secondary" %>
-    <%= button_to "Destroy this event", @event, method: :delete, form_class: "w-full sm:w-auto", class: "app-btn-danger", data: { turbo_confirm: "Are you sure?" } %>
+    <%= link_to t('common.actions.edit'), edit_event_path(@event), class: "app-btn-secondary" %>
+    <%= link_to t('events.actions.back_to_list'), events_path, class: "app-btn-secondary" %>
+    <%= button_to t('events.actions.destroy'), @event, method: :delete, form_class: "w-full sm:w-auto", class: "app-btn-danger", data: { turbo_confirm: t('common.confirm_delete') } %>
   </div>
 </div>

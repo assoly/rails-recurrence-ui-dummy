@@ -5,7 +5,7 @@
         <svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
         </svg>
-        <h2><%= pluralize(event.errors.count, "ошибка", "ошибки", "ошибок") %> помешали сохранить событие:</h2>
+        <h2><%= t('errors.template.header', count: event.errors.count, model: Event.model_name.human) %></h2>
       </div>
 
       <ul class="list-disc list-inside space-y-1">
@@ -15,12 +15,14 @@
       </ul>
     </div>
   <% end %>
+
+  <!-- Переводимые поля с вкладками -->
   <%= translated_fields(form, {
-    title: { type: :text_field, label: t('events.form.title', default: 'Title') },
-    description: { type: :text_area, rows: 5, label: t('events.form.description', default: 'Description') }
+    title: { type: :text_field, label: Event.human_attribute_name(:title) },
+    description: { type: :text_area, rows: 5, label: Event.human_attribute_name(:description) }
   }, locales: @locales) %>
 
-  <%# Время начала и окончания события %>
+  <!-- Время начала и окончания -->
   <div class="my-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
     <div>
       <%= form.label :start_at, class: "app-label" %>
@@ -33,7 +35,7 @@
     </div>
   </div>
 
-  <%# Выбор часового пояса (Time Zone) %>
+  <!-- Выбор часового пояса -->
   <div class="my-5">
     <%= form.label :time_zone, class: "app-label" %>
     <%= form.time_zone_select :time_zone, 
@@ -42,7 +44,7 @@
           { class: ["app-input cursor-pointer", ("app-input-error" if event.errors[:time_zone].any?)] } %>
   </div>
 
-  <%# Компонент повторения гема RecurrenceUi %>
+  <!-- Компонент повторения RecurrenceUi -->
   <div class="my-6">
     <%= render RecurrenceUi::PickerComponent.new(
           form: form, 
@@ -51,9 +53,9 @@
         ) %>
   </div>
 
-  <%# Кнопки действия %>
+  <!-- Кнопки действия -->
   <div class="mt-8 flex items-center justify-end gap-3">
-    <%= link_to "Отмена", events_path, class: "app-btn-secondary" %>
+    <%= link_to t('common.actions.cancel'), events_path, class: "app-btn-secondary" %>
     <%= form.submit class: "app-btn-primary" %>
   </div>
 <% end %>

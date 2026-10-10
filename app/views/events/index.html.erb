@@ -1,13 +1,13 @@
-<% content_for :title, "Events" %>
+<% content_for :title, t('events.index.title') %>
 
 <div class="w-full space-y-6">
   <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 dark:bg-green-950/40 text-green-600 dark:text-green-400 font-medium rounded-md inline-block border border-green-200 dark:border-green-900" id="notice"><%= notice %></p>
+    <p class="app-notice" id="notice"><%= notice %></p>
   <% end %>
 
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl text-[var(--app-text-main)]">Events</h1>
-    <%= link_to "New event", new_event_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium shadow-sm transition-colors" %>
+    <h1 class="app-heading-1"><%= t('events.index.title') %></h1>
+    <%= link_to t('events.index.add_new'), new_event_path, class: "app-btn-primary" %>
   </div>
 
   <!-- Список событий -->
@@ -20,15 +20,15 @@
           </div>
           
           <div class="w-full sm:w-auto flex flex-row sm:flex-col gap-2 shrink-0 self-end sm:self-center">
-            <%= link_to "Show", event, class: "flex-1 sm:flex-none text-center rounded-md px-3.5 py-2 border border-[var(--app-border-color)] bg-[var(--app-bg-nav)] text-[var(--app-text-main)] hover:opacity-80 font-medium text-sm transition-colors" %>
-            <%= link_to "Edit", edit_event_path(event), class: "flex-1 sm:flex-none text-center rounded-md px-3.5 py-2 border border-[var(--app-border-color)] bg-[var(--app-bg-nav)] text-[var(--app-text-main)] hover:opacity-80 font-medium text-sm transition-colors" %>
-            <%= button_to "Destroy", event, method: :delete, class: "flex-1 sm:flex-none rounded-md px-3.5 py-2 text-white bg-red-600 hover:bg-red-500 font-medium text-sm cursor-pointer transition-colors", data: { turbo_confirm: "Are you sure?" } %>
+            <%= link_to t('common.actions.show'), event_path(event), class: "app-btn-secondary !py-1.5 !px-3 text-xs text-center" %>
+            <%= link_to t('common.actions.edit'), edit_event_path(event), class: "app-btn-secondary !py-1.5 !px-3 text-xs text-center" %>
+            <%= button_to t('common.actions.destroy'), event_path(event), method: :delete, class: "app-btn-danger !py-1.5 !px-3 text-xs text-center", data: { turbo_confirm: t('common.confirm_delete') } %>
           </div>
         </div>
       <% end %>
     <% else %>
       <div class="p-10 text-center rounded-xl border border-dashed border-[var(--app-border-color)] text-[var(--app-text-muted)]">
-        No events found.
+        <%= t('events.index.empty') %>
       </div>
     <% end %>
   </div>
