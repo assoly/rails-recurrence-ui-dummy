@@ -19,11 +19,21 @@ class ApplicationController < ActionController::Base
     Time.use_zone(user_tz) { yield }
   end
   def switch_locale(&action)
-    locale = params[:locale] || I18n.default_locale
+    locale = fetch_valid_locale
     I18n.with_locale(locale, &action)
   end
 
-  # Автоматически добавляем ?locale=ru (или /en/) ко всем сгенерированным ссылкам (link_to, url_for)
+  def fetch_valid_locale
+    requested = params[:locale]&.to_s
+    
+    # Проверяем, что локаль передана и разрешена в конфигурации приложения
+    if requested.present? && I18n.available_locales.map(&:to_s).include?(requested)
+      requested
+    else
+      I18n.default_locale
+    end
+  end
+
   def default_url_options
     { locale: I18n.locale }
   end

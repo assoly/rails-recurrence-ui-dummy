@@ -1,0 +1,97 @@
+---
+uk:
+  activerecord:
+    attributes:
+      event:
+        description: Опис
+        duration: Duration
+        end_at: Час закінчення
+        recurring_rules: Правила повторення
+        start_at: Час початку
+        time_zone: Часовий пояс
+        title: Заголовок
+    models:
+      event:
+        few: Події
+        many: Подій
+        one: Подія
+        other: Події
+      task:
+        few: Завдання
+        many: Завдань
+        one: Завдання
+        other: Завдання
+      webinar:
+        few: Вебінари
+        many: Вебінарів
+        one: Вебінар
+        other: Вебінари
+  calendar:
+    legend:
+      events: Події
+      tasks: Завдання
+      webinars: Вебінари
+    nav:
+      all_events: Усі події
+      events: Події
+      tasks: Завдання
+      webinars: Вебінари
+  common:
+    actions:
+      cancel: Скасувати
+      destroy: Видалити
+      edit: Редагувати
+      save: Зберегти
+      show: Перегляд
+    app_name: Демонстрація Recurrence UI
+    confirm_delete: Ви впевнені?
+    errors:
+      count: ошибка
+    language: Мова
+    theme:
+      dark: Темна тема
+      label: Вибір теми
+      light: Світла тема
+    time_zone: Часовий пояс
+  devise:
+    passwords:
+      change_password: Изменение пароля (оставьте пустым, если не меняете)
+    registrations:
+      edit: Настройки профиля
+      sign_up: Регистрация
+      update: Сохранить изменения
+    sessions:
+      sign_in: Вход в систему
+      sign_out: Выход
+  errors:
+    messages:
+      not_saved: Не сохранено
+    template:
+      header:
+        few: "%{count} помилки завадили зберегти %{model}:"
+        many: "%{count} помилок завадили зберегти %{model}:"
+        one: '1 помилка завадила зберегти %{model}:'
+        other: "%{count} помилки завадили зберегти %{model}:"
+  events:
+    actions:
+      back_to_list: Назад до списку
+      destroy: Видалити цю подію
+    edit:
+      title: Редагування події
+    form:
+      description: Описание
+      title: Заголовок
+    index:
+      add_new: Нова подія
+      empty: Подій не знайдено.
+      title: Події
+    show:
+      no_recurrence: Без повторень
+      no_upcoming_occurrences: Немає запланованих повторень
+      page_title: Деталі події
+      rule_label: Правило повторення
+      title: Деталі події
+      upcoming_occurrences: Наступні %{count} повторень
+  messages:
+    errors:
+      prohibited_this_data_from_being_saved: заборонили збереження цього запису

@@ -4,6 +4,7 @@ en:
     attributes:
       event:
         description: Description
+        duration: Duration
         end_at: End Time
         recurring_rules: Recurrence Rules
         start_at: Start Time
@@ -38,6 +39,8 @@ en:
       show: Show
     app_name: Recurrence UI Demo
     confirm_delete: Are you sure?
+    errors:
+      count: ошибка
     language: Language
     theme:
       dark: Dark theme
@@ -49,14 +52,14 @@ en:
       change_password: Изменение пароля (оставьте пустым, если не меняете)
     registrations:
       edit: Настройки профиля
-      sign_up: Sign up
+      sign_up: Регистрация
       update: Сохранить изменения
     sessions:
       sign_in: Вход в систему
-      sign_out: Sign out
+      sign_out: Выход
   errors:
     messages:
-      not_saved: Not saved
+      not_saved: Не сохранено
     template:
       header:
         one: '1 error prohibited this %{model} from being saved:'
@@ -64,12 +67,12 @@ en:
   events:
     actions:
       back_to_list: Back to events
-      destroy: Destroy
+      destroy: Delete this event
     edit:
       title: Editing event
     form:
-      description: Description
-      title: Title
+      description: Описание
+      title: Заголовок
     index:
       add_new: New event
       empty: No events found.
@@ -77,7 +80,10 @@ en:
     show:
       no_recurrence: No recurrence
       no_upcoming_occurrences: No scheduled occurrences
-      page_title: Page title
+      page_title: Event Details
       rule_label: Recurrence rule
       title: Event Details
       upcoming_occurrences: Next %{count} occurrences
+  messages:
+    errors:
+      prohibited_this_data_from_being_saved: prohibited this record from being saved

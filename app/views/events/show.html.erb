@@ -1,17 +1,93 @@
-<% content_for :title, t('events.show.page_title') %>
+<% content_for :title, @event.title %>
 
-<div class="md:w-2/3 w-full mx-auto space-y-6">
+<div class="max-w-3xl mx-auto w-full space-y-6">
   <% if notice.present? %>
-    <p class="app-notice" id="notice"><%= notice %></p>
+    <p class="py-2 px-3 bg-green-50 dark:bg-green-950/40 text-green-600 dark:text-green-400 font-medium rounded-md inline-block border border-green-200 dark:border-green-900" id="notice"><%= notice %></p>
   <% end %>
 
-  <h1 class="app-heading-1"><%= t('events.show.page_title') %></h1>
+  <!-- Главная карточка события -->
+  <div class="p-6 rounded-2xl bg-[var(--app-bg-card)] border border-[var(--app-border-color)] shadow-sm space-y-6">
+    
+    <!-- 1. H1 Заголовок самого события -->
+    <div>
+      <h1 class="text-3xl font-extrabold text-[var(--app-text-main)]"><%= @event.title %></h1>
+    </div>
+    <!-- 3. Описание события (хранится в HTML, выводим с форматированием) -->
+    <div>
+      <div class="text-[var(--app-text-main)] leading-relaxed prose dark:prose-invert max-w-none">
+        <%= @event.description.present? ? sanitize(@event.description) : "—" %>
+      </div>
+    </div>
 
-  <%= render @event %>
+    <!-- 4 & 5. Дата и время начала / окончания события -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-[var(--app-border-color)]">
+      <div>
+        <span class="block text-xs font-semibold uppercase text-[var(--app-text-muted)] tracking-wider mb-1"><%= t('activerecord.attributes.event.start_at') %></span>
+        <span class="text-[var(--app-text-main)] font-mono text-sm font-medium">
+          <%= @event.start_at ? l(@event.start_at, format: :long) : "—" %>
+        </span>
+      </div>
+      <div>
+        <span class="block text-xs font-semibold uppercase text-[var(--app-text-muted)] tracking-wider mb-1"><%= t('activerecord.attributes.event.end_at') %></span>
+        <span class="text-[var(--app-text-main)] font-mono text-sm font-medium">
+          <%= @event.end_at ? l(@event.end_at, format: :long) : "—" %>
+        </span>
+      </div>
+    </div>
 
-  <div class="app-actions-group">
-    <%= link_to t('common.actions.edit'), edit_event_path(@event), class: "app-btn-secondary" %>
-    <%= link_to t('events.actions.back_to_list'), events_path, class: "app-btn-secondary" %>
-    <%= button_to t('events.actions.destroy'), @event, method: :delete, form_class: "w-full sm:w-auto", class: "app-btn-danger", data: { turbo_confirm: t('common.confirm_delete') } %>
+
+    <!-- 6 & 7. Часовой пояс и Длительность одного события -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-[var(--app-border-color)]">
+      <div>
+        <span class="block text-xs font-semibold uppercase text-[var(--app-text-muted)] tracking-wider mb-1"><%= t('activerecord.attributes.event.time_zone') %></span>
+        <span class="text-[var(--app-text-main)] text-sm font-medium">
+          <%= @event.time_zone.presence || Time.zone.name %>
+        </span>
+      </div>
+      <div>
+        <span class="block text-xs font-semibold uppercase text-[var(--app-text-muted)] tracking-wider mb-1"><%= t('activerecord.attributes.event.duration') %></span>
+        <span class="text-[var(--app-text-main)] text-sm font-medium">
+          <%= @event.formatted_duration %> 
+        </span>
+      </div>
+    </div>
+    <!-- 2. Правило повторения события -->
+    <div>
+      <span class="block text-xs font-semibold uppercase text-[var(--app-text-muted)] tracking-wider mb-1"><%= t('events.show.rule_label') %></span>
+        <% rules_summary = RecurrenceUi::PickerComponent.new(record: @event).recurrence_summary %>
+         <%= rules_summary.presence || t('events.show.no_recurrence') %>
+    </div>
+    <!-- 8. Ближайшие пять событий (occurrences) -->
+    <div class="pt-4 border-t border-[var(--app-border-color)]">
+      <span class="block text-xs font-semibold uppercase text-[var(--app-text-muted)] tracking-wider mb-3">
+      <%= t('events.show.upcoming_occurrences', count: 5) %>
+      </span>
+      
+      <% occurrences = @event.respond_to?(:upcoming_occurrences) ? @event.upcoming_occurrences(5) : [] %>
+      <% if occurrences.any? %>
+        <ul class="divide-y divide-[var(--app-border-color)] rounded-xl border border-[var(--app-border-color)] bg-[var(--app-bg-nav)] overflow-hidden">
+          <% occurrences.each_with_index do |occ, idx| %>
+            <li class="flex justify-between items-center px-4 py-2.5 text-sm">
+              <span class="font-medium text-[var(--app-text-main)]">Повторение #<%= idx + 1 %></span>
+              <span class="font-mono text-indigo-600 dark:text-indigo-400 font-semibold"><%= occ.to_time.strftime("%d.%m.%Y %H:%M") %></span>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p class="text-sm text-[var(--app-text-muted)] italic"><%= t('events.show.no_upcoming_occurrences') %></p>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- 9. Кнопки для редактирования, удаления и перехода на список всех событий -->
+  <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+    <div class="flex items-center gap-2">
+      <%= link_to t('common.actions.edit'), edit_event_path(@event), class: "rounded-md px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm transition-colors shadow-sm" %>
+      <%= button_to t('common.actions.destroy'), @event, method: :delete, class: "rounded-md px-4 py-2 text-white bg-red-600 hover:bg-red-500 font-medium text-sm cursor-pointer transition-colors shadow-sm", data: { turbo_confirm: t('common.confirm_delete') } %>
+    </div>
+    
+    <div>
+      <%= link_to t('calendar.nav.all_events'), events_path, class: "rounded-md px-4 py-2 border border-[var(--app-border-color)] bg-[var(--app-bg-card)] text-[var(--app-text-main)] hover:opacity-80 font-medium text-sm transition-colors shadow-sm" %>
+    </div>
   </div>
 </div>

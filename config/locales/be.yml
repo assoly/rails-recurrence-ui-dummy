@@ -1,0 +1,97 @@
+---
+be:
+  activerecord:
+    attributes:
+      event:
+        description: Апісанне
+        duration: Duration
+        end_at: Час заканчэння
+        recurring_rules: Правілы паўтору
+        start_at: Час пачатку
+        time_zone: Гатынны пояс
+        title: Загаловак
+    models:
+      event:
+        few: Падзеі
+        many: Падзей
+        one: Падзея
+        other: Падзеі
+      task:
+        few: Задачы
+        many: Задач
+        one: Задача
+        other: Задачы
+      webinar:
+        few: Вябінары
+        many: Вябінараў
+        one: Вябінар
+        other: Вябінары
+  calendar:
+    legend:
+      events: Падзеі
+      tasks: Задачы
+      webinars: Вябінары
+    nav:
+      all_events: Усе падзеі
+      events: Падзеі
+      tasks: Задачы
+      webinars: Вябінары
+  common:
+    actions:
+      cancel: Адмена
+      destroy: Выдаліць
+      edit: Рэдагаваць
+      save: Захаваць
+      show: Прагляд
+    app_name: Дэманстрацыя Recurrence UI
+    confirm_delete: Вы ўпэўненыя?
+    errors:
+      count: ошибка
+    language: Мова
+    theme:
+      dark: Цёмная тэма
+      label: Выбар тэмы
+      light: Светлая тэма
+    time_zone: Гатынны пояс
+  devise:
+    passwords:
+      change_password: Изменение пароля (оставьте пустым, если не меняете)
+    registrations:
+      edit: Настройки профиля
+      sign_up: Регистрация
+      update: Сохранить изменения
+    sessions:
+      sign_in: Вход в систему
+      sign_out: Выход
+  errors:
+    messages:
+      not_saved: Не сохранено
+    template:
+      header:
+        few: "%{count} памылкі замінаюць захаваць %{model}:"
+        many: "%{count} памылак замінаюць захаваць %{model}:"
+        one: '1 памылка замінае захаваць %{model}:'
+        other: "%{count} памылкі замінаюць захаваць %{model}:"
+  events:
+    actions:
+      back_to_list: Вярнуцца да спісу
+      destroy: Выдаліць гэтую падзею
+    edit:
+      title: Рэдагаванне падзеі
+    form:
+      description: Описание
+      title: Заголовок
+    index:
+      add_new: Новая падзея
+      empty: Падзей не знойдзена.
+      title: Падзеі
+    show:
+      no_recurrence: Без паўтораў
+      no_upcoming_occurrences: Няма запланаваных паўтораў
+      page_title: Дэталі падзеі
+      rule_label: Правіла паўтору
+      title: Дэталі падзеі
+      upcoming_occurrences: Наступныя %{count} паўтораў
+  messages:
+    errors:
+      prohibited_this_data_from_being_saved: забаранілі захаванне гэтага запісу

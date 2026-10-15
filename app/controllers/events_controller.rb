@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
-    @events = Event.all
+    @events = Event.order(start_at: :desc)
   end
 
   # GET /events/1 or /events/1.json
@@ -66,6 +66,6 @@ class EventsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def event_params
       localized_fields = %i[title description].product(I18n.available_locales).map { |f, l| "#{f}_#{l}" }
-      params.require(:event).permit( :start_at, :end_at, :time_zone, :recurring_rules, *localized_fields )
+      params.require(:event).permit( :start_at, :end_at, :time_zone, :recurring_rules, *localized_fields, :cover_image, images: [] )
     end
 end

@@ -3,81 +3,87 @@ ru:
   activerecord:
     attributes:
       event:
-        description: Description
-        end_at: End Time
-        recurring_rules: Recurrence Rules
-        start_at: Start Time
-        time_zone: Time Zone
-        title: Title
+        description: Описание
+        duration: Duration
+        end_at: Время окончания
+        recurring_rules: Правила повторения
+        start_at: Время начала
+        time_zone: Часовой пояс
+        title: Заголовок
     models:
       event:
-        one: Event
-        other: Events
+        one: Событие
+        other: События
       task:
-        one: Task
-        other: Tasks
+        one: Задача
+        other: Задачи
       webinar:
-        one: Webinar
-        other: Webinars
+        one: Вебинар
+        other: Вебинары
   calendar:
     legend:
-      events: Events
-      tasks: Tasks
-      webinars: Webinars
+      events: События
+      tasks: Задачи
+      webinars: Вебинары
     nav:
-      all_events: All Events
-      events: Events
-      tasks: Tasks
-      webinars: Webinars
+      all_events: Все события
+      events: События
+      tasks: Задачи
+      webinars: Вебинары
   common:
     actions:
-      cancel: Cancel
-      destroy: Delete
-      edit: Edit
-      save: Save
-      show: Show
-    app_name: Recurrence UI Demo
-    confirm_delete: Are you sure?
-    language: Language
+      cancel: Отмена
+      destroy: Удалить
+      edit: Редактировать
+      save: Сохранить
+      show: Просмотр
+    app_name: Демонстрация Recurrence UI
+    confirm_delete: Вы уверены?
+    errors:
+      count: ошибка
+    language: Язык
     theme:
-      dark: Dark theme
-      label: Theme selection
-      light: Light theme
-    time_zone: Time Zone
+      dark: Темная тема
+      label: Выбор темы
+      light: Светлая тема
+    time_zone: Часовой пояс
   devise:
     passwords:
       change_password: Изменение пароля (оставьте пустым, если не меняете)
     registrations:
       edit: Настройки профиля
-      sign_up: Sign up
+      sign_up: Регистрация
       update: Сохранить изменения
     sessions:
       sign_in: Вход в систему
-      sign_out: Sign out
+      sign_out: Выход
   errors:
     messages:
-      not_saved: Not saved
+      not_saved: Не сохранено
     template:
       header:
-        one: '1 error prohibited this %{model} from being saved:'
-        other: "%{count} errors prohibited this %{model} from being saved:"
+        one: '1 ошибка помешала сохранить %{model}:'
+        other: "%{count} ошибок помешали сохранить %{model}:"
   events:
     actions:
-      back_to_list: Back to events
-      destroy: Destroy
+      back_to_list: Назад к списку
+      destroy: Удалить
     edit:
-      title: Editing event
+      title: Редактирование события
     form:
-      description: Description
-      title: Title
+      description: Описание
+      title: Заголовок
     index:
-      add_new: New event
-      empty: No events found.
-      title: Events
+      add_new: Новое событие
+      empty: События не найдены.
+      title: События
     show:
-      no_recurrence: No recurrence
-      no_upcoming_occurrences: No scheduled occurrences
-      page_title: Page title
-      rule_label: Recurrence rule
-      title: Event Details
-      upcoming_occurrences: Next %{count} occurrences
+      no_recurrence: Без повторений
+      no_upcoming_occurrences: Нет запланированных повторений
+      page_title: Заголовок страницы
+      rule_label: Правило повторения
+      title: Детали события
+      upcoming_occurrences: Следующие %{count} повторений
+  messages:
+    errors:
+      prohibited_this_data_from_being_saved: запретили сохранение этой записи

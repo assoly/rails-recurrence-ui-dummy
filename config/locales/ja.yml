@@ -3,81 +3,87 @@ ja:
   activerecord:
     attributes:
       event:
-        description: Description
-        end_at: End Time
-        recurring_rules: Recurrence Rules
-        start_at: Start Time
-        time_zone: Time Zone
-        title: Title
+        description: 説明
+        duration: Duration
+        end_at: 終了時刻
+        recurring_rules: 繰り返しルール
+        start_at: 開始時刻
+        time_zone: タイムゾーン
+        title: タイトル
     models:
       event:
-        one: Event
-        other: Events
+        one: イベント
+        other: イベント
       task:
-        one: Task
-        other: Tasks
+        one: タスク
+        other: タスク
       webinar:
-        one: Webinar
-        other: Webinars
+        one: ウェビナー
+        other: ウェビナー
   calendar:
     legend:
-      events: Events
-      tasks: Tasks
-      webinars: Webinars
+      events: イベント
+      tasks: タスク
+      webinars: ウェビナー
     nav:
-      all_events: All Events
-      events: Events
-      tasks: Tasks
-      webinars: Webinars
+      all_events: すべてのイベント
+      events: イベント
+      tasks: タスク
+      webinars: ウェビナー
   common:
     actions:
-      cancel: Cancel
-      destroy: Delete
-      edit: Edit
-      save: Save
-      show: Show
-    app_name: Recurrence UI Demo
-    confirm_delete: Are you sure?
-    language: Language
+      cancel: キャンセル
+      destroy: 削除
+      edit: 編集
+      save: 保存
+      show: 詳細
+    app_name: Recurrence UI デモ
+    confirm_delete: 本当に削除しますか？
+    errors:
+      count: 件のエラー
+    language: 言語
     theme:
-      dark: Dark theme
-      label: Theme selection
-      light: Light theme
-    time_zone: Time Zone
+      dark: ダークテーマ
+      label: テーマ選択
+      light: ライトテーマ
+    time_zone: タイムゾーン
   devise:
     passwords:
-      change_password: Изменение пароля (оставьте пустым, если не меняете)
+      change_password: パスワード変更（変更しない場合は空欄）
     registrations:
-      edit: Настройки профиля
-      sign_up: Sign up
-      update: Сохранить изменения
+      edit: プロフィール設定
+      sign_up: アカウント登録
+      update: 変更を保存
     sessions:
-      sign_in: Вход в систему
-      sign_out: Sign out
+      sign_in: ログイン
+      sign_out: ログアウト
   errors:
     messages:
-      not_saved: Not saved
+      not_saved: 保存されませんでした
     template:
       header:
-        one: '1 error prohibited this %{model} from being saved:'
-        other: "%{count} errors prohibited this %{model} from being saved:"
+        one: '1つのエラーにより%{model}を保存できませんでした:'
+        other: "%{count}個のエラーにより%{model}を保存できませんでした:"
   events:
     actions:
-      back_to_list: Back to events
-      destroy: Destroy
+      back_to_list: イベント一覧に戻る
+      destroy: 削除
     edit:
       title: Editing event
     form:
-      description: Description
-      title: Title
+      description: 説明
+      title: タイトル
     index:
-      add_new: New event
-      empty: No events found.
-      title: Events
+      add_new: 新規イベント
+      empty: イベントが見つかりません。
+      title: イベント
     show:
-      no_recurrence: No recurrence
-      no_upcoming_occurrences: No scheduled occurrences
-      page_title: Page title
-      rule_label: Recurrence rule
-      title: Event Details
-      upcoming_occurrences: Next %{count} occurrences
+      no_recurrence: 繰り返しなし
+      no_upcoming_occurrences: 予定されている繰り返しはありません
+      page_title: ページタイトル
+      rule_label: 繰り返しルール
+      title: イベント詳細
+      upcoming_occurrences: 次回から%{count}件の繰り返し
+  messages:
+    errors:
+      prohibited_this_data_from_being_saved: により、このデータの保存が禁止されました
