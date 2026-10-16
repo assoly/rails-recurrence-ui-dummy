@@ -10,16 +10,6 @@ ja:
         start_at: 開始時刻
         time_zone: タイムゾーン
         title: タイトル
-    models:
-      event:
-        one: イベント
-        other: イベント
-      task:
-        one: タスク
-        other: タスク
-      webinar:
-        one: ウェビナー
-        other: ウェビナー
   calendar:
     legend:
       events: イベント
@@ -60,14 +50,9 @@ ja:
   errors:
     messages:
       not_saved: 保存されませんでした
-    template:
-      header:
-        one: '1つのエラーにより%{model}を保存できませんでした:'
-        other: "%{count}個のエラーにより%{model}を保存できませんでした:"
   events:
     actions:
       back_to_list: イベント一覧に戻る
-      destroy: 削除
     edit:
       title: Editing event
     form:
@@ -80,9 +65,7 @@ ja:
     show:
       no_recurrence: 繰り返しなし
       no_upcoming_occurrences: 予定されている繰り返しはありません
-      page_title: ページタイトル
       rule_label: 繰り返しルール
-      title: イベント詳細
       upcoming_occurrences: 次回から%{count}件の繰り返し
   messages:
     errors:

@@ -66,6 +66,9 @@ class WebinarsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def webinar_params
       localized_fields = %i[title description].product(I18n.available_locales).map { |f, l| "#{f}_#{l}" }
-      params.require(:webinar).permit( :starts_at, :finishes_at, :time_zone_name, :schedule_json, *localized_fields)
+      params.require(:webinar).permit( 
+        *localized_fields,
+        *Webinar.recurrence_permitted_params, 
+      )
     end
 end

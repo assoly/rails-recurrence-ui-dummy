@@ -10,22 +10,6 @@ be:
         start_at: Час пачатку
         time_zone: Гатынны пояс
         title: Загаловак
-    models:
-      event:
-        few: Падзеі
-        many: Падзей
-        one: Падзея
-        other: Падзеі
-      task:
-        few: Задачы
-        many: Задач
-        one: Задача
-        other: Задачы
-      webinar:
-        few: Вябінары
-        many: Вябінараў
-        one: Вябінар
-        other: Вябінары
   calendar:
     legend:
       events: Падзеі
@@ -66,16 +50,9 @@ be:
   errors:
     messages:
       not_saved: Не сохранено
-    template:
-      header:
-        few: "%{count} памылкі замінаюць захаваць %{model}:"
-        many: "%{count} памылак замінаюць захаваць %{model}:"
-        one: '1 памылка замінае захаваць %{model}:'
-        other: "%{count} памылкі замінаюць захаваць %{model}:"
   events:
     actions:
       back_to_list: Вярнуцца да спісу
-      destroy: Выдаліць гэтую падзею
     edit:
       title: Рэдагаванне падзеі
     form:
@@ -88,9 +65,7 @@ be:
     show:
       no_recurrence: Без паўтораў
       no_upcoming_occurrences: Няма запланаваных паўтораў
-      page_title: Дэталі падзеі
       rule_label: Правіла паўтору
-      title: Дэталі падзеі
       upcoming_occurrences: Наступныя %{count} паўтораў
   messages:
     errors:

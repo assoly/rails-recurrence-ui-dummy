@@ -10,16 +10,6 @@ ru:
         start_at: Время начала
         time_zone: Часовой пояс
         title: Заголовок
-    models:
-      event:
-        one: Событие
-        other: События
-      task:
-        one: Задача
-        other: Задачи
-      webinar:
-        one: Вебинар
-        other: Вебинары
   calendar:
     legend:
       events: События
@@ -60,14 +50,9 @@ ru:
   errors:
     messages:
       not_saved: Не сохранено
-    template:
-      header:
-        one: '1 ошибка помешала сохранить %{model}:'
-        other: "%{count} ошибок помешали сохранить %{model}:"
   events:
     actions:
       back_to_list: Назад к списку
-      destroy: Удалить
     edit:
       title: Редактирование события
     form:
@@ -80,9 +65,7 @@ ru:
     show:
       no_recurrence: Без повторений
       no_upcoming_occurrences: Нет запланированных повторений
-      page_title: Заголовок страницы
       rule_label: Правило повторения
-      title: Детали события
       upcoming_occurrences: Следующие %{count} повторений
   messages:
     errors:

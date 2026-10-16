@@ -10,16 +10,6 @@ en:
         start_at: Start Time
         time_zone: Time Zone
         title: Title
-    models:
-      event:
-        one: Event
-        other: Events
-      task:
-        one: Task
-        other: Tasks
-      webinar:
-        one: Webinar
-        other: Webinars
   calendar:
     legend:
       events: Events
@@ -60,14 +50,9 @@ en:
   errors:
     messages:
       not_saved: Не сохранено
-    template:
-      header:
-        one: '1 error prohibited this %{model} from being saved:'
-        other: "%{count} errors prohibited this %{model} from being saved:"
   events:
     actions:
       back_to_list: Back to events
-      destroy: Delete this event
     edit:
       title: Editing event
     form:
@@ -80,9 +65,7 @@ en:
     show:
       no_recurrence: No recurrence
       no_upcoming_occurrences: No scheduled occurrences
-      page_title: Event Details
       rule_label: Recurrence rule
-      title: Event Details
       upcoming_occurrences: Next %{count} occurrences
   messages:
     errors:

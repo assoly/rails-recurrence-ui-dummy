@@ -7,35 +7,14 @@
     description: { type: :text_area, rows: 5 }
   }, locales: @locales) %>
 
-  <!-- Время начала и окончания -->
-  <div class="my-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
-    <div>
-      <%= form.label :start_at, t('activerecord.attributes.event.start_at', default: 'Время начала'), class: "app-label" %>
-      <%= form.datetime_field :start_at, class: ["app-input", ("app-input-error" if event.errors[:start_at].any?)] %>
-    </div>
-
-    <div>
-      <%= form.label :end_at, t('activerecord.attributes.event.end_at', default: 'Время окончания'), class: "app-label" %>
-      <%= form.datetime_field :end_at, class: ["app-input", ("app-input-error" if event.errors[:end_at].any?)] %>
-    </div>
-  </div>
-
-  <!-- Выбор часового пояса с явным переводом -->
-  <div class="my-5">
-    <%= form.label :time_zone, t('activerecord.attributes.event.time_zone', default: 'Часовой пояс'), class: "app-label" %>
-    <%= form.time_zone_select :time_zone, 
-          ActiveSupport::TimeZone.us_zones, 
-          { default: event.time_zone.presence || Time.zone.name }, 
-          { class: ["app-input cursor-pointer", ("app-input-error" if event.errors[:time_zone].any?)] } %>
-  </div>
-
+  
   <!-- Компонент повторения RecurrenceUi -->
-  <div class="my-6">
+  <div class="my-2">
     <%= render RecurrenceUi::PickerComponent.new(form: form,record: event) %>
   </div>
 
   <!-- Кнопки действия с переводами -->
-  <div class="mt-8 flex items-center justify-end gap-3">
+  <div class="flex items-center justify-end gap-3">
     <%= link_to t('common.actions.cancel', default: 'Отмена'), events_path, class: "app-btn-secondary" %>
     <%= form.submit t('common.actions.save', default: 'Сохранить'), class: "app-btn-primary" %>
   </div>

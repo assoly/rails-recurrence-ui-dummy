@@ -9,7 +9,7 @@
   <!-- Описание правила повторения -->
   <div class="flex items-center gap-2 text-sm flex-wrap">
     <span class="app-label-muted !mb-0"><%= t('events.show.rule_label') %>:</span>
-    <% rules_summary = RecurrenceUi::PickerComponent.new(record: event, field_name: :recurring_rules).recurrence_summary %>
+    <% rules_summary = RecurrenceUi::PickerComponent.new(record: event).recurrence_summary %>
     <% if rules_summary.present? %>
       <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
         <%= rules_summary %>
@@ -22,20 +22,8 @@
   <!-- Ближайшие 5 повторений -->
   <div class="p-3.5 rounded-lg bg-[var(--app-bg-nav)] border border-[var(--app-border-color)]">
     <span class="app-label-muted mb-2 flex items-center gap-1.5">
-      <span>📅</span> <%= t('events.show.upcoming_occurrences', count: 5) %>:
+    <%= t('events.show.upcoming_occurrences', count: 5) %>:
     </span>
     
-    <% occurrences = event.respond_to?(:upcoming_occurrences) ? event.upcoming_occurrences(5) : [] %>
-    <% if occurrences.any? %>
-      <div class="flex flex-wrap gap-2">
-        <% occurrences.each do |occ| %>
-          <span class="inline-flex items-center px-2.5 py-1 text-xs font-mono rounded-md bg-[var(--app-bg-card)] border border-[var(--app-border-color)] shadow-2xs">
-            <%= l(occ.to_time, format: :short) %>
-          </span>
-        <% end %>
-      </div>
-    <% else %>
-      <p class="text-xs text-[var(--app-text-muted)] italic"><%= t('events.show.no_upcoming_occurrences') %></p>
-    <% end %>
   </div>
 </div>

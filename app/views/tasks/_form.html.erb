@@ -24,22 +24,20 @@
   </div>
 
   <%# Срок выполнения %>
-  <div class="my-5">
+  <div class="my-2">
     <%= form.label :due_date, class: "app-label" %>
     <%= form.datetime_field :due_date, class: ["app-input", ("app-input-error" if task.errors[:due_date].any?)] %>
   </div>
 
   <%# Компонент повторения гема RecurrenceUi %>
-  <div class="my-6">
+  <div class="my-2">
     <%= render RecurrenceUi::PickerComponent.new(
           form: form, 
-          record: task, 
-          field_name: :recurrence_data
-        ) %>
+          record: task) %>
   </div>
 
   <%# Действия %>
-  <div class="mt-8 flex items-center justify-end gap-3">
+  <div class="flex items-center justify-end gap-3">
     <%= link_to "Отмена", tasks_path, class: "app-btn-secondary" %>
     <%= form.submit class: "app-btn-primary" %>
   </div>
