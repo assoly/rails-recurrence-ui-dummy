@@ -5,6 +5,7 @@ export default class extends Controller {
 
   connect() {
     this.handleKeydown = this.handleKeydown.bind(this)
+
     document.addEventListener("keydown", this.handleKeydown)
   }
 
@@ -12,40 +13,37 @@ export default class extends Controller {
     document.removeEventListener("keydown", this.handleKeydown)
   }
 
-  toggle() {
-    if (this.sidebarTarget.classList.contains("hidden")) {
-      this.open()
-    } else {
-      this.close()
-    }
+  get isDesktop() {
+    return window.matchMedia("(min-width: 1024px)").matches
   }
 
-  open() {
-    this.sidebarTarget.classList.remove("hidden")
-    this.sidebarTarget.classList.add("flex")
+  toggle() {
+    if (this.isDesktop) return
 
-    document.querySelector(
-      '[data-action~="click->mobile-menu#toggle"]'
-    )?.setAttribute("aria-expanded", "true")
+    this.sidebarTarget.classList.toggle("hidden")
+
+    this.updateButton()
   }
 
   close() {
-    // На десктопе меню должно оставаться видимым.
-    if (window.matchMedia("(min-width: 1024px)").matches) {
-      return
-    }
+    if (this.isDesktop) return
 
     this.sidebarTarget.classList.add("hidden")
-    this.sidebarTarget.classList.remove("flex")
 
-    document.querySelector(
-      '[data-action~="click->mobile-menu#toggle"]'
-    )?.setAttribute("aria-expanded", "false")
+    this.updateButton()
   }
 
   handleKeydown(event) {
     if (event.key === "Escape") {
       this.close()
     }
+  }
+
+  updateButton() {
+    const isOpen = !this.sidebarTarget.classList.contains("hidden")
+
+    this.element
+      .querySelector('[data-action~="click->mobile-menu#toggle"]')
+      ?.setAttribute("aria-expanded", String(isOpen))
   }
 }
