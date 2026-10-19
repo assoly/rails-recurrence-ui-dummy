@@ -1,32 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale %>">
   <head>
-    <title><%= content_for?(:title) ? yield(:title) : t('common.app_name', default: 'Dummy App') %></title>
+    <title>
+      <%= content_for?(:title) ? yield(:title) : t('common.app_name', default: 'Dummy App') %>
+    </title>
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
-    
-    <!-- Инициализация темы без задержки при загрузке -->
+
     <script>
       function applyThemeUI(theme) {
-        const isDark = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        const isDark =
+          theme === 'dark' ||
+          (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
         document.documentElement.classList.toggle('dark', isDark);
 
-        document.querySelectorAll('[data-theme-set]').forEach(btn => {
-          const btnTheme = btn.getAttribute('data-theme-set');
-          const active = (btnTheme === 'dark' && isDark) || (btnTheme === 'light' && !isDark);
+        document.querySelectorAll('[data-theme-set]').forEach((btn) => {
+          const active =
+            (btn.dataset.themeSet === 'dark' && isDark) ||
+            (btn.dataset.themeSet === 'light' && !isDark);
+
           btn.setAttribute('aria-pressed', active);
-          if (active) {
-            btn.classList.add('bg-[var(--app-btn-primary-bg)]', 'text-white');
-            btn.classList.remove('text-[var(--app-text-muted)]');
-          } else {
-            btn.classList.remove('bg-[var(--app-btn-primary-bg)]', 'text-white');
-            btn.classList.add('text-[var(--app-text-muted)]');
-          }
+
+          btn.classList.toggle(
+            'bg-[var(--app-btn-primary-bg)]',
+            active
+          );
+          btn.classList.toggle('text-white', active);
+          btn.classList.toggle(
+            'text-[var(--app-text-muted)]',
+            !active
+          );
         });
       }
 
@@ -35,17 +48,34 @@
         applyThemeUI(theme);
       }
 
+      applyThemeUI(localStorage.getItem('theme'));
+
       document.addEventListener('DOMContentLoaded', () => {
         applyThemeUI(localStorage.getItem('theme'));
       });
-      applyThemeUI(localStorage.getItem('theme'));
+
+      document.addEventListener('turbo:load', () => {
+        applyThemeUI(localStorage.getItem('theme'));
+      });
     </script>
   </head>
 
-  <body class="min-h-screen">
-    <main class="container mx-auto mt-10 px-5 flex flex-col">
-      <%= render "shared/navbar" %>
-      <%= yield %>
-    </main>
+  <body class="min-h-screen bg-[var(--app-bg-main)] text-[var(--app-text-main)]">
+    <div
+      class="min-h-screen lg:flex"
+      data-controller="mobile-menu"
+    >
+      <%# Основное меню %>
+      <%= render "shared/sidebar" %>
+
+      <%# Правая часть приложения %>
+      <div class="flex min-w-0 flex-1 flex-col">
+        <%= render "shared/navbar" %>
+
+        <main class="w-full flex-1 px-4 py-5 sm:px-6 lg:px-8">
+          <%= yield %>
+        </main>
+      </div>
+    </div>
   </body>
 </html>

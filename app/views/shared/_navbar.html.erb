@@ -1,69 +1,111 @@
-<nav class="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl border border-[var(--app-border-color)] bg-[var(--app-bg-nav)] mb-6 shadow-sm">
-  
-  <!-- Левая секция: Часы и Часовой пояс -->
-  <% raw_tz = current_user&.time_zone.presence || Time.zone.name %>
-  <% iana_tz = ActiveSupport::TimeZone[raw_tz]&.tzinfo&.name || raw_tz %>
-  <div class="flex items-center space-x-3" data-controller="clock" data-clock-tz-value="<%= iana_tz %>">
-    <div class="font-mono font-bold text-sm" data-clock-target="time">--:--:--</div>
+<header class="sticky top-0 z-30 border-b border-[var(--app-border-color)] bg-[var(--app-bg-nav)]/95 backdrop-blur">
+  <div class="flex min-h-16 flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
 
-    <div class="px-2 py-0.5 rounded text-xs font-semibold bg-[var(--app-bg-card)] text-[var(--app-text-muted)] border border-[var(--app-border-color)] shadow-2xs" 
-         data-clock-target="zone">
-      <%= iana_tz %>
+    <%# Левая часть: меню и часы %>
+    <div class="flex min-w-0 items-center gap-3 sm:gap-4">
+
+      <button
+        type="button"
+        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-[var(--app-border-color)] text-xl hover:bg-[var(--app-bg-card)] lg:hidden"
+        data-action="click->mobile-menu#toggle"
+        aria-controls="app-sidebar"
+        aria-expanded="false"
+        aria-label="<%= t('navigation.open_menu', default: 'Open menu') %>"
+      >
+        ☰
+      </button>
+
+      <% raw_tz = current_user&.time_zone.presence || Time.zone.name %>
+      <% iana_tz = ActiveSupport::TimeZone[raw_tz]&.tzinfo&.name || raw_tz %>
+
+      <div
+        class="flex min-w-0 items-center gap-2 sm:gap-3"
+        data-controller="clock"
+        data-clock-tz-value="<%= iana_tz %>"
+      >
+        <div class="font-mono text-sm font-bold tabular-nums sm:text-base"
+             data-clock-target="time">
+          --:--:--
+        </div>
+
+        <div
+          class="hidden max-w-40 truncate rounded-md border border-[var(--app-border-color)] bg-[var(--app-bg-card)] px-2 py-1 text-xs font-medium text-[var(--app-text-muted)] sm:block"
+          data-clock-target="zone"
+          title="<%= iana_tz %>"
+        >
+          <%= iana_tz %>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <!-- Центр: Выбор языка -->
-  <div class="flex items-center gap-1.5">
-    <span class="font-bold text-xs uppercase tracking-wider text-[var(--app-text-muted)] mr-1">
-      <%= t('common.language') %>:
-    </span>
-    <% (I18n.available_locales || []).each do |loc| %>
-      <%= link_to loc.to_s.upcase, 
-                  url_for(locale: loc), 
-                  class: "px-2.5 py-1 rounded-md text-xs font-medium transition-all #{I18n.locale == loc ? 'app-btn-primary' : 'text-[var(--app-text-muted)] hover:text-[var(--app-text-main)] hover:bg-[var(--app-bg-card)]'}" %>
-    <% end %>
-  </div>
+    <%# Правая часть: язык, пользователь и тема %>
+    <div class="flex items-center gap-2 sm:gap-3">
 
-  <!-- Правая секция: Профиль Devise и Переключатель темы -->
-  <div class="flex items-center space-x-3">
-    <% if user_signed_in? %>
-      <div class="flex items-center gap-2">
-        <%= link_to edit_user_registration_path, class: "flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border border-[var(--app-border-color)] bg-[var(--app-bg-card)] text-[var(--app-text-main)] hover:bg-[var(--app-list-item-hover)] transition-colors" do %>
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-          <span><%= current_user.email %></span>
-        <% end %>
-
-        <%= button_to destroy_user_session_path, method: :delete, class: "px-2.5 py-1.5 rounded-lg text-xs font-medium border border-[var(--app-border-color)] bg-[var(--app-danger-bg)] text-[var(--app-danger-text)] hover:opacity-80 transition-opacity cursor-pointer" do %>
-          <%= t('devise.sessions.sign_out') %>
+      <%# Переключение локали %>
+      <div
+        class="flex items-center gap-1 rounded-lg border border-[var(--app-border-color)] bg-[var(--app-bg-card)] p-1"
+        aria-label="<%= t('common.language') %>"
+      >
+        <% I18n.available_locales.each do |loc| %>
+          <%= link_to loc.to_s.upcase,
+            url_for(locale: loc),
+            class: [
+              "rounded-md px-2 py-1.5 text-xs font-semibold transition-colors",
+              I18n.locale.to_s == loc.to_s ?
+                "bg-[var(--app-btn-primary-bg)] text-white" :
+                "text-[var(--app-text-muted)] hover:text-[var(--app-text-main)]"
+            ].join(" "),
+            aria: { current: I18n.locale.to_s == loc.to_s ? "page" : nil },
+            title: loc.to_s.upcase %>
         <% end %>
       </div>
-    <% else %>
-      <div class="flex items-center gap-2">
-        <%= link_to t('devise.sessions.sign_in'), new_user_session_path, class: "app-btn-primary !py-1.5 !px-3 !text-xs" %>
-        <%= link_to t('devise.registrations.sign_up'), new_user_registration_path, class: "app-btn-secondary !py-1.5 !px-3 !text-xs" %>
+
+      <%# Аватар пользователя %>
+      <% if user_signed_in? %>
+        <% display_name = current_user.try(:name).presence || current_user.email %>
+        <% avatar_letter = display_name.to_s.strip.first&.upcase || "?" %>
+
+        <%= link_to edit_user_registration_path,
+          class: "flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--app-btn-primary-bg)] font-bold text-white transition-opacity hover:opacity-80",
+          title: display_name,
+          aria: { label: t("navigation.profile") } do %>
+          <%= avatar_letter %>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_session_path,
+          class: "rounded-lg border border-[var(--app-border-color)] px-3 py-2 text-sm font-medium hover:bg-[var(--app-bg-card)]" do %>
+          <%= t("devise.sessions.sign_in") %>
+        <% end %>
+      <% end %>
+
+      <%# Переключатель темы %>
+      <div
+        class="theme flex shrink-0 items-center gap-0.5 rounded-lg border border-[var(--app-border-color)] bg-[var(--app-bg-card)] p-1"
+        role="group"
+        aria-label="<%= t('common.theme.label') %>"
+      >
+        <button
+          type="button"
+          data-theme-set="light"
+          onclick="setAppTheme('light')"
+          class="rounded-md p-1.5 text-[var(--app-text-muted)] transition-colors hover:text-[var(--app-text-main)]"
+          aria-label="<%= t('common.theme.light') %>"
+          title="<%= t('common.theme.light') %>"
+        >
+          ☀
+        </button>
+
+        <button
+          type="button"
+          data-theme-set="dark"
+          onclick="setAppTheme('dark')"
+          class="rounded-md p-1.5 text-[var(--app-text-muted)] transition-colors hover:text-[var(--app-text-main)]"
+          aria-label="<%= t('common.theme.dark') %>"
+          title="<%= t('common.theme.dark') %>"
+        >
+          ☾
+        </button>
       </div>
-    <% end %>
-
-    <div class="h-4 w-px bg-[var(--app-border-color)] mx-1"></div>
-
-    <!-- Переключатель темы -->
-    <div class="theme flex items-center bg-[var(--app-bg-card)] p-0.5 rounded-lg border border-[var(--app-border-color)] shadow-2xs" role="group" aria-label="<%= t('common.theme.label') %>">
-      <button type="button" 
-              data-theme-set="light" 
-              onclick="setAppTheme('light')"
-              class="p-1.5 rounded-md text-[var(--app-text-muted)] hover:text-[var(--app-text-main)] transition-colors cursor-pointer" 
-              aria-label="<%= t('common.theme.light') %>" 
-              title="<%= t('common.theme.light') %>">
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"></path></svg>
-      </button>
-      <button type="button" 
-              data-theme-set="dark" 
-              onclick="setAppTheme('dark')"
-              class="p-1.5 rounded-md text-[var(--app-text-muted)] hover:text-[var(--app-text-main)] transition-colors cursor-pointer" 
-              aria-label="<%= t('common.theme.dark') %>" 
-              title="<%= t('common.theme.dark') %>">
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"></path></svg>
-      </button>
     </div>
   </div>
-</nav>
+</header>

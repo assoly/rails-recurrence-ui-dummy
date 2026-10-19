@@ -1,0 +1,160 @@
+<aside
+  id="app-sidebar"
+  data-mobile-menu-target="sidebar"
+  class="
+    fixed inset-y-0 left-0 z-50
+    hidden w-72 flex-col
+    overflow-y-auto
+    border-r border-[var(--app-border-color)]
+    bg-[var(--app-bg-nav)]
+    p-4 shadow-xl
+    lg:sticky lg:top-0 lg:flex
+    lg:h-screen lg:shrink-0 lg:shadow-none
+  "
+>
+  <%# Логотип %>
+  <div class="mb-8 flex items-center justify-between px-2 pt-2">
+    <%= link_to localized_root_path,
+      class: "flex items-center gap-3 font-bold text-lg" do %>
+
+      <span
+        class="
+          flex h-10 w-10 items-center justify-center
+          rounded-xl bg-[var(--app-btn-primary-bg)]
+          text-white
+        "
+      >
+        R
+      </span>
+
+      <span>
+        <%= t("common.app_name", default: "Recurrence UI") %>
+      </span>
+    <% end %>
+
+    <button
+      type="button"
+      class="rounded-lg p-2 text-[var(--app-text-muted)] hover:bg-[var(--app-bg-card)] lg:hidden"
+      data-action="click->mobile-menu#close"
+      aria-label="<%= t('navigation.close_menu', default: 'Close menu') %>"
+    >
+      ✕
+    </button>
+  </div>
+
+  <nav class="flex-1 space-y-6">
+    <%# Календари %>
+    <section>
+      <h2 class="mb-2 px-3 text-xs font-bold uppercase tracking-wider text-[var(--app-text-muted)]">
+        <%= t("navigation.calendars") %>
+      </h2>
+
+      <div class="space-y-1">
+        <%= link_to calendar_path(view: "simple"),
+          class: "sidebar-link #{'sidebar-link-active' if params[:view] == 'simple'}",
+          data: { action: "click->mobile-menu#close" } do %>
+          <span>▦</span>
+          <span><%= t("navigation.simple_calendar") %></span>
+        <% end %>
+
+        <%= link_to calendar_path(view: "full"),
+          class: "sidebar-link #{'sidebar-link-active' if params[:view] == 'full'}",
+          data: { action: "click->mobile-menu#close" } do %>
+          <span>▦</span>
+          <span><%= t("navigation.full_calendar") %></span>
+        <% end %>
+
+        <%= link_to calendar_path(view: "mine"),
+          class: "sidebar-link #{'sidebar-link-active' if params[:view] == 'mine'}",
+          data: { action: "click->mobile-menu#close" } do %>
+          <span>▣</span>
+          <span><%= t("navigation.my_calendar") %></span>
+        <% end %>
+      </div>
+    </section>
+
+    <%# Модели %>
+    <section>
+      <h2 class="mb-2 px-3 text-xs font-bold uppercase tracking-wider text-[var(--app-text-muted)]">
+        <%= t("navigation.models") %>
+      </h2>
+
+      <div class="space-y-1">
+        <%= link_to events_path,
+          class: "sidebar-link #{'sidebar-link-active' if controller_name == 'events'}",
+          data: { action: "click->mobile-menu#close" } do %>
+          <span>◇</span>
+          <span><%= t("navigation.events") %></span>
+        <% end %>
+
+        <%= link_to tasks_path,
+          class: "sidebar-link #{'sidebar-link-active' if controller_name == 'tasks'}",
+          data: { action: "click->mobile-menu#close" } do %>
+          <span>✓</span>
+          <span><%= t("navigation.tasks") %></span>
+        <% end %>
+
+        <%= link_to webinars_path,
+          class: "sidebar-link #{'sidebar-link-active' if controller_name == 'webinars'}",
+          data: { action: "click->mobile-menu#close" } do %>
+          <span>▷</span>
+          <span><%= t("navigation.webinars") %></span>
+        <% end %>
+      </div>
+    </section>
+
+    <%# Настройки %>
+    <section>
+      <h2 class="mb-2 px-3 text-xs font-bold uppercase tracking-wider text-[var(--app-text-muted)]">
+        <%= t("navigation.settings") %>
+      </h2>
+
+      <div class="space-y-1">
+        <% if user_signed_in? %>
+          <%= link_to edit_user_registration_path,
+            class: "sidebar-link",
+            data: { action: "click->mobile-menu#close" } do %>
+            <span>♙</span>
+            <span><%= t("navigation.profile") %></span>
+          <% end %>
+
+          <%= link_to "#{edit_user_registration_path}#password",
+            class: "sidebar-link",
+            data: { action: "click->mobile-menu#close" } do %>
+            <span>🔒</span>
+            <span><%= t("navigation.password") %></span>
+          <% end %>
+
+          <%= button_to destroy_user_session_path,
+            method: :delete,
+            class: "sidebar-link w-full text-left",
+            form: { class: "w-full" } do %>
+            <span>↪</span>
+            <span><%= t("navigation.logout") %></span>
+          <% end %>
+        <% else %>
+          <%= link_to new_user_session_path,
+            class: "sidebar-link",
+            data: { action: "click->mobile-menu#close" } do %>
+            <span>↪</span>
+            <span><%= t("devise.sessions.sign_in") %></span>
+          <% end %>
+
+          <%= link_to new_user_registration_path,
+            class: "sidebar-link",
+            data: { action: "click->mobile-menu#close" } do %>
+            <span>＋</span>
+            <span><%= t("devise.registrations.sign_up") %></span>
+          <% end %>
+        <% end %>
+      </div>
+    </section>
+  </nav>
+
+  <div class="mt-8 border-t border-[var(--app-border-color)] px-3 pt-4 text-xs text-[var(--app-text-muted)]">
+    Recurrence UI
+    <div class="mt-1">
+      <%= t("navigation.demo_environment", default: "Demo environment") %>
+    </div>
+  </div>
+</aside>

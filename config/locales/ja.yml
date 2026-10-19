@@ -1,5 +1,24 @@
 ---
 ja:
+  navigation:
+    calendars: "カレンダー"
+    simple_calendar: "シンプルカレンダー"
+    full_calendar: "フルカレンダー"
+    my_calendar: "マイカレンダー"
+
+    models: "モデル"
+    events: "イベント"
+    tasks: "タスク"
+    webinars: "ウェビナー"
+
+    settings: "設定"
+    profile: "プロフィール"
+    password: "パスワード"
+    logout: "ログアウト"
+
+    open_menu: "メニューを開く"
+    close_menu: "メニューを閉じる"
+    demo_environment: "デモアプリケーション"
   activerecord:
     attributes:
       event:

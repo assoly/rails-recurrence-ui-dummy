@@ -1,5 +1,24 @@
 ---
 ru:
+  navigation:
+    calendars: "Календари"
+    simple_calendar: "Симпл календарь"
+    full_calendar: "Фулл календарь"
+    my_calendar: "Мой календарь"
+
+    models: "Модели"
+    events: "События"
+    tasks: "Задачи"
+    webinars: "Вебинары"
+
+    settings: "Настройки"
+    profile: "Профиль пользователя"
+    password: "Пароль"
+    logout: "Выйти"
+
+    open_menu: "Открыть меню"
+    close_menu: "Закрыть меню"
+    demo_environment: "Демонстрационное приложение"
   activerecord:
     attributes:
       event:
