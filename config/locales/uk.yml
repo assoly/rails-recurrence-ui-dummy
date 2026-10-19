@@ -4,7 +4,7 @@ uk:
     attributes:
       event:
         description: Опис
-        duration: Duration
+        duration: Тривалість
         end_at: Час закінчення
         recurring_rules: Правила повторення
         start_at: Час початку
@@ -56,7 +56,7 @@ uk:
     edit:
       title: Редагування події
     form:
-      description: Описание
+      description: Опис
       title: Заголовок
     index:
       add_new: Нова подія

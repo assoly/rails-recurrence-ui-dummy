@@ -30,7 +30,7 @@ en:
     app_name: Recurrence UI Demo
     confirm_delete: Are you sure?
     errors:
-      count: ошибка
+      count: error
     language: Language
     theme:
       dark: Dark theme
@@ -39,25 +39,25 @@ en:
     time_zone: Time Zone
   devise:
     passwords:
-      change_password: Изменение пароля (оставьте пустым, если не меняете)
+      change_password: Change password (leave blank if you don't want to change it)
     registrations:
-      edit: Настройки профиля
-      sign_up: Регистрация
-      update: Сохранить изменения
+      edit: Profile settings
+      sign_up: Sign up
+      update: Save changes
     sessions:
-      sign_in: Вход в систему
-      sign_out: Выход
+      sign_in: Sign in
+      sign_out: Sign out
   errors:
     messages:
-      not_saved: Не сохранено
+      not_saved: Not saved
   events:
     actions:
       back_to_list: Back to events
     edit:
       title: Editing event
     form:
-      description: Описание
-      title: Заголовок
+      description: Description
+      title: Title
     index:
       add_new: New event
       empty: No events found.

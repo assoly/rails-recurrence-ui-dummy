@@ -4,7 +4,7 @@ ja:
     attributes:
       event:
         description: 説明
-        duration: Duration
+        duration: 期間
         end_at: 終了時刻
         recurring_rules: 繰り返しルール
         start_at: 開始時刻

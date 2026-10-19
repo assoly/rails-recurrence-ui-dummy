@@ -68,7 +68,7 @@
         <ul class="divide-y divide-[var(--app-border-color)] rounded-xl border border-[var(--app-border-color)] bg-[var(--app-bg-nav)] overflow-hidden">
           <% occurrences.each_with_index do |occ, idx| %>
             <li class="flex justify-between items-center px-4 py-2.5 text-sm">
-              <span class="font-medium text-[var(--app-text-main)]">Повторение #<%= idx + 1 %></span>
+              <span class="font-medium text-[var(--app-text-main)]">#<%= idx + 1 %></span>
               <span class="font-mono text-indigo-600 dark:text-indigo-400 font-semibold"><%= occ.to_time.strftime("%d.%m.%Y %H:%M") %></span>
             </li>
           <% end %>

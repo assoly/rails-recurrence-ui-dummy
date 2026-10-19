@@ -4,7 +4,7 @@ ru:
     attributes:
       event:
         description: Описание
-        duration: Duration
+        duration: Длительность
         end_at: Время окончания
         recurring_rules: Правила повторения
         start_at: Время начала

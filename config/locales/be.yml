@@ -4,7 +4,7 @@ be:
     attributes:
       event:
         description: Апісанне
-        duration: Duration
+        duration: Длительность
         end_at: Час заканчэння
         recurring_rules: Правілы паўтору
         start_at: Час пачатку
