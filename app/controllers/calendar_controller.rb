@@ -15,23 +15,35 @@ class CalendarController < ApplicationController
           klass.find_each do |record|
             next unless record.respond_to?(:schedule) && record.schedule
 
-            # Берем длительность (в секундах) или задаем 1 час по умолчанию
-            duration = record.respond_to?(:duration) && record.duration.to_i > 0 ? record.duration : 1.hour.to_i
+            # Защита от падений отдельной записи
+            begin
+              duration = record.respond_to?(:duration) && record.duration.to_i > 0 ? record.duration : 1.hour.to_i
 
-            record.schedule.occurrences_between(from_time, to_time).each do |occ|
-              start_at = occ.to_time
-              end_at   = start_at + duration
+              # Учитываем таймзону записи для корректного поиска в IceCube
+              event_zone = record.respond_to?(:event_time_zone) ? record.event_time_zone : Time.zone
+              sched_from = from_time.in_time_zone(event_zone)
+              sched_to   = to_time.in_time_zone(event_zone)
 
-              events_data << {
-                id: "#{type_name.downcase}_#{record.id}_#{start_at.to_i}",
-                title: record.title,
-                start: start_at.iso8601,
-                end: end_at.iso8601,
-                backgroundColor: color_code,
-                borderColor: color_code,
-                textColor: "#ffffff",
-                url: url_for(record)
-              }
+              record.schedule.occurrences_between(sched_from, sched_to).each do |occ|
+                start_at = occ.to_time
+                end_at   = start_at + duration
+
+                title = record.respond_to?(:title) ? record.title : "#{type_name} ##{record.id}"
+                record_url = begin; url_for(record); rescue; '#'; end
+
+                events_data << {
+                  id: "#{type_name.downcase}_#{record.id}_#{start_at.to_i}",
+                  title: title,
+                  start: start_at.iso8601,
+                  end: end_at.iso8601,
+                  backgroundColor: color_code,
+                  borderColor: color_code,
+                  textColor: "#ffffff",
+                  url: record_url
+                }
+              end
+            rescue StandardError => e
+              Rails.logger.error("[CalendarController] Error processing #{klass.name} ID #{record.id}: #{e.message}")
             end
           end
         end
