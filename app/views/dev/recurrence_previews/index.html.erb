@@ -74,7 +74,7 @@
       <span class="px-2.5 py-1 text-xs font-semibold bg-emerald-100 dark:bg-emerald-950 dark:text-emerald-300 text-emerald-800 rounded-full">Active Record Form Integration</span>
     </div>
 
-    <% component = RecurrenceUi::PickerComponent.new(record: @event) %>
+    <% component = RecurrenceUi::RecurrencePickerComponent.new(record: @event) %>
 
     <!-- Recurrence Summary Banner -->
     <div class="p-4 bg-indigo-50/60 dark:bg-indigo-950/40 rounded-lg border border-indigo-100 dark:border-indigo-900/50">
@@ -184,7 +184,7 @@
   <section class="space-y-6">
     <div class="border-b border-slate-200 pb-4">
       <h2 class="text-2xl font-bold text-slate-900">4. Ruby vs JS Parity Matrix</h2>
-      <p class="text-sm text-slate-500">Verification that <code>RecurrenceSummaryService</code> (Ruby) and Stimulus Controller (JS) produce identical text representations across all rule structures.</p>
+      <p class="text-sm text-slate-500">Verification that <code>RecurrenceFormatterService</code> (Ruby) and Stimulus Controller (JS) produce identical text representations across all rule structures.</p>
     </div>
 
     <% @locales.each do |locale| %>
@@ -209,7 +209,7 @@
                 <% 
                   json_payload = test_case[:hash].to_json 
                   options = { locale: locale }
-                  ruby_summary = RecurrenceUi::RecurrenceSummaryService.new(test_case[:hash], options).to_s
+                  ruby_summary = RecurrenceUi::RecurrenceFormatterService.new(test_case[:hash], options).to_s
                   first_rule = test_case[:hash][:rrules]&.first || test_case[:hash]
                   rule_type_name = first_rule[:rule_type].to_s.demodulize.underscore.gsub('_rule', '')
                 %>

@@ -5,24 +5,35 @@
       <%= link_to event.title, event_path(event), class: "hover:text-[var(--app-btn-primary-bg)] transition-colors" %>
     </h3>
   </div>
+      <!-- 4 & 5. Дата и время начала / окончания события -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-[var(--app-border-color)]">
+      <div>
+        <span class="block text-xs font-semibold uppercase text-[var(--app-text-muted)] tracking-wider mb-1"><%= t('activerecord.attributes.event.start_at') %></span>
+        <span class="text-[var(--app-text-main)] text-sm font-medium">
+          <%= event.formatted_start_time(zone_type = :event, show_zone: true) %>
+        </span>
+      </div>
+      <div>
+        <span class="block text-xs font-semibold uppercase text-[var(--app-text-muted)] tracking-wider mb-1"><%= t('activerecord.attributes.event.end_at') %></span>
+        <span class="text-[var(--app-text-main)] text-sm font-medium">
+                    <%= event.formatted_end_time(zone_type = :event, show_zone: true) %>
+
+        </span>
+      </div>
+    </div>
 
   <!-- Описание правила повторения -->
   <div class="flex items-center gap-2 text-sm flex-wrap">
     <span class="app-label-muted !mb-0"><%= t('events.show.rule_label') %>:</span>
-    <% rules_summary = RecurrenceUi::PickerComponent.new(record: event).recurrence_summary %>
-    <% if rules_summary.present? %>
-      <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
-        <%= rules_summary %>
-      </span>
-    <% else %>
-      <span class="text-xs text-[var(--app-text-muted)] italic"><%= t('events.show.no_recurrence') %></span>
-    <% end %>
-  </div>
+      <%= event.summary.to_s %>
+    </div>
 
   <!-- Ближайшие 5 повторений -->
   <div class="p-3.5 rounded-lg bg-[var(--app-bg-nav)] border border-[var(--app-border-color)]">
     <span class="app-label-muted mb-2 flex items-center gap-1.5">
     <%= t('events.show.upcoming_occurrences', count: 5) %>:
+    <%= event.respond_to?(:upcoming_occurrences_in_zone) ? event.upcoming_occurrences_in_zone(5).map { |occ| occ.to_time.strftime("%d.%m.%Y %H:%M") }.join(", ") : t('events.show.no_upcoming_occurrences') %>
+
     </span>
     
   </div>
