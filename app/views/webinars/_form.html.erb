@@ -10,7 +10,12 @@
   
   <!-- Компонент повторения RecurrenceUi -->
   <div class="my-2">
-    <%= render RecurrenceUi::RecurrencePickerComponent.new(form: form,record: webinar) %>
+    <%= render RecurrenceUi::RecurrencePickerComponent.new(
+      record: webinar,
+      form: form,
+      week_start: 0,
+      enabled_rule_types: %w[daily weekly monthly_by_day_of_month monthly_by_weekday yearly_by_day_of_month ]
+    )   %>
   </div>
 
   <!-- Кнопки действия с переводами -->

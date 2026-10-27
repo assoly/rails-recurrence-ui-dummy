@@ -16,8 +16,7 @@
       <div>
         <span class="block text-xs font-semibold uppercase text-[var(--app-text-muted)] tracking-wider mb-1"><%= t('activerecord.attributes.webinar.end_at') %></span>
         <span class="text-[var(--app-text-main)] text-sm font-medium">
-                    <%= webinar.formatted_end_time(zone_type = :event, show_zone: true) %>
-
+          <%= webinar.formatted_end_time(zone_type = :event, show_zone: true) %>
         </span>
       </div>
     </div>
