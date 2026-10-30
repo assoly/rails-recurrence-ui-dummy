@@ -80,11 +80,28 @@
 
       <%# Переключатель темы %>
       <button 
-  type="button" 
-  data-action="click->theme#toggle"
-  class="px-3 py-1.5 text-xs font-medium rounded-md border border-[var(--app-border-color)]">
-  🌙 / ☀️ Switch Theme
-</button>
+        type="button" 
+        data-controller="theme"
+        data-action="click->theme#toggle"
+        data-theme-target="button"
+        aria-label="Переключить тему"
+        aria-pressed="false"
+        class="relative inline-flex h-8 w-14 shrink-0 cursor-pointer items-center justify-between rounded-full bg-gray-200 px-1.5 transition-colors duration-200 ease-in-out focus:outline-none dark:bg-gray-700 shadow-inner"
+      >
+        <%# ☀️ Иконка солнца (слева) %>
+        <svg class="h-4 w-4 text-gray-200 dark:text-gray-400 z-10 transition-opacity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"></path>
+        </svg>
+
+        <%# 🌙 Иконка луны (справа) %>
+        <svg class="h-4 w-4 text-gray-400 dark:text-gray-200 z-10 transition-opacity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"></path>
+        </svg>
+
+        <%# 🔵 Плавающий синий кружок-ползунок (абсолютное позиционирование по центру вертикали) %>
+        <span class="absolute left-1 top-1 h-6 w-6 rounded-full bg-blue-600 shadow-md transition-transform duration-200 ease-in-out dark:translate-x-6 dark:bg-blue-500"></span>
+      </button>
     </div>
   </div>
 </header>

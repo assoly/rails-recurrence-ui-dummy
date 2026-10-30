@@ -1,6 +1,6 @@
 /* app/assets/tailwind/application.css */
 @import "tailwindcss";
-
+@variant dark (&:where(.dark, .dark *));
 /* 1. Подключаем переменные темы из соседней папки stylesheets */
 @import "../stylesheets/theme_variables.css";
 
@@ -185,5 +185,65 @@
   .fc-theme-standard td, .fc-theme-standard th {
     border-color: var(--app-border-color);
   }
+/* Контейнер слайдера-переключателя */
+.theme-toggle {
+  position: relative;
+  width: 64px;
+  height: 34px;
+  padding: 3px;
+  background-color: #e5e7eb; /* Светлый фон овального трека */
+  border: 1px solid #d1d5db;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  align-items: center;
+}
 
+/* Круглый ползунок */
+.theme-toggle-thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: #1d4ed8; /* Синий цвет ползунка, как на макете */
+  color: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Переключение видимости иконок */
+.theme-toggle .icon-moon {
+  display: none;
+}
+.theme-toggle .icon-sun {
+  display: block;
+}
+
+/* Свойства тёмного состояния (aria-pressed="true") */
+.theme-toggle[aria-pressed="true"] {
+  background-color: #1f2937;
+  border-color: #374151;
+}
+
+.theme-toggle[aria-pressed="true"] .theme-toggle-thumb {
+  transform: translateX(30px); /* Смещение ползунка вправо */
+  background-color: #3b82f6;
+}
+
+.theme-toggle[aria-pressed="true"] .icon-sun {
+  display: none;
+}
+
+.theme-toggle[aria-pressed="true"] .icon-moon {
+  display: block;
+}
+
+/* Размеры SVG иконок */
+.theme-toggle .icon {
+  width: 16px;
+  height: 16px;
+}
 }
