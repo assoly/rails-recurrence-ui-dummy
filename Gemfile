@@ -27,7 +27,7 @@ gem "stimulus-rails"
 gem "tailwindcss-rails"
 
 # recurrence_ui 
-gem "recurrence_ui", path: "../recurrence_ui"
+gem 'recurrence_ui', '>= 0.1.0'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"

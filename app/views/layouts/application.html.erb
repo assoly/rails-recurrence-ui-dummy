@@ -13,54 +13,18 @@
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-
+    <script>
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
 
-    <script>
-      function applyThemeUI(theme) {
-        const isDark =
-          theme === 'dark' ||
-          (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
-
-        document.documentElement.classList.toggle('dark', isDark);
-
-        document.querySelectorAll('[data-theme-set]').forEach((btn) => {
-          const active =
-            (btn.dataset.themeSet === 'dark' && isDark) ||
-            (btn.dataset.themeSet === 'light' && !isDark);
-
-          btn.setAttribute('aria-pressed', active);
-
-          btn.classList.toggle(
-            'bg-[var(--app-btn-primary-bg)]',
-            active
-          );
-          btn.classList.toggle('text-white', active);
-          btn.classList.toggle(
-            'text-[var(--app-text-muted)]',
-            !active
-          );
-        });
-      }
-
-      function setAppTheme(theme) {
-        localStorage.setItem('theme', theme);
-        applyThemeUI(theme);
-      }
-
-      applyThemeUI(localStorage.getItem('theme'));
-
-      document.addEventListener('DOMContentLoaded', () => {
-        applyThemeUI(localStorage.getItem('theme'));
-      });
-
-      document.addEventListener('turbo:load', () => {
-        applyThemeUI(localStorage.getItem('theme'));
-      });
-    </script>
   </head>
 
-  <body class="min-h-screen bg-[var(--app-bg-main)] text-[var(--app-text-main)]">
+  <body data-controller="theme" class="min-h-screen bg-[var(--app-bg-main)] text-[var(--app-text-main)]">
     <div
       class="min-h-screen lg:flex"
       data-controller="mobile-menu"

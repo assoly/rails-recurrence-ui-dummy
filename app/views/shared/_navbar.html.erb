@@ -79,33 +79,12 @@
       <% end %>
 
       <%# Переключатель темы %>
-      <div
-        class="theme flex shrink-0 items-center gap-0.5 rounded-lg border border-[var(--app-border-color)] bg-[var(--app-bg-card)] p-1"
-        role="group"
-        aria-label="<%= t('common.theme.label') %>"
-      >
-        <button
-          type="button"
-          data-theme-set="light"
-          onclick="setAppTheme('light')"
-          class="rounded-md p-1.5 text-[var(--app-text-muted)] transition-colors hover:text-[var(--app-text-main)]"
-          aria-label="<%= t('common.theme.light') %>"
-          title="<%= t('common.theme.light') %>"
-        >
-          ☀
-        </button>
-
-        <button
-          type="button"
-          data-theme-set="dark"
-          onclick="setAppTheme('dark')"
-          class="rounded-md p-1.5 text-[var(--app-text-muted)] transition-colors hover:text-[var(--app-text-main)]"
-          aria-label="<%= t('common.theme.dark') %>"
-          title="<%= t('common.theme.dark') %>"
-        >
-          ☾
-        </button>
-      </div>
+      <button 
+  type="button" 
+  data-action="click->theme#toggle"
+  class="px-3 py-1.5 text-xs font-medium rounded-md border border-[var(--app-border-color)]">
+  🌙 / ☀️ Switch Theme
+</button>
     </div>
   </div>
 </header>

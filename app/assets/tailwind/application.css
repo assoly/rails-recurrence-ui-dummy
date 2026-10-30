@@ -4,12 +4,7 @@
 /* 1. Подключаем переменные темы из соседней папки stylesheets */
 @import "../stylesheets/theme_variables.css";
 
-/* 2. Подключаем стили и пути гема recurrence_ui */
-@import "../../../../recurrence_ui/app/assets/stylesheets/recurrence_ui/application.css";
-@source "../../../../recurrence_ui/app/components";
-@source "../../../../recurrence_ui/app/views";
-
-/* 3. Базовые CSS-компоненты приложения */
+/* 2. Базовые CSS-компоненты приложения */
 @layer components {
 /* --- Сайдбар --- */
 .sidebar-link {
