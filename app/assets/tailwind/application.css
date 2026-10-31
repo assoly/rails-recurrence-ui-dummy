@@ -1,8 +1,9 @@
 /* app/assets/tailwind/application.css */
 @import "tailwindcss";
-@variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 /* 1. Подключаем переменные темы из соседней папки stylesheets */
 @import "../stylesheets/theme_variables.css";
+@source "../../lib/recurrence_ui";
 
 /* 2. Базовые CSS-компоненты приложения */
 @layer components {
