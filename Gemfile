@@ -3,10 +3,12 @@ source "https://rubygems.org"
 ruby "3.2.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.1.6"
+gem "rails", "~> 8.0.0"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
+# Старый пайп лайн для ассетов
+#gem "sprockets-rails"
+gem "propshaft"
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", ">= 1.4"
@@ -27,7 +29,8 @@ gem "stimulus-rails"
 gem "tailwindcss-rails"
 
 # recurrence_ui 
-gem 'recurrence_ui', '>= 0.1.0'
+#gem 'recurrence_ui', '>= 0.1.0'
+gem 'recurrence_ui', path: '../recurrence_ui' # Локальная разработка
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"

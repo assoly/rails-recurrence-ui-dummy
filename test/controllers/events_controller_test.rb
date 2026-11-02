@@ -45,4 +45,18 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to events_url
   end
+  test "importmap includes recurrence_ui modules" do
+    get root_url # или любой роут вашего dummy-приложения
+
+    assert_response :success
+
+    # Проверяем, что тег importmap существует
+    assert_select "script[type='importmap']" do |scripts|
+      importmap_content = scripts.first.text
+      
+      # Проверяем, что в JSON-карте есть ключи нашего гема
+      assert_match(/"recurrence_ui"/, importmap_content)
+      assert_match(/"recurrence_ui\/recurrence_ui_controller"/, importmap_content)
+    end
+  end
 end

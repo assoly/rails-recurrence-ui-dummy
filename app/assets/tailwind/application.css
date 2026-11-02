@@ -3,8 +3,22 @@
 @custom-variant dark (&:where(.dark, .dark *));
 /* 1. Подключаем переменные темы из соседней папки stylesheets */
 @import "../stylesheets/theme_variables.css";
-@source "../../lib/recurrence_ui";
 
+/* ==========================================================
+   РЕЖИМ 1: РАЗРАБОТКА (Локальный гем по абсолютному пути)
+   ========================================================== */
+@import "/home/assoly/projects/recurrence_project/recurrence_ui/app/assets/stylesheets/recurrence_ui/application.css";
+@source "/home/assoly/projects/recurrence_project/recurrence_ui/app/views/**/*.html.erb";
+@source "/home/assoly/projects/recurrence_project/recurrence_ui/app/components/**/*.html.erb";
+
+/* ==========================================================
+   РЕЖИМ 2: ПРОДАКШН (Гем recurrence_ui из Rubygems)
+   ========================================================== */
+/* @import "recurrence_ui/application.css"; */  
+
+
+
+ 
 /* 2. Базовые CSS-компоненты приложения */
 @layer components {
 /* --- Сайдбар --- */
